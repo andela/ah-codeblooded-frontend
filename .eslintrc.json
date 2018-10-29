@@ -5,8 +5,10 @@
     "jest":true,
     "node":true
   },
-  "esversion":6,
-  "react/jsx-filename-extension": [1, { "extensions": [".js",".jsx"] }],
+  "rules":{
+    "react/jsx-filename-extension": [1, { "extensions": [".js",".jsx"] }],
+    "esversion":6
+  },
   "plugins": [
     "react",
     "import"
@@ -23,4 +25,3 @@
     }
   }
 }
-
