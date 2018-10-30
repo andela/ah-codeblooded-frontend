@@ -6,8 +6,13 @@ cache:
     - "node_modules"
 install:
   - npm install
+before_script:
+  - npm install codeclimate-test-reporter -g
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
-  - npm test -- --coverage # Include coverage when running tests
-  - npm run build
-after_script: # Upload coverage reports
-  - COVERALLS_REPO_TOKEN=$coveralls_repo_token npm run coveralls
+  - npm test -- --coverage
+  - npm build
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
