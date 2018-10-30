@@ -1,11 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render, mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import App from '.';
 import configureStore from '../../store';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Provider store={configureStore()}><App /></Provider>, div);
-  ReactDOM.unmountComponentAtNode(div);
+const app = <Provider store={configureStore()}><App /></Provider>;
+
+describe('The Application container', () => {
+  it('should render without crashing', () => {
+    expect(mount(app).contains(<h1>Authors Haven</h1>)).toBe(true);
+  });
+
+  it('should render to static HTML', () => {
+    expect(render(app).find('h1').text()).toEqual('Authors Haven');
+  });
 });
