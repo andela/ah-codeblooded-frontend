@@ -1,0 +1,9 @@
+language: node_js
+node_js: -"stable"
+cache:
+  directories:
+    - "node_modules"
+install: -yarn install
+script: -yarn coverage
+after_script:
+  - COVERALLS_REPO_TOKEN = SLtJwcGbJsitNmvsYMOJqsFZ7dGCfBq1i
