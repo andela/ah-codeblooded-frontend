@@ -1,7 +1,7 @@
 const initialState = {
 
-}
+};
 
-export default function(state = initialState, action) {
-    return state;
+export default function (state = initialState) {
+  return state;
 };
