@@ -60,7 +60,7 @@ export default () => (
   <Router>
     <Switch>
       <Route exact path={ROUTES.index} component={HomePage} />
-      <Route exact path={ROUTES.login} component={LoginPage} />
+      <AuthenticatedRoute exact path={ROUTES.login} component={LoginPage} />
       <AuthenticatedRoute exact path={ROUTES.register} component={SignUpPage} />
     </Switch>
   </Router>
@@ -68,5 +68,5 @@ export default () => (
 
 AuthenticatedRoute.propTypes = {
   path: PropTypes.string.isRequired,
-  component: PropTypes.element.isRequired,
+  component: PropTypes.func.isRequired,
 };
