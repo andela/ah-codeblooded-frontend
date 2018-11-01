@@ -2,12 +2,24 @@
   "env": {
     "browser": true,
     "es6": true,
-    "jest":true,
-    "node":true
+    "jest": true,
+    "node": true
   },
-  "rules":{
-    "react/jsx-filename-extension": [1, { "extensions": [".js",".jsx"] }],
-    "esversion":6
+  "rules": {
+    "import/first": [
+      "error",
+      "DISABLE-absolute-first"
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "esversion": 6
   },
   "plugins": [
     "react",
@@ -19,8 +31,8 @@
     "sourceType": "module",
     "allowImportExportEverywhere": true,
     "codeFrame": true,
-    "ecmaVersion":2015,
-    "ecmaFeatures":{
+    "ecmaVersion": 2015,
+    "ecmaFeatures": {
       "jsx": true
     }
   }

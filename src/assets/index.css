@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes|Quicksand|Roboto+Condensed:300,400');
+
 body {
   margin: 0;
   padding: 0;
@@ -11,4 +13,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.logo {
+  font-family: 'Great Vibes', cursive;
 }
