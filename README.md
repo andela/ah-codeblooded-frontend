@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/andela/ah-codeblooded-frontend.svg?branch=develop)](https://travis-ci.org/andela/ah-codeblooded-frontend)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/3c7e03b1597a8927f9f4/test_coverage)](https://codeclimate.com/github/andela/ah-codeblooded-frontend/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/3c7e03b1597a8927f9f4/maintainability)](https://codeclimate.com/github/andela/ah-codeblooded-frontend/maintainability)
 
 # Authors Haven - A Social platform for the creative at heart.
 
