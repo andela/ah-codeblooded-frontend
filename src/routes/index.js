@@ -13,6 +13,7 @@ import SignUpPage from '../pages/SignUpPage';
 import ConnectedForgotPasswordPage from '../pages/ForgotPasswordPage';
 import ConnectedResetPasswordPage from '../pages/ResetPasswordPage';
 import HomePage from '../pages/HomePage';
+import ProfilePage from '../pages/ProfilesPage';
 import CreateUpdate from '../pages/Articles/CreateUpdate';
 import Read from '../pages/Articles/Read';
 import MyArticles from '../components/MyArticles';
@@ -105,7 +106,11 @@ export default () => (
         path={ROUTES.me.articles}
         component={MyArticles}
       />
-
+      <AuthenticatedRoute
+        exact
+        path={ROUTES.profiles.view}
+        component={ProfilePage}
+      />
     </Switch>
   </Router>
 );

@@ -57,7 +57,8 @@ code {
   color: color('white', 'base');
 }
 
-.card {
+.card,
+.modal {
   border-radius: 1rem;
   border: 1px solid $line-color;
   box-shadow: none;

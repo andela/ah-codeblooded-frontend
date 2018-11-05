@@ -12,6 +12,7 @@ const initialState = {
   isSaving: false,
   isFetching: false,
   isPageLoading: false,
+  isPublishing: false,
   article: {},
 };
 
@@ -36,5 +37,11 @@ describe('<ArticleEditor/> reducer', () => {
   });
   it('sets isSaved to false on fetch', () => {
     setActionAndState(articleSaveFailure(), 'isSaved', false);
+  });
+  it('should return the default state', () => {
+    setActionAndState({ type: 'ARTICLE' }, 'isSaving', false);
+  });
+  it('should publish an artile', () => {
+    setActionAndState({ type: 'ARTICLE_PUBLISH' }, 'isPublishing', true);
   });
 });

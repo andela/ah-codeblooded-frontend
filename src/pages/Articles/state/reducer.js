@@ -1,4 +1,3 @@
-import { LOCATION_CHANGE } from 'react-router-redux';
 import {
   ARTICLE_FETCH, ARTICLE_FETCH_SUCCESS, ARTICLE_FETCH_FAILURE,
   ARTICLE_SAVE, ARTICLE_SAVE_FAILURE, ARTICLE_SAVE_SUCCESS, ARTICLE_PUBLISH,
@@ -25,8 +24,6 @@ export const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case LOCATION_CHANGE:
-      return { ...initialState };
     case ARTICLE_SAVE:
       return { ...state, isSaving: true };
     case ARTICLE_SAVE_SUCCESS:

@@ -1092,9 +1092,9 @@
   integrity sha512-FZdkNBDqBRHKQ2MEbSC17xnPFOhZxeJ2YGSfr2BKf3sujG49Qe3bB+rGCwQfIaA7WHnGeGkSijX4FuBCdrzW/g==
 
 Dante2@^0.5.0-rc4:
-  version "0.5.0-rc5"
-  resolved "https://registry.yarnpkg.com/Dante2/-/Dante2-0.5.0-rc5.tgz#60ee454b00e1b2cec0500e9a92ce6b643d9c596c"
-  integrity sha512-dYVQlUQdjnZow1yu9T+wqPGQC1vI0FKEQr59NX3Hk9uXRDOz+gAx7ObWs/nvX5VSlpr6KV1FCbex5mlSOO/Fsg==
+  version "0.5.0-rc4"
+  resolved "https://registry.yarnpkg.com/Dante2/-/Dante2-0.5.0-rc4.tgz#573ffa5367fb7d1f02aadc92fad22e4f94a935cd"
+  integrity sha512-e9SIvF2se/rCJiD5KhPcpihDJFZsvuPamsKr08fKRcy+wfK670a74yv4YN8VwYqRHJ9oZa9jyH9zROFUspLoCQ==
   dependencies:
     axios "^0.18.0"
     draft-convert "^2.1.2"
