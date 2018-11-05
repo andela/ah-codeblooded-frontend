@@ -1,0 +1,29 @@
+@import '../../assets/css/index';
+
+.images {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  .image {
+    padding: .2em;
+    background: none;
+    border: 0;
+  }
+}
+
+.image {
+  img {
+    border-radius: 1em;
+    width: 70px;
+    height: 70px;
+    object-position: center;
+    object-fit: cover;
+    transition: border .5s;
+    border: 2px solid $line-color;
+
+    &:hover, &[data-selected=true] {
+      border: 2px solid $secondary-color;
+    }
+  }
+}

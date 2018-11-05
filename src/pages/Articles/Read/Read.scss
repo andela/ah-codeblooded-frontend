@@ -1,0 +1,20 @@
+$tag-color: rgba(100, 100, 100, .1);
+$tag-hover-color: rgba(100, 100, 100, .2);
+
+.tag {
+  padding: .5em 1em;
+  display: inline-block;
+  background: $tag-color;
+  margin: 0 .5em;
+  cursor: default;
+  border-radius: .5em;
+
+  &:hover {
+    background: $tag-hover-color;
+  }
+}
+
+
+.tags {
+  margin-top: 3em;
+}

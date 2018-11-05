@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article actions dispatches correct actions 1`] = `Array []`;
+
+exports[`Article actions fetches an article by slug and dispatches ARTICLE_FETCH_SUCCESS 1`] = `
+Array [
+  Object {
+    "payload": undefined,
+    "type": "ARTICLE_FETCH_SUCCESS",
+  },
+  Object {
+    "type": "PAGE_LOADED",
+  },
+]
+`;
+
+exports[`Article actions saves an article by slug and dispatches ARTICLE_SAVE_SUCCESS 1`] = `
+Array [
+  Object {
+    "type": "ARTICLE_SAVE",
+  },
+  Object {
+    "errors": [Error: Request failed with status code 404],
+    "type": "ARTICLE_SAVE_FAILURE",
+  },
+]
+`;

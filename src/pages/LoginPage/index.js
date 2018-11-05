@@ -26,7 +26,7 @@ class LoginPage extends Component {
                 <span className="card-title">Login</span>
                 <p>We are working to improve your experience.</p>
                 <br />
-                <SocialLogin />
+                <SocialLogin {...this.props} />
                 <br />
                 <Link to={ROUTES.index} className="btn">
                   Go Back

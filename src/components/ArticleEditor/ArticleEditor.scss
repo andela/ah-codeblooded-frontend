@@ -1,0 +1,15 @@
+.article-editor {
+  * {
+    font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  }
+
+  input {
+    outline: none !important;
+    border: none !important;
+    font-size: 4em !important;
+    font-weight: bolder !important;
+    margin-bottom: 1rem !important;
+  }
+}

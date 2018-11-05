@@ -1,0 +1,11 @@
+@import '../../assets/css/index';
+
+.drop-down {
+  ul {
+    min-width: 200px;
+  }
+
+  box-shadow: 1px 1px 1px $line-color;
+  border: 1px solid $line-color;
+  border-radius: 1rem;
+}

@@ -1,0 +1,19 @@
+@import '../../../src/assets/css/index';
+
+.divider {
+  background: $line-color;
+  display: inline-block;
+
+  &.vertical {
+    height: 100%;
+    width: 1px;
+    margin: 0 1em;
+  }
+
+  &.horizontal {
+    height: 1px;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    width: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`page loading actions dispatches page loading then page loaded 1`] = `
+Array [
+  Object {
+    "type": "PAGE_LOADING",
+  },
+  Object {
+    "type": "PAGE_LOADED",
+  },
+]
+`;

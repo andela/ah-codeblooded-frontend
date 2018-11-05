@@ -1,0 +1,26 @@
+linters:
+  ImportantRule:
+    enabled: false
+  SingleLinePerSelector:
+    enabled: false
+  SelectorDepth:
+    enabled: true
+    max_depth: 4
+  DeclarationOrder:
+    enabled: false
+  PropertySortOrder:
+    enabled: false
+    ignore_unspecified: false
+    min_properties: 2
+    separate_groups: false
+  SelectorFormat:
+    enabled: true
+    convention: hyphenated_lowercase # or 'strict_BEM', or 'hyphenated_BEM', or 'snake_case', or 'camel_case', or a regex pattern
+  TrailingWhitespace:
+    enabled: false
+  StringQuotes:
+    enabled: true
+    style: single_quotes # or double_quotes
+  LeadingZero:
+    enabled: true
+    style: exclude_zero # or 'include_zero'

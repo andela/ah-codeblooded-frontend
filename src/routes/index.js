@@ -11,8 +11,10 @@ import { getCurrentUser } from '../utils/auth';
 import LoginPage from '../pages/LoginPage';
 import SignUpPage from '../pages/SignUpPage';
 import HomePage from '../pages/HomePage';
+import CreateUpdate from '../pages/Articles/CreateUpdate';
+import Read from '../pages/Articles/Read';
 
-class AuthenticatedRoute extends Component {
+export class AuthenticatedRoute extends Component {
   constructor(props) {
     super(props);
     this.user = getCurrentUser();
@@ -23,7 +25,7 @@ class AuthenticatedRoute extends Component {
     const { path } = this.props;
     return (
       path === ROUTES.login || path === ROUTES.register
-        ? (component)
+        ? (this.renderComponent(component))
         : (<Redirect to={{ pathname: ROUTES.login }} />)
     );
   }
@@ -36,10 +38,12 @@ class AuthenticatedRoute extends Component {
           to={{ pathname: ROUTES.index, state: { from: location } }}
         />
       ) : (
-        component
+        this.renderComponent(component)
       )
     );
   }
+
+  renderComponent = component => component
 
   render() {
     const { component: Comp, ...otherProps } = this.props;
@@ -60,8 +64,32 @@ export default () => (
   <Router>
     <Switch>
       <Route exact path={ROUTES.index} component={HomePage} />
-      <AuthenticatedRoute exact path={ROUTES.login} component={LoginPage} />
-      <AuthenticatedRoute exact path={ROUTES.register} component={SignUpPage} />
+      <AuthenticatedRoute
+        exact
+        path={ROUTES.login}
+        component={LoginPage}
+      />
+      <AuthenticatedRoute
+        exact
+        path={ROUTES.register}
+        component={SignUpPage}
+      />
+      <AuthenticatedRoute
+        exact
+        path={ROUTES.articles.createOrRead}
+        component={CreateUpdate}
+      />
+      <AuthenticatedRoute
+        exact
+        path={ROUTES.articles.createOrRead}
+        component={Read}
+      />
+      <AuthenticatedRoute
+        exact
+        path={ROUTES.articles.update}
+        component={CreateUpdate}
+        updateArticle
+      />
     </Switch>
   </Router>
 );
