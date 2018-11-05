@@ -10,12 +10,14 @@
     "dotenv": "^6.1.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
+    "expect": "^23.6.0",
     "istanbul": "^0.4.5",
     "materialize-css": "^1.0.0",
     "moment-timezone": "^0.5.23",
     "moxios": "^0.4.0",
     "node-sass": "^4.10.0",
     "pre-commit": "^1.2.2",
+    "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-content-loader": "^3.2.0",
@@ -64,13 +66,16 @@
   "devDependencies": {
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.4",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "eslint": "5.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "redux-devtools-extension": "^2.13.5",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.5.3"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -80,9 +85,18 @@
       "!src/components/ArticleEditor/index.js",
       "!src/pages/Articles/CreateUpdate/index.js",
       "!src/pages/Articles/Read/index.js",
+      "!src/containers/SignupForm/index.js",
       "!src/env.js",
       "!src/routes/index.js",
-      "!src/store/**"
+      "!src/store/**",
+      "!src/store/**",
+      "!src/routes/*",
+      "!src/store/*",
+      "!src/components/TextInput/*",
+      "!src/routes/*",
+      "!src/store/*",
+      "!src/utils/*",
+      "!src/env.js"
     ]
   }
 }
