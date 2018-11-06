@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import ROUTES from '../../utils/routes';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import ROUTES from "../../utils/routes";
+import SocialLogin from "../SocialLogin";
 
 class LoginPage extends Component {
   render() {
@@ -9,7 +10,12 @@ class LoginPage extends Component {
         <nav className="white black-text">
           <div className="container">
             <div className="nav-wrapper">
-              <a href={ROUTES.index} className="brand-logo center black-text logo">{'Author\'s Haven'}</a>
+              <a
+                href={ROUTES.index}
+                className="brand-logo center black-text logo"
+              >
+                {"Author's Haven"}
+              </a>
             </div>
           </div>
         </nav>
@@ -19,6 +25,8 @@ class LoginPage extends Component {
               <div className="card-content black-text">
                 <span className="card-title">Login</span>
                 <p>We are working to improve your experience.</p>
+                <br />
+                <SocialLogin />
                 <br />
                 <Link to={ROUTES.index} className="btn">
                   Go Back
