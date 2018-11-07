@@ -1,19 +1,32 @@
-import axios from 'axios';
-import { REGISTER_USER, REGISTER_ERROR } from './types';
+import {
+  REGISTER_ERROR, REGISTER_SUCCESS, REGISTER_USER,
+} from './types';
+import api from '../../../utils/api';
+
+export const registrationStarted = () => ({
+  type: REGISTER_USER,
+});
+export const registerUserSuccess = payload => ({
+  type: REGISTER_SUCCESS,
+  payload,
+});
+export const registerUserFailure = payload => ({
+  type: REGISTER_ERROR,
+  payload,
+});
 
 const registerUserAction = userData => (dispatch) => {
-  axios.post('http://localhost:8000/api/users/', userData)
+  dispatch(registrationStarted());
+  return api.post('users/', userData)
     .then((data) => {
-      dispatch({
-        type: REGISTER_USER,
-        payload: data.data,
-      });
+      dispatch(registerUserSuccess(
+        data.data.user,
+      ));
     })
-    .catch((errors) => {
-      dispatch({
-        type: REGISTER_ERROR,
-        payload: errors.response.data.errors,
-      });
+    .catch((error) => {
+      dispatch(registerUserFailure(
+        error.response.data.errors,
+      ));
     });
 };
 

@@ -8,7 +8,6 @@ import * as serviceWorker from './serviceWorker';
 import configureStore from './store/index';
 import './env';
 
-
 const store = configureStore();
 
 ReactDOM.render(

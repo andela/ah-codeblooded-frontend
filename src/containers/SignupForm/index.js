@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import * as M from 'materialize-css';
 import { bindActionCreators } from 'redux';
 import { renderInputField } from '../../components/TextInput/index';
-import registerUserAction from './state/actions';
+import register from './state/actions';
+import 'react-toastify/dist/ReactToastify.css';
 
 class SignForm extends React.Component {
   state = {
@@ -43,7 +44,6 @@ class SignForm extends React.Component {
       this.setState({ errors });
       return false;
     }
-
     this.setState({ errors: {} });
     return true;
   }
@@ -59,20 +59,44 @@ class SignForm extends React.Component {
     }
   };
 
+  showProgress = () => (
+    <div className="progress">
+      <div className="indeterminate" />
+    </div>
+  )
+
+  registrationSuccessful =() => (
+    <div className="green-text center-align">
+      <p>Registration successful!</p>
+      <p>Check your email for the activation link.</p>
+    </div>
+  )
+
   render() {
     const {
-      username, password, email, confirmPassword,
+      username, password, email, confirmPassword, errors,
     } = this.state;
-    const { errors } = this.state;
+    const { isRegistering, success } = this.props;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        {this.renderInput(username, 'Username', errors.username, 'username')}
-        {this.renderInput(email, 'Email', errors.email, 'email', 'email')}
-        {this.renderInput(password, 'Password', errors.password, 'password', 'password')}
-        {this.renderInput(confirmPassword, 'Confirm Password', errors.password, 'confirmPassword', 'password')}
-        <Button type="submit">Sign up</Button>
-      </form>
+      <div className="card white darken-1">
+        { isRegistering ? this.showProgress() : null}
+        <div className="card-content black-text">
+          { success ? this.registrationSuccessful() : null}
+          <span className="card-title center-align">Registration</span>
+          <form onSubmit={this.handleSubmit}>
+            {this.renderInput(username, 'Username', errors.username, 'username')}
+            {this.renderInput(email, 'Email', errors.email, 'email', 'email')}
+            {this.renderInput(password, 'Password', errors.password, 'password', 'password')}
+            {this.renderInput(confirmPassword, 'Confirm Password', errors.password, 'confirmPassword', 'password')}
+            <Button className="btn waves-effect waves-light" type="submit" disabled={isRegistering}>
+                Sign up
+              <i className="material-icons right">send</i>
+            </Button>
+          </form>
+        </div>
+      </div>
+
     );
   }
 }
@@ -90,13 +114,17 @@ SignForm.propTypes = {
     username: PropTypes.arrayOf(PropTypes.string),
     email: PropTypes.arrayOf(PropTypes.string),
     password: PropTypes.arrayOf(PropTypes.string),
+    user: PropTypes.object,
   }),
+  registerUser: PropTypes.func.isRequired,
+  success: PropTypes.bool.isRequired,
+  isRegistering: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = ({ signUp }) => signUp;
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  registerUser: registerUserAction,
+  registerUser: register,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignForm);
