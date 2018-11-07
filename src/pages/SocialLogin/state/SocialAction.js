@@ -1,6 +1,6 @@
-import axios from "axios";
+import api from "../../../utils/api";
 import { START_LOGIN, FAIL_LOGIN, SUCCESS_LOGIN } from "./types";
-const api = "http://localhost:8000/api/users/social-auth/";
+
 const start = () => ({
   type: START_LOGIN
 });
@@ -19,9 +19,9 @@ const success = response => {
 };
 const socialLogin = data => {
   start();
-  const provider = "google-oauth2";
-  return axios
-    .post(api, {
+  const provider = data._provider === "google" ? "google-oauth2" : "facebook";
+  return api
+    .post("users/social-auth/", {
       provider: provider,
       access_token: data.accessToken
     })
