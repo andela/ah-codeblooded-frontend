@@ -4,14 +4,23 @@
 
 // import { likeArticle } from './state/Actions';
 
+// // eslint-disable-next-line react/prefer-stateless-function
 // class LikeDislike extends Component {
-//   render() {
-//     handleClick = () => {
+//   state = {
+//     count: null,
+//     islike: false,
+//     isdislike: false,
+//   }
 
-//     };
+//   render() {
 //     return (
-//       <div>
-//         <button type="button" onClick={this.handleClick}>like</button>
+//       <div className="col l8 s12 row valign-wrapper">
+//         <button type="button" onClick={this.handleDislike} className="valign-wrapper teal-text">
+//           <i className="material-icons">thumb_up</i>
+//         </button>
+//         <button type="button" onClick={this.handleDislike} className="valign-wrapper grey-text">
+//           <i className="material-icons">thumb_down</i>
+//         </button>
 //       </div>
 //     );
 //   }

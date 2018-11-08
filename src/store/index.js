@@ -7,12 +7,11 @@ import { logger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import rootReducer from './rootReducer';
 
-export default function configureStore(initialState) {
-  return createStore(
-    rootReducer,
-    initialState,
-    composeWithDevTools(
-      applyMiddleware(thunk, logger, reduxImmutableStateInvariant()),
-    ),
-  );
-}
+export const middlewares = [thunk, reduxImmutableStateInvariant(), logger];
+
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(...middlewares)),
+);
+
+export default store;

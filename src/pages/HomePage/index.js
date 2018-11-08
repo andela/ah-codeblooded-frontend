@@ -75,6 +75,7 @@ class HomePage extends Component {
               />
             </div>
           </div>
+          {/* <LikeDislike /> */}
         </div>
       </>
     );
