@@ -3,8 +3,7 @@ import { SUCCESS_LOGIN, FAIL_LOGIN } from "./types";
 const initialState = {
   state: {},
   success: false,
-  failure: false,
-  errors: null
+  failure: false
 };
 
 export default (state = initialState, action) => {

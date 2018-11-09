@@ -1,33 +1,34 @@
 import api from "../../../utils/api";
 import { START_LOGIN, FAIL_LOGIN, SUCCESS_LOGIN } from "./types";
 
-const start = () => ({
+export const start = () => ({
   type: START_LOGIN
 });
 
-const fail = error => ({
+export const fail = error => ({
   type: FAIL_LOGIN,
   payload: error
 });
 
-const success = response => {
-  this.props.history.push("/");
-  return {
-    type: SUCCESS_LOGIN,
-    payload: response
-  };
+export const success = response => {
+  return (
+    {
+      type: SUCCESS_LOGIN,
+      payload: response
+    }
+  );
 };
-const socialLogin = data => {
-  start();
-  const provider = data._provider === "google" ? "google-oauth2" : "facebook";
+const socialLogin = data => dispatch => {
+  dispatch(start());
+  const provider = data[1] === "google" ? "google-oauth2" : "facebook";
   return api
     .post("users/social-auth/", {
       provider: provider,
-      access_token: data.accessToken
+      access_token: data[0].accessToken
     })
     .then(data => {
       localStorage.setItem("user", JSON.stringify(data));
-      success(data);
+      dispatch(success(data));
       this.props.history.push("/");
     })
     .catch(({ response }) => {
@@ -39,7 +40,7 @@ const socialLogin = data => {
         message = "try again.";
       }
       // dispatch action to login fail reducer
-      fail(message);
+      dispatch(fail(message));
     });
 };
 

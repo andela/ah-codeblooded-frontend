@@ -1,47 +1,28 @@
 import { shallow } from "enzyme";
 import React from "react";
 import LoginPage from "../LoginPage/index";
-import SocialLogin from "../SocialLogin/index";
+import { SocialLogin } from "../SocialLogin/index";
+import configureStore from "redux-mock-store";
+import GoogleLogin from "react-google-login";
+import FacebookLogin from "react-facebook-login";
+
+const mockstore = configureStore();
+const store = mockstore();
 
 describe("<LoginPage/>", () => {
+  beforeEach(() => {
+    store.clearActions();
+  });
   it("renders the <Login /> component", () => {
     const wrapper = shallow(<LoginPage history={{ push() {} }} />);
     expect(wrapper.contains(<SocialLogin />));
   });
-  it("Test socialLogin with google succesfull", () => {
+  it("Test socialLogin find Googlelogin button", () => {
     const wrapper = shallow(<SocialLogin history={{ push() {} }} />);
-    wrapper.instance().responseGoogle({
-      _provider: "google",
-      _token: {
-        accessToken: "321-fake-token"
-      }
-    });
+    expect(wrapper.find(GoogleLogin).length).toEqual(1);
   });
-  it("Test socialLogin with google unsuccessfull", () => {
+  it("Test socialLogin find FacebookLogin button", () => {
     const wrapper = shallow(<SocialLogin history={{ push() {} }} />);
-    wrapper.instance().responseGoogle({
-      _provider: "google",
-      _token: {
-        accessToken: ""
-      }
-    });
-  });
-  it("Test socialLogin with facebook successfull", () => {
-    const wrapper = shallow(<SocialLogin history={{ push() {} }} />);
-    wrapper.instance().responseFacebook({
-      _provider: "facebook",
-      _token: {
-        accessToken: "fake-token-added-321"
-      }
-    });
-  });
-  it("Test socialLogin with facebook unsuccessfull", () => {
-    const wrapper = shallow(<SocialLogin history={{ push() {} }} />);
-    wrapper.instance().responseFacebook({
-      _provider: "facebook",
-      _token: {
-        accessToken: ""
-      }
-    });
+    expect(wrapper.find(FacebookLogin).length).toEqual(1);
   });
 });

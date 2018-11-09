@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import FacebookLogin from "react-facebook-login";
 import GoogleLogin from "react-google-login";
 import socialLogin from "./state/SocialAction";
+import { connect } from "react-redux";
 
 const GoogleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 const FacebookAppId = process.env.REACT_APP_FACEBOOK_APP_ID;
 
-class SocialLogin extends Component {
+export class SocialLogin extends Component {
   responseGoogle = response => {
-    socialLogin(response, "google");
+    this.props.socialLogin([response, "google"]);
   };
   responseFacebook = response => {
-    socialLogin(response, "facebook");
+    this.props.socialLogin([response, "facebook"]);
   };
   render() {
     return (
@@ -43,5 +44,12 @@ class SocialLogin extends Component {
     );
   }
 }
-
-export default SocialLogin;
+// SocialLogin.propTypes = { dispatch: PropTypes.func.isRequired };
+const mapStateToProps = state => ({ socialLogin: state.SocialLogin });
+const mapActionsToProps = {
+  socialLogin: socialLogin
+};
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(SocialLogin);
