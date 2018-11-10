@@ -4,10 +4,11 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "axios-mock-adapter": "^1.15.0",
     "coveralls": "^3.0.2",
+    "dotenv": "^6.1.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
-    "dotenv": "^6.1.0",
     "materialize-css": "^1.0.0",
     "moment-timezone": "^0.5.23",
     "moxios": "^0.4.0",
@@ -77,7 +78,12 @@
       "!src/pages/Articles/Read/index.js",
       "!src/env.js",
       "!src/routes/index.js",
-      "!src/store/**"
+      "!src/store/**",
+      "!src/routes/*",
+      "!src/store/*",
+      "!src/env.js"
+
+
     ]
   }
 }

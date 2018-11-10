@@ -1,6 +1,4 @@
-let key = 0;
+export const randomKey = () => (
+  Math.floor((Math.random() * 100) + 1)
+);
 
-export const randomKey = ()  => {
-    key++;
-    return key;
-};

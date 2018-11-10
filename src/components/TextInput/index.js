@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { randomKey } from '../../utils/helpers'
+import React from 'react';
+import PropTypes from 'prop-types';
+import {randomKey}  from '../../utils/helpers';
 
 
 const TextInput = ({
@@ -18,7 +18,7 @@ const TextInput = ({
     <label htmlFor={name}>{label}</label>
     {
       errors.map(error => (
-        <span key={randomKey()} className="helper-text" data-error={error}/>
+        <span key={randomKey()} className="helper-text" data-error={error} />
       ))
     }
   </div>
@@ -36,16 +36,5 @@ TextInput.propTypes = {
   errors: PropTypes.arrayOf(PropTypes.string),
   type: PropTypes.string.isRequired,
 };
-
-export const renderInputField = (onChange, value, label, errors, name, type = 'text') => (
-  <TextInput
-    onChange={onChange}
-    value={value}
-    label={label}
-    errors={errors}
-    name={name}
-    type={type}
-  />
-);
 
 export default TextInput;

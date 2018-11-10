@@ -28,7 +28,9 @@
         ]
       }
     ],
-    "esversion": 6
+    "esversion": 6,
+    "no-param-reassign": 0,
+    "object-curly-newline": ["error", { "ImportDeclaration": "true", "ExportDeclaration": "never" }]
   },
   "plugins": [
     "react",

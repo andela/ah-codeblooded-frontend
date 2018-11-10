@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ROUTES from '../../utils/routes';
 import SignForm from '../../containers/SignupForm';
 
+
 class SignUpPage extends Component {
   render() {
     return (
@@ -14,7 +15,7 @@ class SignUpPage extends Component {
           </div>
         </nav>
         <div className="row">
-          <div className="col s4 offset-12">
+          <div className="col m4 offset-m4" style={{ paddingTop: '30px' }}>
             <SignForm />
           </div>
         </div>
