@@ -1,9 +1,10 @@
-import likeDislikeReducer, { initialState } from './likeDislikeReducer';
+import likeDislikeReducer, { initialState } from './reducer';
 import {
-  LIKE_ARTICLE, DISLIKE_ARTICLE, UNDISLIKE_ARTICLE, UNLIKE_ARTICLE,
+  LIKE_ARTICLE, LIKE_DISLIKE_ERROR, DISLIKE_ARTICLE, UNDISLIKE_ARTICLE,
+  UNLIKE_ARTICLE, FETCH_REACTIONS, FETCH_REACTIONS_SUCCESS,
 } from './types';
 
-describe('like/dislike reducer', () => {
+describe('the like and dislike reducer', () => {
   it('should return the initial state', () => {
     expect(likeDislikeReducer(undefined, {})).toEqual(initialState);
   });
@@ -15,14 +16,20 @@ describe('like/dislike reducer', () => {
           count: 1,
           me: true,
         },
+        dislikes: {
+          count: 0,
+          me: false,
+        },
       },
     })).toEqual({
       ...initialState,
       likes: {
-        likes: {
-          count: 1,
-          me: true,
-        },
+        count: 1,
+        me: true,
+      },
+      dislikes: {
+        count: 0,
+        me: false,
       },
     });
   });
@@ -30,6 +37,10 @@ describe('like/dislike reducer', () => {
     expect(likeDislikeReducer(undefined, {
       type: DISLIKE_ARTICLE,
       payload: {
+        likes: {
+          count: 0,
+          me: false,
+        },
         dislikes: {
           count: 1,
           me: true,
@@ -37,11 +48,13 @@ describe('like/dislike reducer', () => {
       },
     })).toEqual({
       ...initialState,
+      likes: {
+        count: 0,
+        me: false,
+      },
       dislikes: {
-        dislikes: {
-          count: 1,
-          me: true,
-        },
+        count: 1,
+        me: true,
       },
     });
   });
@@ -49,6 +62,10 @@ describe('like/dislike reducer', () => {
     expect(likeDislikeReducer(undefined, {
       type: UNDISLIKE_ARTICLE,
       payload: {
+        likes: {
+          count: 0,
+          me: false,
+        },
         dislikes: {
           count: 0,
           me: false,
@@ -56,11 +73,13 @@ describe('like/dislike reducer', () => {
       },
     })).toEqual({
       ...initialState,
-      undislike: {
-        dislikes: {
-          count: 0,
-          me: false,
-        },
+      likes: {
+        count: 0,
+        me: false,
+      },
+      dislikes: {
+        count: 0,
+        me: false,
       },
     });
   });
@@ -72,14 +91,20 @@ describe('like/dislike reducer', () => {
           count: 0,
           me: false,
         },
-      },
-    })).toEqual({
-      ...initialState,
-      unlike: {
-        likes: {
+        dislikes: {
           count: 0,
           me: false,
         },
+      },
+    })).toEqual({
+      ...initialState,
+      likes: {
+        count: 0,
+        me: false,
+      },
+      dislikes: {
+        count: 0,
+        me: false,
       },
     });
   });
