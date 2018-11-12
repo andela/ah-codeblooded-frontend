@@ -11,12 +11,10 @@ export const fail = error => ({
 });
 
 export const success = response => {
-  return (
-    {
-      type: SUCCESS_LOGIN,
-      payload: response
-    }
-  );
+  return {
+    type: SUCCESS_LOGIN,
+    payload: response
+  };
 };
 const socialLogin = data => dispatch => {
   dispatch(start());
@@ -26,16 +24,16 @@ const socialLogin = data => dispatch => {
       provider: provider,
       access_token: data[0].accessToken
     })
-    .then(data => {
-      localStorage.setItem("user", JSON.stringify(data));
-      dispatch(success(data));
+    .then(res => {
+      localStorage.setItem("user", JSON.stringify(res));
+      dispatch(success(res));
       this.props.history.push("/");
     })
     .catch(({ response }) => {
       // Error message
       let message = "";
       try {
-        [message] = response.data.errors.error;
+        [message] = response.res.errors.error;
       } catch (err) {
         message = "try again.";
       }

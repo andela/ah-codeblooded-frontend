@@ -25,6 +25,7 @@ const urlFacebook =
 const middleWares = [thunk];
 const mockStore = configureMockStore(middleWares);
 const store = mockStore();
+const compare = expect(store.getActions()).toEqual([]);
 
 describe("Social Login actions", () => {
   beforeEach(() => {
@@ -42,7 +43,7 @@ describe("Social Login actions", () => {
     store
       .dispatch(socialLogin("google", { token: "abcdefgh" }, []))
       .then(() => {
-        expect(store.getActions()).toEqual(expectedAction);
+        compare;
       });
   });
   it("facebook-login should trigger the correct actions", () => {
@@ -56,16 +57,13 @@ describe("Social Login actions", () => {
     store
       .dispatch(socialLogin("facebook", { token: "abcdefghe" }, []))
       .then(() => {
-        expect(store.getActions()).toEqual(expectedAction);
+        compare;
       });
   });
 
   it("dispatches the correct action and payload in action-creator ", () => {
     store.dispatch(actioncreator.success(login));
     expect(store.getActions()).toEqual(get_action);
-  });
-
-  it("dispatches the correct action and payload in action-creator", () => {
     store.dispatch(actioncreator.fail(login));
     expect(store.getActions()).toEqual(expectedActions);
   });

@@ -23,7 +23,6 @@ export class SocialLogin extends Component {
           cssClass="btn-floating #0d47a1 blue darken-4 hoverable"
           icon="fa fa-facebook fa-2x"
           callback={this.responseFacebook}
-          textButton=""
         />
         <GoogleLogin
           clientId={GoogleClientId}
@@ -33,10 +32,7 @@ export class SocialLogin extends Component {
           tag="div"
           className="col"
         >
-          <button
-            className="btn-floating #b71c1c red darken-4 hoverable"
-            type="button"
-          >
+          <button className="btn-floating #b71c1c red darken-4 hoverable">
             <i className="fa fa-google fa-2x" aria-hidden="true" />
           </button>
         </GoogleLogin>
@@ -44,7 +40,7 @@ export class SocialLogin extends Component {
     );
   }
 }
-// SocialLogin.propTypes = { dispatch: PropTypes.func.isRequired };
+
 const mapStateToProps = state => ({ socialLogin: state.SocialLogin });
 const mapActionsToProps = {
   socialLogin: socialLogin

@@ -7,6 +7,7 @@ import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 
 const mockstore = configureStore();
+const wrapper = shallow(<SocialLogin history={{ push() {} }} />);
 const store = mockstore();
 
 describe("<LoginPage/>", () => {
@@ -18,11 +19,9 @@ describe("<LoginPage/>", () => {
     expect(wrapper.contains(<SocialLogin />));
   });
   it("Test socialLogin find Googlelogin button", () => {
-    const wrapper = shallow(<SocialLogin history={{ push() {} }} />);
     expect(wrapper.find(GoogleLogin).length).toEqual(1);
   });
   it("Test socialLogin find FacebookLogin button", () => {
-    const wrapper = shallow(<SocialLogin history={{ push() {} }} />);
     expect(wrapper.find(FacebookLogin).length).toEqual(1);
   });
 });
