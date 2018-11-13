@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Questrial:400|Raleway:300,400');
+@import url('https://use.fontawesome.com/releases/v5.3.1/css/all.css');
+@import '../../../node_modules/materialize-css/sass/components/color-variables';
+$primary-color: color("indigo", 'base') !default;
+$primary-color-light: false !default;
+$primary-color-dark: false !default;
+@if not $primary-color-light {
+  $primary-color-light: lighten($primary-color, 15%);
+}
+@if not $primary-color-dark {
+  $primary-color-dark: darken($primary-color, 15%);
+}
+$secondary-color: color("pink", 'lighten-2') !default;
+$success-color: color("green", 'base') !default;
+$error-color: color("red", 'base') !default;
+
+$link-color: color("shades", 'black') !default;
+$line-color: #ccc;
+
+@import '../../../node_modules/materialize-css/sass/materialize';
+
+$font-family: 'Questrial', sans-serif;
+$header-font-family: 'Raleway', sans-serif;
+
+* {
+  font-family: $font-family;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font-family;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: $primary-color;
+  clip-path: polygon(100% 0, 100% 30%, 0 60%, 0 0);
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translate(0%, -50%);
+}
+
+.title {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  color: color('white', 'base');
+}
+
+.card {
+  border-radius: 1rem;
+  border: 1px solid $line-color;
+  box-shadow: none;
+}
+
+nav {
+  box-shadow: none !important;
+  border-bottom: 1px solid $line-color !important;
+}
+
+a {
+  color: $secondary-color !important;
+}

@@ -1,0 +1,90 @@
+@import '../../assets/css/index';
+
+.article-card {
+  margin: .1em;
+  width: 100% !important;
+  display: block;
+  padding: .3em;
+  color: color('shades' , 'black') !important;
+
+  .article-content {
+    padding: .3em;
+
+    &.bordered {
+      border: 1px solid $line-color;
+      border-radius: 1em;
+    }
+
+    &.separated {
+      border-bottom: 1px solid $line-color;
+    }
+  }
+
+  img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .meta {
+    color: color('grey', 'darken-2') !important;
+  }
+
+  .description {
+    font-size: .9em;
+  }
+
+  .read-time {
+    font-size: .8em;
+  }
+
+  .author {
+    margin: 1em 0;
+    font-size: .8em;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    .profile {
+      width: 3em !important;
+      height: 3em !important;
+    }
+
+    .info {
+      margin-left: 1em;
+    }
+
+    .username {
+      font-weight: bold;
+    }
+  }
+
+  .article-title {
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+
+  .vertical {
+    .article-image {
+      width: 100% !important;
+      height: 200px !important;
+    }
+  }
+
+  .horizontal {
+    display: flex;
+    flex-direction: row;
+
+    .image-segment {
+      flex: 0;
+    }
+
+    .article-image {
+      height: 15rem;
+      width: 15rem;
+    }
+
+    &.reverse .info-segment {
+      flex: 1;
+    }
+  }
+}

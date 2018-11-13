@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`page progress reducer checks the initial state 1`] = `
+Object {
+  "isPageLoading": false,
+}
+`;
+
+exports[`page progress reducer checks the page loading and loaded action 1`] = `
+Object {
+  "isPageLoading": true,
+}
+`;
+
+exports[`page progress reducer checks the page loading and loaded action 2`] = `
+Object {
+  "isPageLoading": false,
+}
+`;
