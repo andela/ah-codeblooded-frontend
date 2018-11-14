@@ -7,15 +7,14 @@ import api from '../../../utils/api';
 
 export const fetchingReactions = () => ({ type: FETCH_REACTIONS });
 
+export const fetchReactionSuccess = payload => ({ type: FETCH_REACTIONS_SUCCESS, payload });
+
 export const fetchReactions = slug => (dispatch) => {
   dispatch(fetchingReactions());
 
-  api.get(`articles/${slug}/reactions/`)
+  return api.get(`articles/${slug}/reactions/`)
     .then((res) => {
-      dispatch({
-        type: FETCH_REACTIONS_SUCCESS,
-        payload: res.data.reactions,
-      });
+      dispatch(fetchReactionSuccess(res.data.reactions));
     }).catch((error) => {
       dispatch({
         type: LIKE_DISLIKE_ERROR,
@@ -23,11 +22,10 @@ export const fetchReactions = slug => (dispatch) => {
       });
     });
 };
-
 export const likeArticle = (slug, liked) => (dispatch) => {
   const url = `articles/${slug}/like/`;
   const axios = liked ? api.delete(url) : api.post(url);
-  axios.then((res) => {
+  return axios.then((res) => {
     dispatch({
       type: liked ? UNLIKE_ARTICLE : LIKE_ARTICLE,
       payload: res.data.reactions,
@@ -39,11 +37,11 @@ export const likeArticle = (slug, liked) => (dispatch) => {
     });
   });
 };
-
+let uri;
 export const dislikeArticle = (slug, disliked) => (dispatch) => {
-  const url = `articles/${slug}/dislike/`;
-  const axios = disliked ? api.delete(url) : api.post(url);
-  axios.then((res) => {
+  uri = `articles/${slug}/dislike/`;
+  const axios = disliked ? api.delete(uri) : api.post(uri);
+  return axios.then((res) => {
     dispatch({
       type: disliked ? UNDISLIKE_ARTICLE : DISLIKE_ARTICLE,
       payload: res.data.reactions,
