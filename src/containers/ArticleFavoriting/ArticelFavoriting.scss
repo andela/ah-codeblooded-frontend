@@ -1,0 +1,10 @@
+@import '../../assets/css/index';
+
+.favourite-button {
+  color: color('grey', 'lighten-1') !important;
+
+  &.active {
+    color: $secondary-color !important;
+  }
+}
+
