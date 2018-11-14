@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ROUTES from '../../utils/routes';
-import SignForm from '../../containers/SignupForm';
+import Form from '../../containers/SignupForm';
 
 
 class SignUpPage extends Component {
@@ -16,7 +16,7 @@ class SignUpPage extends Component {
         </nav>
         <div className="row">
           <div className="col m4 offset-m4" style={{ paddingTop: '30px' }}>
-            <SignForm />
+            <Form />
           </div>
         </div>
       </>

@@ -13,7 +13,9 @@ export class SignForm extends React.Component {
     password: '',
     email: '',
     confirmPassword: '',
-    errors: {},
+    errors: {
+
+    },
   };
 
   componentDidMount() {
@@ -71,7 +73,9 @@ export class SignForm extends React.Component {
 
 
  render() {
-   const { username, password, email, confirmPassword, errors } = this.state;
+   const {
+     username, password, email, confirmPassword, errors,
+   } = this.state;
    const { isRegistering, success } = this.props;
    const inputs = [
      {

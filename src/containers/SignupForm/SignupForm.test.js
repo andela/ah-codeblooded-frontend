@@ -4,12 +4,6 @@ import { SignForm } from './index';
 
 describe('The SignupForm', () => {
   let wrapper;
-  const state = {
-    errors: {
-      password: ['Passwords do not match'],
-    },
-  };
-
   const props = {
     registerUser: jest.fn(),
     success: false,
