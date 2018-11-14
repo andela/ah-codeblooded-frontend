@@ -10,7 +10,7 @@
       "error",
       "DISABLE-absolute-first"
     ],
-    "react/desctructuring-assignment": 0,
+    "react/destructuring-assignment": 0,
     "react/sort-comp": 0,
     "react/jsx-no-literals": [0,{"noStrings": true}],
     "quotes": [0, "single",{ "avoidEscape": true}],

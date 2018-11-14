@@ -1,0 +1,9 @@
+@import '../../assets/css/index';
+
+.count-badge {
+  margin-left: 1em;
+  background: color('grey', 'darken-2');
+  color: color('shades', 'white');
+  padding: .2em .5em;
+  border-radius: 50%;
+}

@@ -40,7 +40,6 @@ class ArticleCard extends React.Component {
   minimalLayout = () => (
     <div className="horizontal minimal">
       <div className="info-segment">
-        {this.authorInfo()}
         {this.articleInfo()}
       </div>
     </div>
@@ -105,7 +104,7 @@ class ArticleCard extends React.Component {
     };
     return (
     <>
-      <a href={`articles/${article.slug}`} className="article-card">
+      <a href={`/articles/${article.slug}`} className="article-card">
         <div className={`article-content ${bordered ? ` bordered` : (divided && ` separated`)}`}>
           {layoutMapping[layout]()}
         </div>

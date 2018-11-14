@@ -8,13 +8,16 @@ import ArticleProfileView from '../../../components/ArticleProfileView';
 import CreateUpdate from '../CreateUpdate';
 import ROUTES from '../../../utils/routes';
 import './Read.scss';
+import { getCurrentUser } from '../../../utils/auth';
+import { ErrorPage } from '../../ErrorPage';
 
 
 class Read extends Component {
   renderEditButton = () => {
-    const { article: { slug }, article: { author }, user } = this.props;
+    const { article: { slug }, article: { author } } = this.props;
+    const user = getCurrentUser();
     return (
-      author.username === user.username ? (
+      user && (author.username === user.username) ? (
         <div className="fixed-action-btn">
           <a
             className="btn-floating btn-large teal"
@@ -40,25 +43,44 @@ class Read extends Component {
   );
 
 
-  render() {
+  updateArticle = () => {
     const {
-      user, article, match: { path },
+      article, match: { path }, errorFetching,
     } = this.props;
+    if (!article.published || path === ROUTES.articles.update) {
+      if (getCurrentUser()) {
+        return <CreateUpdate {...this.props} />;
+      } if (errorFetching) {
+        return (
+          <ErrorPage
+            errorCode={404}
+            errorMessage="The article you are looking for does not exist"
+          />
+        );
+      }
+    }
+    return null;
+  };
 
+  render() {
+    const { article } = this.props;
     return (
-      !article.published || path === ROUTES.articles.update ? <CreateUpdate {...this.props} /> : (
-        <div>
-          <NavBar />
-          <div style={{ marginTop: '50px' }} className="container">
-            <ArticleProfileView article={article} user={user} />
-            <Divider />
-            <ArticleEditor {...this.props} readOnly />
-            {this.renderTags(article.tags)}
+      this.updateArticle() || (
+      <div>
+        <NavBar />
+        <div style={{ marginTop: '50px' }} className="container">
+          <ArticleProfileView article={article} user={getCurrentUser()} />
+          <Divider />
+          <div className="row">
+            <div className="col s12 m8 offset-m2">
+              <ArticleEditor {...this.props} readOnly />
+              {this.renderTags(article.tags)}
+            </div>
           </div>
-          {this.renderEditButton()}
         </div>
-      )
-    );
+        {this.renderEditButton()}
+      </div>
+      ));
   }
 }
 

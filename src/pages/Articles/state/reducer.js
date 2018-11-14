@@ -9,12 +9,13 @@ import editorState from '../CreateUpdate/state/editorState';
 export const initialState = {
   editorState,
   isSaving: false,
-  isSaved: false,
+  isSaved: true,
   isFetched: false,
   isFetching: false,
   isPageLoading: false,
   isPublishing: false,
   isPublished: false,
+  errorFetching: false,
   article: {
     author: {
 
@@ -36,11 +37,14 @@ export default (state = initialState, action) => {
         isSaving: false,
         isPublished: action.payload.published,
         isPublishing: false,
+        isSaved: true,
       };
     case ARTICLE_SAVE_FAILURE:
       return {
         ...state,
         isSaved: false,
+        isSaving: false,
+        errorFetching: true,
       };
     case ARTICLE_FETCH_SUCCESS:
       return {
@@ -59,6 +63,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetched: false,
+        errorFetching: true,
       };
     case ARTICLE_FETCH:
       return { ...state, isFetching: true };

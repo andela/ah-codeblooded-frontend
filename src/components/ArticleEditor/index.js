@@ -34,10 +34,11 @@ class ArticleEditor extends Component {
 
   publishArticle = () => {
     const { article } = this.state;
-    const { readOnly } = this.props;
+    const {
+      readOnly, saveArticle, history,
+    } = this.props;
     if (!readOnly) {
       this.createArticle();
-      const { saveArticle, history } = this.props;
       this.setState({ article: Object.assign(article, { published: true }) });
       if (!article.image && this.getImages().length > 0) {
         this.setState({ article: Object.assign(article, { image: this.getImages()[0] }) });
@@ -137,17 +138,32 @@ class ArticleEditor extends Component {
       const editorState = this.getEditorContent();
 
       const { article, chosenImage } = this.state;
-      const firstBlock = editorState.blocks[0].text;
 
+      let title;
+      let description;
+      for (let i = 0; i < editorState.blocks.length; i += 1) {
+        const block = editorState.blocks[i];
+        if (!title && block.type.startsWith("header")) {
+          title = block.text;
+        }
+        if (!description && block.type === 'unstyled') {
+          description = block.text.substring(0, 128);
+          break;
+        }
+      }
+      if (!title) {
+        title = description;
+      }
+      if (!description) {
+        description = title;
+      }
       if (chosenImage) {
         this.setState({ article: { ...article, image: chosenImage } });
       }
       this.setState({
         article: Object.assign(article, {
-          title: firstBlock.substring(0, 128),
-          description: (editorState.blocks.length > 1
-            ? editorState.blocks[1].text
-            : firstBlock).substring(0, 128),
+          title,
+          description,
           body: JSON.stringify(editorState),
         }),
       });

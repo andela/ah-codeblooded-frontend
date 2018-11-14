@@ -14,9 +14,9 @@ describe('Article Listing actions', () => {
     axiosMock.onGet(getURL('articles/')).reply(
       200, { data: { article: [article] } },
     );
-    return store.dispatch(articlesFetchAction()).then(() => {
+    return store.dispatch(articlesFetchAction({}, 'articles')).then(() => {
       expect(store.getActions()).toContainEqual(
-        { type: FETCH_ARTICLES_SUCCESS, payload: [article] },
+        { type: FETCH_ARTICLES_SUCCESS, payload: { listName: 'articles', data: [article] } },
       );
     });
   });

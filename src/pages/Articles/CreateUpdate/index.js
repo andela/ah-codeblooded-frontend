@@ -8,6 +8,8 @@ import ArticleEditor from '../../../components/ArticleEditor';
 import { getArticleAction, saveArticleAction } from '../state/actions';
 import Read from '../Read';
 import ROUTES from '../../../utils/routes';
+import { ErrorPage } from '../../ErrorPage';
+import { getCurrentUser } from '../../../utils/auth';
 
 
 class CreateUpdate extends Component {
@@ -19,10 +21,13 @@ class CreateUpdate extends Component {
   };
 
   renderSaving = () => {
-    const { isSaving, isSaved } = this.props;
-    const savedText = isSaved ? 'All changes saved...' : '';
+    const { isSaving, isSaved, match: { params: { slug } } } = this.props;
+    if (slug === 'new' && isSaved) {
+      return null;
+    }
+    const savedText = isSaved ? 'All changes saved...' : 'Changes not saved';
     return (
-      <span className="grey-text text-darken-3">{isSaving ? 'Saving...' : savedText}</span>
+      <span className={`${isSaved || isSaving ? 'grey-text' : 'red-text'} text-darken-3`}>{isSaving ? 'Saving...' : savedText}</span>
     );
   };
 
@@ -30,12 +35,30 @@ class CreateUpdate extends Component {
     <button className="btn btn-flat white pink-text dropdown-trigger" data-target="publish-article" type="button">Publish</button>
   );
 
+  error404 = () => (
+    <ErrorPage errorCode={404} errorMessage="The article you are looking for was not found" />
+  );
+
+
+  readArticle = () => {
+    const { article, update } = this.props;
+    if (article.published && !update) {
+      return <Read {...this.props} />;
+    }
+    return null;
+  };
 
   render() {
-    const { article, match: { path }, isPageLoading } = this.props;
+    const {
+      article, match: { path }, isPageLoading, errorFetching,
+    } = this.props;
     const update = path === ROUTES.articles.update;
+    const user = getCurrentUser();
+    if (!user || (errorFetching || (update && article.author.username !== user.username))) {
+      return this.error404();
+    }
     return (
-      article.published && !update ? (<Read {...this.props} />) : (
+      this.readArticle() || (
         <div>
           <NavBar
             isPageLoading={isPageLoading}

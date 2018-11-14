@@ -79,7 +79,7 @@ ShallowWrapper {
       "rtl": true,
       "secondaryColor": "#ecebeb",
       "speed": 3,
-      "width": 700,
+      "width": 500,
     },
     "ref": null,
     "rendered": Object {
@@ -325,7 +325,7 @@ ShallowWrapper {
         "rtl": true,
         "secondaryColor": "#ecebeb",
         "speed": 3,
-        "width": 700,
+        "width": 500,
       },
       "ref": null,
       "rendered": Object {

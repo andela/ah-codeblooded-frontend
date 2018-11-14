@@ -5,6 +5,7 @@ import readTime from '../../utils/readTime';
 import profile from '../../assets/images/profile.jpg';
 import './ArticleProfileView.scss';
 import placeholder from '../../assets/images/placeholder.jpg';
+import { getCurrentUser } from '../../utils/auth';
 
 class ArticleProfileView extends React.Component {
   renderHeader = article => (
@@ -16,7 +17,7 @@ class ArticleProfileView extends React.Component {
         {article.description}
       </h6>
     </div>
-  )
+  );
 
   renderAuthor = (article, user) => (
     <div className=" col row valign-wrapper">
@@ -45,20 +46,21 @@ class ArticleProfileView extends React.Component {
         </div>
       </div>
     </div>
-  )
+  );
 
   renderFollowButton = (article, user) => (
-    article.author.username !== user.username ? (
+    user && (article.author.username !== user.username) ? (
       <div className="col">
         <button className="btn small" type="button">
           Follow
         </button>
       </div>
     ) : null
-  )
+  );
 
   render() {
-    const { article, user } = this.props;
+    const { article } = this.props;
+    const user = getCurrentUser();
     return (
       <div className="col l10 s12 offset-l1">
         <div className="row article">
@@ -83,7 +85,6 @@ class ArticleProfileView extends React.Component {
 
 ArticleProfileView.propTypes = {
   article: PropTypes.shape().isRequired,
-  user: PropTypes.shape().isRequired,
 };
 
 export default ArticleProfileView;
