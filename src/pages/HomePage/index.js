@@ -34,7 +34,6 @@ class HomePage extends Component {
   featuredLayout = index => (index === 0 ? layouts.VERTICAL_LAYOUT : layouts.MINIMAL_AUTHOR_LAYOUT);
 
   render() {
-    const slug = 'i-want-to-share-this-articles-c3b4ddf0vc2a';
     return (
       <>
         <NavBar />
@@ -76,7 +75,6 @@ class HomePage extends Component {
               />
             </div>
           </div>
-          <LikeDislike slug={slug} />
         </div>
       </>
     );

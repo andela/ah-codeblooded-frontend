@@ -7,6 +7,7 @@ import signUp from "../containers/SignupForm/state/reducer";
 import login from "../containers/LoginForm/state/reducer";
 import forgotPassword from '../containers/ForgotPasswordForm/state/reducer';
 import resetPassword from '../containers/ResetPasswordForm/state/reducer';
+import likeDislike from '../containers/LikeDislike/state/reducer';
 
 const rootReducer = combineReducers({
   article,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   login,
   forgotPassword,
   resetPassword,
+  likeDislike,
 });
 
 export default rootReducer;

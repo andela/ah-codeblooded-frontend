@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import './LikeDislike.scss';
 
 import { likeArticle, dislikeArticle, fetchReactions } from './state/Actions';
 
-// eslint-disable-next-line react/prefer-stateless-function
 class LikeDislike extends Component {
     componentWillMount = () => {
-      const { slug } = this.props;
-      this.props.fetchReactions(slug);
+      const { slug, fetch } = this.props;
+      fetch(slug);
 
       this.interval = setInterval(() => {
-        this.props.fetchReactions(slug);
-      }, 300000);
+        fetch(slug);
+      }, 3000);
     }
 
     handleLike = () => {
-      const { slug, likes } = this.props;
-      this.props.likeArticle(slug, likes.me);
+      const { slug, likes, like } = this.props;
+      like(slug, likes.me);
     }
 
     handleDislike = () => {
-      const { slug, dislikes } = this.props;
-      this.props.dislikeArticle(slug, dislikes.me);
+      const { slug, dislikes, dislike } = this.props;
+      dislike(slug, dislikes.me);
     }
 
     render() {
@@ -34,18 +34,19 @@ class LikeDislike extends Component {
           <span>{ likes.count }</span>
           <button
             type="button"
+            active
             onClick={this.handleLike}
-            className={`valign-wrapper waves-effect waves-light ${likes.me ? 'teal-text' : ''} btn btn-flat white`}
+            className="valign-wrapper waves-effect waves-light btn btn-flat white"
           >
-            <i className="material-icons">thumb_up</i>
+            <i className={`material-icons reaction ${likes.me ? 'active' : ''}`}>thumb_up</i>
           </button>
           <span>{ dislikes.count }</span>
           <button
             type="button"
             onClick={this.handleDislike}
-            className={`valign-wrapper waves-effect ${dislikes.me ? 'teal-text' : ''} btn btn-flat white`}
+            className="valign-wrapper waves-effect btn btn-flat white"
           >
-            <i className="material-icons">thumb_down</i>
+            <i className={`material-icons reaction ${dislikes.me ? 'active' : ''}`}>thumb_down</i>
           </button>
         </div>
       );
@@ -62,15 +63,15 @@ LikeDislike.propTypes = {
     count: PropTypes.number,
     me: PropTypes.bool,
   }).isRequired,
-  isFetching: PropTypes.bool.isRequired,
+  // isFetching: PropTypes.bool.isRequired,
   slug: PropTypes.string.isRequired,
-  likeArticle: PropTypes.func.isRequired,
-  dislikeArticle: PropTypes.func.isRequired,
-  fetchReactions: PropTypes.func.isRequired,
+  like: PropTypes.func.isRequired,
+  dislike: PropTypes.func.isRequired,
+  fetch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ likeDislike }) => likeDislike;
 
 export default connect(
-  mapStateToProps, { likeArticle, dislikeArticle, fetchReactions },
+  mapStateToProps, { like: likeArticle, dislike: dislikeArticle, fetch: fetchReactions },
 )(LikeDislike);
