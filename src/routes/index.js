@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   BrowserRouter as Router,
   Redirect,
@@ -24,23 +24,19 @@ export class AuthenticatedRoute extends Component {
 
   renderIfNotAuthenticated(component) {
     const { path } = this.props;
-    return (
-      path === ROUTES.login || path === ROUTES.register
-        ? (this.renderComponent(component))
-        : (<Redirect to={{ pathname: ROUTES.login }} />)
+    return path === ROUTES.login || path === ROUTES.register ? (
+      this.renderComponent(component)
+    ) : (
+      <Redirect to={{ pathname: ROUTES.login }} />
     );
   }
 
   renderIfAuthenticated(component) {
     const { path, location } = this.props;
-    return (
-      path === ROUTES.login || path === ROUTES.register ? (
-        <Redirect
-          to={{ pathname: ROUTES.index, state: { from: location } }}
-        />
-      ) : (
-        this.renderComponent(component)
-      )
+    return path === ROUTES.login || path === ROUTES.register ? (
+      <Redirect to={{ pathname: ROUTES.index, state: { from: location } }} />
+    ) : (
+      component
     );
   }
 
@@ -51,11 +47,12 @@ export class AuthenticatedRoute extends Component {
     return (
       <Route
         {...otherProps}
-        render={props => (
-          this.isAuthenticated
-            ? this.renderIfAuthenticated(<Comp {...props} user={this.user} />)
-            : this.renderIfNotAuthenticated(<Comp {...props} user={this.user} />)
-        )}
+        render={props => (this.isAuthenticated
+          ? this.renderIfAuthenticated(<Comp {...props} user={this.user} />)
+          : this.renderIfNotAuthenticated(
+            <Comp {...props} user={this.user} />,
+          ))
+        }
       />
     );
   }

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import ROUTES from "../../utils/routes";
+import PropTypes from "prop-types";
 import SocialLogin from "../SocialLogin";
+import ROUTES from "../../utils/routes";
+import Loginform from "../../containers/LoginForm";
 
 class LoginPage extends Component {
   render() {
@@ -19,19 +20,11 @@ class LoginPage extends Component {
             </div>
           </div>
         </nav>
-        <div className="row">
-          <div className="col s12 m6 offset-m3">
-            <div className="card white darken-1">
-              <div className="card-content black-text">
-                <span className="card-title">Login</span>
-                <p>We are working to improve your experience.</p>
-                <br />
-                <SocialLogin {...this.props} />
-                <br />
-                <Link to={ROUTES.index} className="btn">
-                  Go Back
-                </Link>
-              </div>
+        <div>
+          <Loginform history={this.props.history} />
+          <div className="row">
+            <div className="col s12 m6 offset-m3">
+              <SocialLogin {...this.props} />
             </div>
           </div>
         </div>
@@ -39,5 +32,11 @@ class LoginPage extends Component {
     );
   }
 }
+
+LoginPage.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default LoginPage;

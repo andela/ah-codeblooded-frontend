@@ -2,7 +2,6 @@ import axios from 'axios';
 import config from './config';
 import { getToken } from './auth';
 
-
 const token = getToken();
 
 const uri = config.BASE_URL;

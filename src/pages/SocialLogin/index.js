@@ -11,7 +11,7 @@ const FacebookAppId = process.env.REACT_APP_FACEBOOK_APP_ID;
 
 class SocialLogin extends Component {
   /* istanbul ignore next */
-  responseGoogle(response) {
+  responseGoogle=(response) => {
     const { socialLogin } = this.props;
     socialLogin([response, "google"], this.successHandler);
   }
@@ -23,7 +23,7 @@ class SocialLogin extends Component {
   }
 
   /* istanbul ignore next */
-  responseFacebook(response) {
+  responseFacebook = (response) => {
     const { socialLogin } = this.props;
     socialLogin([response, "facebook"], this.successHandler);
   }
