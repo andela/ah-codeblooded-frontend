@@ -1,27 +1,55 @@
 import React from "react";
-import { mount, shallow } from "enzyme";
+import { mount } from "enzyme";
 import TextInput from ".";
 
 describe("The TextInput component", () => {
   const props = {
     value: "Joe",
     label: "Name",
-    name: "Name",
+    name: "name",
     type: "text",
     errors: ["Foo", "Bar"],
+    onChange: jest.fn(),
   };
-  it("should display errors", () => {
-    const wrapper = shallow(<TextInput {...props} onChange={() => {}} />);
 
+  let wrapper;
+  let input;
+
+  beforeEach(() => {
+    wrapper = mount(<TextInput {...props} />);
+
+    input = wrapper.find('input');
+  });
+
+  it("should have the correct props", () => {
+    const inputProps = input.props();
+
+    expect(inputProps.name).toEqual("name");
+
+    expect(inputProps.type).toEqual("text");
+
+    expect(inputProps.value).toEqual("Joe");
+  });
+
+  it("should display the correct label", () => {
+    expect(wrapper.html()).toContain('<label for="name">Name</label>');
+  });
+
+  it("should display errors", () => {
     const errorLabels = wrapper.find(".helper-text");
 
     expect(errorLabels.length).toEqual(2);
+
+    expect(wrapper.html()).toContain("Foo", "Bar");
   });
 
   it("should trigger onChange hook", () => {
-    const onChangeMock = jest.fn();
-    const wrapper = mount(<TextInput onChange={onChangeMock} {...props} />);
-    wrapper.find("input").simulate("change");
-    expect(onChangeMock).toHaveBeenCalledTimes(1);
+    const target = { name: "Name", value: "Jane" };
+
+    input.simulate("change", { target });
+
+    expect(props.onChange).toHaveBeenCalledTimes(1);
+
+    expect(props.onChange).toHaveBeenNthCalledWith(1, expect.objectContaining({ target }));
   });
 });

@@ -10,5 +10,7 @@ const ROUTES = {
   me: {
     articles: '/me/articles',
   },
+  forgotPassword: '/forgot-password',
+  resetPassword: '/reset-password',
 };
 export default ROUTES;

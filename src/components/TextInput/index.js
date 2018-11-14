@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import randomKey from "../../utils/helpers";
+import { randomKey } from "../../utils/helpers";
 
 const TextInput = ({
   name, label, onChange, value, errors, type,
