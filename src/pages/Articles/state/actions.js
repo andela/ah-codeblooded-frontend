@@ -46,7 +46,7 @@ export const getArticleAction = slug => (dispatch) => {
     dispatch(pageLoadedAction());
   }).catch((errors) => {
     dispatch(pageLoadedAction());
-    dispatch(articleFetchFailure(errors));
+    dispatch(articleFetchFailure(errors.response));
   });
 };
 

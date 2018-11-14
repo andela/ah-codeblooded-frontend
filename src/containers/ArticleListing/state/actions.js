@@ -1,20 +1,32 @@
 import api from '../../../utils/api';
-import { FETCH_ARTICLES, FETCH_ARTICLES_FAILURE, FETCH_ARTICLES_SUCCESS } from './types';
+import {
+  FETCH_ARTICLES,
+  FETCH_ARTICLES_FAILURE,
+  FETCH_ARTICLES_SUCCESS,
+  FETCH_MORE_ARTICLES_SUCCESS,
+} from './types';
 
-export const fetchingArticles = () => ({ type: FETCH_ARTICLES });
-
-export const articlesFetchingSuccessful = articles => (
-  { type: FETCH_ARTICLES_SUCCESS, payload: articles }
+export const fetchingArticles = listName => (
+  { type: FETCH_ARTICLES, payload: { listName } }
 );
 
-export const articlesFetchingFailed = errors => ({ type: FETCH_ARTICLES_FAILURE, payload: errors });
+export const articlesFetchingSuccessful = (articles, listName, fetchMore) => (
+  {
+    type: fetchMore ? FETCH_MORE_ARTICLES_SUCCESS : FETCH_ARTICLES_SUCCESS,
+    payload: { data: articles, listName },
+  }
+);
 
-export const articlesFetchAction = params => (dispatch) => {
-  dispatch(fetchingArticles());
+export const articlesFetchingFailed = (errors, listName) => (
+  { type: FETCH_ARTICLES_FAILURE, payload: { errors, listName } }
+);
+
+export const articlesFetchAction = (params, listName, fetchMore = false) => (dispatch) => {
+  dispatch(fetchingArticles(listName));
   return api.get('articles/', { params })
     .then((response) => {
-      dispatch(articlesFetchingSuccessful(response.data.data.article));
+      dispatch(articlesFetchingSuccessful(response.data.data.article, listName, fetchMore));
     }).catch((response) => {
-      dispatch(articlesFetchingFailed(response.response));
+      dispatch(articlesFetchingFailed(response.response, listName));
     });
 };

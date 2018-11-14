@@ -13,6 +13,7 @@ import SignUpPage from '../pages/SignUpPage';
 import HomePage from '../pages/HomePage';
 import CreateUpdate from '../pages/Articles/CreateUpdate';
 import Read from '../pages/Articles/Read';
+import MyArticles from '../components/MyArticles';
 
 export class AuthenticatedRoute extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ export class AuthenticatedRoute extends Component {
     );
   }
 
-  renderComponent = component => component
+  renderComponent = component => component;
 
   render() {
     const { component: Comp, ...otherProps } = this.props;
@@ -74,12 +75,12 @@ export default () => (
         path={ROUTES.register}
         component={SignUpPage}
       />
-      <AuthenticatedRoute
+      <Route
         exact
         path={ROUTES.articles.createOrRead}
         component={CreateUpdate}
       />
-      <AuthenticatedRoute
+      <Route
         exact
         path={ROUTES.articles.createOrRead}
         component={Read}
@@ -90,6 +91,12 @@ export default () => (
         component={CreateUpdate}
         updateArticle
       />
+      <AuthenticatedRoute
+        exact
+        path={ROUTES.me.articles}
+        component={MyArticles}
+      />
+
     </Switch>
   </Router>
 );

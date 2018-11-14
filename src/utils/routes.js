@@ -7,5 +7,8 @@ const ROUTES = {
     createNew: '/articles/new',
     update: '/articles/edit/:slug',
   },
+  me: {
+    articles: '/me/articles',
+  },
 };
 export default ROUTES;

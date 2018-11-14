@@ -22,6 +22,7 @@ class PublishDropDown extends Component {
     const { onTagChanged, tags } = this.props;
     const data = this.generateTagList(tags);
 
+    /* istanbul ignore next */
     this.tagsInput = Materialize.Chips.init(document.querySelector('#tags'), {
       placeholder: 'Enter a tag',
       secondaryPlaceholder: '+Tag',
@@ -35,13 +36,14 @@ class PublishDropDown extends Component {
     });
   };
 
-  getTagList = () => {
+  /* istanbul ignore next */
+  getTagList() {
     const tags = [];
     this.tagsInput.chipsData.forEach((chip) => {
       tags.push(chip.tag);
     });
     return tags;
-  };
+  }
 
   componentWillReceiveProps = () => {
     const input = document.querySelector('#publish-article #tags input');

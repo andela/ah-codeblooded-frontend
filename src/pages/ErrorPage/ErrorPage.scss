@@ -1,0 +1,26 @@
+@import '../../assets/css/index';
+
+.background {
+  clip-path: ellipse(81% 50% at 53% 3%);
+  background: $primary-color;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.card-title h4 {
+  font-weight: bold;
+}
+
+.error-code {
+  font-size: 15em;
+  font-weight: bold;
+  color: color('shades', 'white') !important;
+}
+
+.error-message {
+  font-size: 2em;
+}

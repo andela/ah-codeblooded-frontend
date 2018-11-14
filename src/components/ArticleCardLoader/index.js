@@ -6,7 +6,7 @@ const ArticleCardLoader = ({ layout, ...props }) => (
   <ContentLoader
     rtl
     height={sizes[layout]}
-    width={700}
+    width={500}
     speed={3}
     primaryColor="#cccccc"
     secondaryColor="#ecebeb"
