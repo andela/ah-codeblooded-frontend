@@ -10,6 +10,8 @@ import ROUTES from '../utils/routes';
 import { getCurrentUser } from '../utils/auth';
 import LoginPage from '../pages/LoginPage';
 import SignUpPage from '../pages/SignUpPage';
+import ConnectedForgotPasswordPage from '../pages/ForgotPasswordPage';
+import ConnectedResetPasswordPage from '../pages/ResetPasswordPage';
 import HomePage from '../pages/HomePage';
 import CreateUpdate from '../pages/Articles/CreateUpdate';
 import Read from '../pages/Articles/Read';
@@ -73,6 +75,16 @@ export default () => (
         component={SignUpPage}
       />
       <Route
+        exact
+        path={ROUTES.forgotPassword}
+        component={ConnectedForgotPasswordPage}
+      />
+      <Route
+        exact
+        path={ROUTES.resetPassword}
+        component={ConnectedResetPasswordPage}
+      />
+      <AuthenticatedRoute
         exact
         path={ROUTES.articles.createOrRead}
         component={CreateUpdate}
