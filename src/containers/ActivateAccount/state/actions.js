@@ -11,12 +11,12 @@ export const activateUser = () => ({
 
 export const activationSuccess = () => ({
   type: ACTIVATE_SUCCESS,
-  payload: 'Account activation was successful',
+  payload: { msg: 'Account activation was successful' },
 });
 
-export const activationError = payload => ({
+export const activationError = msg => ({
   type: ACTIVATE_ERROR,
-  payload,
+  payload: { msg },
 });
 
 

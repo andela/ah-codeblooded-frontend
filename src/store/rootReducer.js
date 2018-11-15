@@ -4,6 +4,7 @@ import pageProgress from '../containers/NavBar/state/reducer';
 import articles from '../containers/ArticleListing/state/reducer';
 import social from '../containers/SocialLogin/state/reducers';
 import signUp from '../containers/SignupForm/state/reducer';
+import activateAccount from '../containers/ActivateAccount/state/reducer';
 import login from '../containers/LoginForm/state/reducer';
 import forgotPassword from '../containers/ForgotPasswordForm/state/reducer';
 import resetPassword from '../containers/ResetPasswordForm/state/reducer';
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   resetPassword,
   likeDislike,
   userProfiles,
+  activateAccount,
 });
 
 export default rootReducer;
