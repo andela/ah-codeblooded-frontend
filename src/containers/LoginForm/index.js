@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import Materialize from "materialize-css";
 import PropTypes from "prop-types";
 import { Button } from "react-materialize";
-import ROUTES from "../../utils/routes";
+import { Link } from "react-router-dom";
 import Input from "../../components/TextInput";
 import loginAction from "./state/actions";
+import ROUTES from "../../utils/routes";
 
 export class LoginForm extends Component {
   state = {
@@ -58,40 +59,41 @@ export class LoginForm extends Component {
     ];
 
     return (
-      <div className="row">
-        <div className="col s12 m6 offset-m3">
-          <div className="card white darken-1">
-            <div>{isLogingIn ? this.loginProgress() : null}</div>
-            <div className="card-content black-text">
-              <span className="card-title">Login</span>
-              {errors.length > 0 ? (
-                <div className="red-text">
-                  <p>Username and password do not match. Please try again</p>
-                </div>
-              ) : null}
-              <form onSubmit={this.handleSubmit}>
-                {inputs.map(input => (
-                  <Input {...input} />
-                ))}
-
-                <div className="col m6">
-                  <Button
-                    className="btn waves-effect waves-light"
-                    type="submit"
-                  >
-                    Login
-                    <i className="material-icons right">send</i>
-                  </Button>
-                </div>
-                <p>
-                  <a href={ROUTES.forgotPassword}>Forgot your Password?</a>
-                </p>
-                <p>
-                  Dont have an account?
-                  <a href={ROUTES.register}> Create one</a>
-                </p>
-              </form>
+      <div>
+        <div className="card">
+          <div className="card-content black-text login-form">
+            <div className="card-title">
+              <h5>Login</h5>
             </div>
+            <div>{isLogingIn ? this.loginProgress() : null}</div>
+            {errors.length > 0 ? (
+              <div className="red-text">
+                <p>Username and password do not match. Please try again</p>
+              </div>
+            ) : null}
+            <form onSubmit={this.handleSubmit}>
+              {inputs.map(input => (
+                <Input {...input} />
+              ))}
+
+              <div className="row center">
+                <Button
+                  className="btn waves-effect waves-light"
+                  type="submit"
+                >
+                 Login
+                  <i className="material-icons right">send</i>
+                </Button>
+              </div>
+              <div className="row">
+                <div className="col s6">
+                  <a href={ROUTES}>Forgot password?</a>
+                </div>
+                <div className="col s6 right-align">
+                  <Link to={ROUTES.auth.register} className="right-align">Create Account</Link>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
