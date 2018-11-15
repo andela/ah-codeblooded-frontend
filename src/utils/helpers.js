@@ -6,3 +6,6 @@ export const getQueryParam = (param) => {
   const urlParams = new URL(window.location.href).searchParams;
   return urlParams.get(param);
 };
+
+
+export const getLocation = () => window.location.toString();

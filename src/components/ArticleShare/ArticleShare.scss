@@ -1,0 +1,11 @@
+.share-button {
+  cursor: pointer;
+}
+
+.share-button:hover:not(:active) {
+  opacity: 0.75;
+}
+
+.SocialMediaShareButton {
+  outline: none !important;
+}

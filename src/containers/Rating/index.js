@@ -30,7 +30,7 @@ export class Rating extends Component {
         name="rateArticle"
         starCount={5}
         value={rate.state}
-        className="col row 8 s12 valign-wrapper star"
+        className="star"
         onStarClick={this.onStarClick}
       />
     );
