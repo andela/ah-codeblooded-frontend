@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import SocialLogin from "../SocialLogin";
-import ROUTES from "../../utils/routes";
-import Loginform from "../../containers/LoginForm";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import ConnectedSocialLogin from '../../containers/SocialLogin';
+import ROUTES from '../../utils/routes';
+import Loginform from '../../containers/LoginForm';
 
 class LoginPage extends Component {
   render() {
@@ -11,10 +11,7 @@ class LoginPage extends Component {
         <nav className="white black-text">
           <div className="container">
             <div className="nav-wrapper">
-              <a
-                href={ROUTES.index}
-                className="brand-logo center black-text logo"
-              >
+              <a href={ROUTES.index} className="brand-logo center black-text logo">
                 {"Author's Haven"}
               </a>
             </div>
@@ -24,7 +21,8 @@ class LoginPage extends Component {
           <Loginform history={this.props.history} />
           <div className="row">
             <div className="col s12 m6 offset-m3">
-              <SocialLogin {...this.props} />
+              <ConnectedSocialLogin {...this.props} />
+              {' '}
             </div>
           </div>
         </div>

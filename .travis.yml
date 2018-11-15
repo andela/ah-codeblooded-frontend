@@ -1,12 +1,12 @@
 language: node_js
 node_js:
-  - "stable"
+  - 'stable'
 env:
   global:
     - CC_TEST_REPORTER_ID=2f0bee182854b9bba4aa286a463fa3015d47f3cf22ef54e915af0406a417f5f3
 cache:
   directories:
-    - "node_modules"
+    - 'node_modules'
 install:
   - npm install
 before_script:
