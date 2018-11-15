@@ -1,0 +1,23 @@
+.landing-image {
+  clip-path: ellipse(81% 50% at 53% 3%);
+  background: url('../../assets/images/books.jpg');
+  height: 100%;
+  width: 100%;
+  opacity: .05;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.landing-content {
+  margin-top: 7rem;
+}
+
+.landing-title {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  font-family: 'Great Vibes', cursive;
+  color: color('shades', 'white') !important;
+}

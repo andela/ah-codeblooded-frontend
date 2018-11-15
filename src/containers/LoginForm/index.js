@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import Materialize from "materialize-css";
 import PropTypes from "prop-types";
 import { Button } from "react-materialize";
-import { Link } from "react-router-dom";
 import Input from "../../components/TextInput";
 import loginAction from "./state/actions";
 import ROUTES from "../../utils/routes";
@@ -90,7 +89,7 @@ export class LoginForm extends Component {
                   <a href={ROUTES}>Forgot password?</a>
                 </div>
                 <div className="col s6 right-align">
-                  <Link to={ROUTES.auth.register} className="right-align">Create Account</Link>
+                  <a href={ROUTES.auth.register} className="right-align">Sign Up</a>
                 </div>
               </div>
             </form>

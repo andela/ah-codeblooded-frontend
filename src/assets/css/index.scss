@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Questrial:400|Raleway:300,400');
 @import url('https://use.fontawesome.com/releases/v5.3.1/css/all.css');
 @import '../../../node_modules/materialize-css/sass/components/color-variables';
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+
 $primary-color: color("indigo", 'base') !default;
 $primary-color-light: false !default;
 $primary-color-dark: false !default;
@@ -41,20 +43,6 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-.content {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  transform: translate(0%, -50%);
-}
-
-.title {
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  color: color('white', 'base');
 }
 
 .card,

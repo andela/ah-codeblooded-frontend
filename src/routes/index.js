@@ -4,12 +4,11 @@ import {
   Redirect,
   Route,
   Switch,
-} from 'react-router-dom';
+} from "react-router-dom";
 import PropTypes from 'prop-types';
+import AuthPage from "../pages/AuthPage";
 import ROUTES from '../utils/routes';
 import { getCurrentUser } from '../utils/auth';
-import LoginPage from '../pages/LoginPage';
-import SignUpPage from '../pages/SignUpPage';
 import ConnectedForgotPasswordPage from '../pages/ForgotPasswordPage';
 import ConnectedResetPasswordPage from '../pages/ResetPasswordPage';
 import HomePage from '../pages/HomePage';
@@ -28,16 +27,17 @@ export class AuthenticatedRoute extends Component {
 
   renderIfNotAuthenticated(component) {
     const { path } = this.props;
-    return path === ROUTES.login || path === ROUTES.register ? (
-      this.renderComponent(component)
-    ) : (
-      <Redirect to={{ pathname: ROUTES.login }} />
-    );
+    return path === ROUTES.auth.login
+      || path === ROUTES.auth.register ? (
+        this.renderComponent(component)
+      ) : (
+        <Redirect to={{ pathname: ROUTES.auth.login }} />
+      );
   }
 
   renderIfAuthenticated(component) {
     const { path, location } = this.props;
-    return path === ROUTES.login || path === ROUTES.register ? (
+    return path === ROUTES.auth.login || path === ROUTES.auth.register ? (
       <Redirect to={{ pathname: ROUTES.index, state: { from: location } }} />
     ) : (
       component
@@ -66,16 +66,6 @@ export default () => (
   <Router>
     <Switch>
       <Route exact path={ROUTES.index} component={HomePage} />
-      <AuthenticatedRoute
-        exact
-        path={ROUTES.login}
-        component={LoginPage}
-      />
-      <AuthenticatedRoute
-        exact
-        path={ROUTES.register}
-        component={SignUpPage}
-      />
       <Route
         exact
         path={ROUTES.forgotPassword}
@@ -113,6 +103,8 @@ export default () => (
         path={ROUTES.profiles.view}
         component={ProfilePage}
       />
+      <AuthenticatedRoute exact path={ROUTES.auth.login} component={AuthPage} />
+      <AuthenticatedRoute exact path={ROUTES.auth.register} component={AuthPage} />
     </Switch>
   </Router>
 );

@@ -4,6 +4,7 @@ import { Button } from 'react-materialize';
 import PropTypes from 'prop-types';
 import * as Materialize from 'materialize-css';
 import { bindActionCreators } from 'redux';
+import ROUTES from '../../utils/routes';
 import Input from '../../components/TextInput/index';
 import register from './state/actions';
 
@@ -114,7 +115,7 @@ export class SignForm extends React.Component {
 
 
    return (
-     <div className="card white darken-1" id="myDiv">
+     <div className="card white darken-1 login-form" id="myDiv">
        { isRegistering && this.showProgress() }
        <div className="card-content black-text">
          { success && this.registrationSuccessful() }
@@ -123,14 +124,21 @@ export class SignForm extends React.Component {
            { inputs.map(input => (
              <Input {...input} />
            ))}
-           <Button
-             className="btn waves-effect waves-light"
-             type="submit"
-             disabled={isRegistering}
-           >
-                Sign up
-             <i className="material-icons right">send</i>
-           </Button>
+           <div className="row center">
+             <Button
+               className="btn waves-effect waves-light"
+               type="submit"
+               disabled={isRegistering}
+             >
+               Sign up
+               <i className="material-icons right">send</i>
+             </Button>
+           </div>
+           <div className="row">
+             <a href={ROUTES.auth.login}>
+               Already have an account?
+             </a>
+           </div>
          </form>
        </div>
      </div>

@@ -31,26 +31,30 @@ export class SocialLogin extends Component {
   /* istanbul ignore next */
   render() {
     return (
-      <div className="valign-wrapper">
-        <FacebookLogin
-          appId={FacebookAppId}
-          fields="name,email,picture"
-          cssClass="btn-floating #0d47a1 blue darken-4 hoverable"
-          icon="fa fa-facebook fa-2x"
-          callback={this.responseFacebook}
-        />
-        <GoogleLogin
-          clientId={GoogleClientId}
-          onSuccess={this.responseGoogle}
-          onFailure={this.responseGoogle}
-          type=""
-          tag="div"
-          className="col"
-        >
-          <button className="btn-floating #b71c1c red darken-4 hoverable" type="button">
-            <i className="fa fa-google fa-2x" aria-hidden="true" />
-          </button>
-        </GoogleLogin>
+      <div className="row col offset-s4">
+        <div className="col">
+          <FacebookLogin
+            appId={FacebookAppId}
+            fields="name,email,picture"
+            cssClass="btn-floating #0d47a1 blue darken-4 hoverable"
+            icon="fa fa-facebook fa-2x"
+            callback={this.responseFacebook}
+          />
+        </div>
+        <div className="col" style={{ marginLeft: '1em' }}>
+          <GoogleLogin
+            clientId={GoogleClientId}
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseGoogle}
+            type=""
+            tag="div"
+            className="row"
+          >
+            <button className="btn-floating #b71c1c red darken-4" type="button">
+              <i className="fa fa-google fa-2x" aria-hidden="true" />
+            </button>
+          </GoogleLogin>
+        </div>
       </div>
     );
   }
