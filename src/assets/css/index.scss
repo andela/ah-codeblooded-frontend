@@ -73,7 +73,7 @@ nav {
   border-bottom: 1px solid $line-color !important;
 }
 
-a {
+a :not(.btn) {
   color: $secondary-color !important;
 }
 

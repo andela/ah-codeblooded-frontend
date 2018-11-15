@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import FacebookLogin from "react-facebook-login";
-import GoogleLogin from "react-google-login";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import socialLoginAction from "./state/actions";
+import socialLoginAction from './state/actions';
 
 const GoogleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 const FacebookAppId = process.env.REACT_APP_FACEBOOK_APP_ID;
 
-class SocialLogin extends Component {
+export class SocialLogin extends Component {
   /* istanbul ignore next */
-  responseGoogle=(response) => {
+  responseGoogle = (response) => {
     const { socialLogin } = this.props;
-    socialLogin([response, "google"], this.successHandler);
-  }
+    socialLogin([response, 'google'], this.successHandler);
+  };
 
   /* istanbul ignore next */
   successHandler() {
@@ -25,8 +25,8 @@ class SocialLogin extends Component {
   /* istanbul ignore next */
   responseFacebook = (response) => {
     const { socialLogin } = this.props;
-    socialLogin([response, "facebook"], this.successHandler);
-  }
+    socialLogin([response, 'facebook'], this.successHandler);
+  };
 
   /* istanbul ignore next */
   render() {
@@ -62,7 +62,13 @@ SocialLogin.propTypes = {
 };
 
 const mapStateToProps = state => ({ socialLogin: state.SocialLogin });
-const mapDispatchToProps = dispatch => bindActionCreators({
-  socialLogin: socialLoginAction,
-}, dispatch);
-export default connect(mapStateToProps, mapDispatchToProps)(SocialLogin);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    socialLogin: socialLoginAction,
+  },
+  dispatch,
+);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SocialLogin);
