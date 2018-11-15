@@ -73,13 +73,14 @@ nav {
   border-bottom: 1px solid $line-color !important;
 }
 
-a :not(.btn) {
-  color: $secondary-color !important;
+a {
+  color: color('shades', 'black') !important;
 }
 
 .btn :not(.flat) {
-  color: color('shades', 'white') !important;
+  color: color('shades', 'white');
 }
+
 
 .btn-bordered {
   border: 1px solid $secondary-color !important;

@@ -5,10 +5,9 @@ import 'materialize-css/dist/css/materialize.min.css';
 import './assets/css/index.scss';
 import Router from './routes';
 import * as serviceWorker from './serviceWorker';
-import configureStore from './store/index';
-import './env';
+import store from './store';
 
-const store = configureStore();
+import './env';
 
 ReactDOM.render(
   <Provider store={store}>

@@ -10,6 +10,7 @@ import ROUTES from '../../../utils/routes';
 import './Read.scss';
 import { getCurrentUser } from '../../../utils/auth';
 import { ErrorPage } from '../../ErrorPage';
+import LikeDislike from '../../../containers/LikeDislike';
 
 
 class Read extends Component {
@@ -75,6 +76,7 @@ class Read extends Component {
             <div className="col s12 m8 offset-m2">
               <ArticleEditor {...this.props} readOnly />
               {this.renderTags(article.tags)}
+              <LikeDislike slug={article.slug} />
             </div>
           </div>
         </div>
