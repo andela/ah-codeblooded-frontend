@@ -25,7 +25,7 @@ const activateUserAction = (token, uid) => (dispatch) => {
   return api.get(`account/verify/${token}/${uid}/`).then(() => {
     dispatch(activationSuccess());
   }).catch((error) => {
-    const msg = error.response.status === 400 ? 'Your activation link is Invalid or has expired' : "Something went wrong. Try again";
+    const msg = error.response && "Something went wrong. Try again";
     dispatch(activationError(msg));
   });
 };

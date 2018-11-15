@@ -17,7 +17,7 @@ import ProfilePage from '../pages/ProfilesPage';
 import CreateUpdate from '../pages/Articles/CreateUpdate';
 import Read from '../pages/Articles/Read';
 import MyArticles from '../components/MyArticles';
-import Activate from '../pages/ActivationPage';
+import Activate from '../containers/ActivateAccount';
 
 export class AuthenticatedRoute extends Component {
   constructor(props) {

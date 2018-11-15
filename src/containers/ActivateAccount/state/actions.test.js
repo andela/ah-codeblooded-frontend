@@ -48,16 +48,6 @@ describe('Account verification actions', () => {
     });
   });
 
-  it('should dispatch ACTIVATE_ERROR when an error occurs during registration', () => {
-    mock.onGet(url).reply(400);
-    return store.dispatch(activateUserAction(token, uid)).then(() => {
-      expect(store.getActions()).toContainEqual({
-        type: ACTIVATE_ERROR,
-        payload: { msg: 'Your activation link is Invalid or has expired' },
-      });
-    });
-  });
-
   it('should dispatch ACTIVATE_ERROR when wrong url is passed', () => {
     mock.onGet(url).reply(404);
     return store.dispatch(activateUserAction(token)).then(() => {
