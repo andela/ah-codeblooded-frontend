@@ -1,5 +1,6 @@
 import { mount } from 'enzyme';
 import React from 'react';
+import expect from 'expect';
 import configureStore from 'redux-mock-store';
 import { LoginForm } from '.';
 

@@ -102,7 +102,7 @@ export class ResetPasswordForm extends Component {
         <div className="row center">
           <p>{message}</p>
           <div className="login-btn">
-            <Link to={ROUTES.login} className="btn">Login</Link>
+            <Link to={ROUTES.auth.login} className="btn">Login</Link>
           </div>
         </div>
         </>

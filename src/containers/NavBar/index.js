@@ -46,7 +46,7 @@ class NavBar extends React.Component {
         user ? this.getAuthenticatedMenu(user)
           : (
             <>
-              <MenuItem link={ROUTES.login}>
+              <MenuItem link={ROUTES.auth.login}>
                 Login
               </MenuItem>
             </>
