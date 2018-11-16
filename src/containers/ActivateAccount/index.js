@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import activate from './state/actions';
 import { getQueryParam } from '../../utils/helpers';
 import ROUTES from '../../utils/routes';
@@ -9,7 +8,7 @@ import ROUTES from '../../utils/routes';
 const token = getQueryParam('token');
 const uid = getQueryParam('uid');
 
-class ActivateAccount extends React.Component {
+export class ActivateAccount extends React.Component {
   componentDidMount() {
     const { activateUser } = this.props;
     activateUser(token, uid);
@@ -32,7 +31,7 @@ class ActivateAccount extends React.Component {
       <h6 className="green-text">Your account has been activated</h6>
       <div className="center-align">
         <button type="submit" className="btn-bordered">
-          <Link to={ROUTES.login}>Login</Link>
+          <a href={ROUTES.login}>Login</a>
         </button>
       </div>
     </div>
@@ -41,7 +40,7 @@ class ActivateAccount extends React.Component {
   activationFailed = () => (
     <div className="center-align">
       <h6>Something Went wrong! Try again</h6>
-      <button type="submit" className="btn-bordered" onClick={this.onClick}>
+      <button type="submit" className="btn-bordered try-again" onClick={this.onClick}>
         Try again
       </button>
     </div>
