@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Redirect,
@@ -17,6 +17,7 @@ import ProfilePage from '../pages/ProfilesPage';
 import CreateUpdate from '../pages/Articles/CreateUpdate';
 import Read from '../pages/Articles/Read';
 import MyArticles from '../components/MyArticles';
+import Activate from '../containers/ActivateAccount';
 
 export class AuthenticatedRoute extends Component {
   constructor(props) {
@@ -101,6 +102,7 @@ export default () => (
         component={CreateUpdate}
         updateArticle
       />
+      <Route exact path={ROUTES.activate} component={Activate} />
       <AuthenticatedRoute
         exact
         path={ROUTES.me.articles}

@@ -5,10 +5,10 @@ import ViewProfiles from '../../containers/profiles/ViewProfiles';
 class Profiles extends Component {
   render() {
     return (
-      <>
+      <div>
         <EditProfiles {...this.props} />
         <ViewProfiles {...this.props} />
-      </>
+      </div>
     );
   }
 }

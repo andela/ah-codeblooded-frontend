@@ -7,6 +7,7 @@ const ROUTES = {
     createNew: '/articles/new',
     update: '/articles/edit/:slug',
   },
+  activate: '/activate-account',
   me: {
     articles: '/me/articles',
   },
