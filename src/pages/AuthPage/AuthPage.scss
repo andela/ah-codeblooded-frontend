@@ -1,3 +1,5 @@
+@import '../../assets/css/index';
+
 .landing-image {
   clip-path: ellipse(81% 50% at 53% 3%);
   background: url('../../assets/images/books.jpg');
@@ -15,9 +17,8 @@
 }
 
 .landing-title {
-  position: absolute;
   text-align: center;
-  width: 100%;
+  margin-top: 3rem;
   font-family: 'Great Vibes', cursive;
   color: color('shades', 'white') !important;
 }

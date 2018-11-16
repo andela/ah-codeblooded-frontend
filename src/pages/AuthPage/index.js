@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ConnectedLoginForm from '../../containers/LoginForm';
 import SignUpForm from '../../containers/SignupForm';
 import ROUTES from "../../utils/routes";
-import { SocialLogin } from '../../containers/SocialLogin/index';
+import ConnectedSocialLogin from '../../containers/SocialLogin/index';
 import './AuthPage.scss';
 
 class AuthPage extends Component {
@@ -46,7 +46,7 @@ class AuthPage extends Component {
               <div className="row center">
                 <p>Or Login in with...</p>
                 <div className="row center">
-                  <SocialLogin />
+                  <ConnectedSocialLogin />
                 </div>
               </div>
             </div>

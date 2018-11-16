@@ -12,7 +12,7 @@ class LikeDislike extends Component {
 
       this.interval = setInterval(() => {
         fetch(slug);
-      }, 300000);
+      }, 30000);
     }
 
     handleLike = () => {

@@ -70,22 +70,29 @@ class NavBar extends React.Component {
     </Menu>
   );
 
+  componentWillReceiveProps = (nextProps) => {
+    const { isPageLoading } = nextProps;
+    if (isPageLoading) {
+      this.setState({ hiddenLoader: false });
+    } else {
+      setTimeout(() => {
+        /* istanbul ignore next */
+        this.setState({ hiddenLoader: true });
+      }, 500);
+    }
+  };
 
   showProgress= (pageLoading) => {
     const { hiddenLoader } = this.state;
+
     const loader = (
       <PreLoader
         determinate
-        progress={pageLoading ? 70 : 100}
+        progress={pageLoading ? 50 : 100}
         horizontal
-        classNames={hiddenLoader && 'hidden'}
+        classNames={(hiddenLoader) && 'hidden'}
       />
     );
-    if (!pageLoading) {
-      setTimeout(() => {
-        this.setState({ hiddenLoader: true });
-      }, 1000);
-    }
     return loader;
   };
 
