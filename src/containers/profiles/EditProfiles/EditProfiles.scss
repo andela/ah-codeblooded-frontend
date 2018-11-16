@@ -1,0 +1,33 @@
+@import '../../../assets/css/index';
+
+textarea {
+  border: 0 !important;
+  height: 140px !important;
+
+  &:active {
+    outline: 0 !important;
+  }
+}
+
+.edit-profile-modal {
+  .row {
+    border-top: 1px solid $line-color;
+    padding-top: 4em;
+  }
+
+  .profile {
+    cursor: pointer;
+    height: 10em !important;
+    width: 10em !important;
+  }
+}
+
+.edit-profile-content {
+  display: flex;
+  flex-direction: row;
+
+  .image {
+    margin-right: 2em;
+  }
+
+}

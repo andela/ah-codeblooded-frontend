@@ -12,5 +12,10 @@ const ROUTES = {
   },
   forgotPassword: '/forgot-password',
   resetPassword: '/reset-password',
+  profiles: {
+    view: '/profiles/view/:username',
+    update: '/profiles/edit/:username',
+  },
 };
+
 export default ROUTES;

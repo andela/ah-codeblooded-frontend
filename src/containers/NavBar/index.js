@@ -16,9 +16,14 @@ class NavBar extends React.Component {
     <DropDown
       id="profile-dropdown"
       list={(
-        <DropDownItem link={ROUTES.me.articles}>
+        <>
+          <DropDownItem link={ROUTES.me.articles}>
           My Articles
-        </DropDownItem>
+          </DropDownItem>
+          <DropDownItem link={ROUTES.profiles.view}>
+          Profiles
+          </DropDownItem>
+        </>
       )}
     />
   );
