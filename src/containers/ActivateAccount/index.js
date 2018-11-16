@@ -31,7 +31,7 @@ export class ActivateAccount extends React.Component {
       <h6 className="green-text">Your account has been activated</h6>
       <div className="center-align">
         <button type="submit" className="btn-bordered">
-          <a href={ROUTES.login}>Login</a>
+          <a href={ROUTES.auth.login}>Login</a>
         </button>
       </div>
     </div>
