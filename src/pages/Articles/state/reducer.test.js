@@ -3,7 +3,7 @@ import {
   savingArticle, articleSaveSuccess, articleFetchSuccess,
   fetchingArticle, articleFetchFailure, articleSaveFailure,
 } from './actions';
-import editorState from '../CreateUpdate/state/editorState';
+import editorState from '../Create/state/editorState';
 import { article, testReducer } from '../../../utils/testHelpers';
 
 
@@ -16,8 +16,8 @@ const initialState = {
   article: {},
 };
 
-const setActionAndState = (action, value, result) => {
-  testReducer(action, value, result, articleEditor, initialState);
+const setActionAndState = (action, value, result, state = initialState) => {
+  testReducer(action, value, result, articleEditor, state);
 };
 describe('<ArticleEditor/> reducer', () => {
   it('sets isSaving to true when creating article', () => {
@@ -41,7 +41,10 @@ describe('<ArticleEditor/> reducer', () => {
   it('should return the default state', () => {
     setActionAndState({ type: 'ARTICLE' }, 'isSaving', false);
   });
-  it('should publish an artile', () => {
+  it('should publish an arctile', () => {
     setActionAndState({ type: 'ARTICLE_PUBLISH' }, 'isPublishing', true);
+  });
+  it('should create an article from text', () => {
+    setActionAndState(articleFetchSuccess({ ...article, body: 'some text' }), 'isFetching', false);
   });
 });

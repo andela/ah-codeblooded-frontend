@@ -75,6 +75,7 @@ class MyArticles extends React.Component {
               <div id="public">
                 <ConnectedArticleListing
                   layoutProvider={this.layoutHandler}
+                  infiniteScroll
                   filterResults={this.filterPublished}
                   divided
                 />

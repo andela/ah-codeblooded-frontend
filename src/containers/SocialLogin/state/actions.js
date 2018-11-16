@@ -27,6 +27,7 @@ const socialLogin = (data, successHandler) => (dispatch) => {
     .then((res) => {
       localStorage.setItem("user", JSON.stringify(res.data));
       dispatch(success(res.data));
+      window.location.reload();
       if (successHandler) {
         successHandler(res.data);
       }

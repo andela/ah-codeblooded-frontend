@@ -6,6 +6,7 @@ import placeholder from '../../assets/images/placeholder.jpg';
 import layouts from './layouts';
 import './ArticleCard.scss';
 import readTime from '../../utils/readTime';
+import { getCurrentUser } from '../../utils/auth';
 
 
 class ArticleCard extends React.Component {
@@ -91,6 +92,16 @@ class ArticleCard extends React.Component {
     );
   };
 
+  getLink = (article) => {
+    const user = getCurrentUser();
+    if (article.published) {
+      return `/article/@${article.author.username}/${article.slug}`;
+    } if (!article.published && user && article.author.username === user.username) {
+      return `/articles/edit/${article.slug}`;
+    }
+    return '#';
+  };
+
   render() {
     const {
       layout, article, divided, bordered,
@@ -104,7 +115,7 @@ class ArticleCard extends React.Component {
     };
     return (
     <>
-      <a href={`/articles/${article.slug}`} className="article-card">
+      <a href={this.getLink(article)} className="article-card">
         <div className={`article-content ${bordered ? ` bordered` : (divided && ` separated`)}`}>
           {layoutMapping[layout]()}
         </div>

@@ -14,7 +14,7 @@ class HomePage extends Component {
     user ? (
       <div className="fixed-action-btn">
         <a
-          className="btn-floating btn-large teal"
+          className="btn-floating btn-large"
           href={ROUTES.articles.createNew}
         >
           <i className="large material-icons">mode_edit</i>

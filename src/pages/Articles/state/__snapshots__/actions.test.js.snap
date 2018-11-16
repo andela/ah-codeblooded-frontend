@@ -13,15 +13,3 @@ Array [
   },
 ]
 `;
-
-exports[`Article actions saves an article by slug and dispatches ARTICLE_SAVE_SUCCESS 1`] = `
-Array [
-  Object {
-    "type": "ARTICLE_SAVE",
-  },
-  Object {
-    "errors": [Error: Request failed with status code 404],
-    "type": "ARTICLE_SAVE_FAILURE",
-  },
-]
-`;

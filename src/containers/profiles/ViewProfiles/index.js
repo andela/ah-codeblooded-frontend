@@ -19,7 +19,7 @@ class ViewProfiles extends Component {
     const { getUserProfile } = this.props;
     getUserProfile(user.username);
     history.push(`/profiles/view/${user.username}`);
-  }
+  };
 
   render() {
     const { profile } = this.props;

@@ -7,12 +7,10 @@ import NavBar from '../../../containers/NavBar';
 import ArticleEditor from '../../../components/ArticleEditor';
 import { getArticleAction, saveArticleAction } from '../state/actions';
 import Read from '../Read';
-import ROUTES from '../../../utils/routes';
 import { ErrorPage } from '../../ErrorPage';
-import { getCurrentUser } from '../../../utils/auth';
 
 
-class CreateUpdate extends Component {
+class Create extends Component {
   componentWillMount = () => {
     const { match: { params: { slug } }, getArticle } = this.props;
     if (slug !== 'new') {
@@ -27,12 +25,22 @@ class CreateUpdate extends Component {
     }
     const savedText = isSaved ? 'All changes saved...' : 'Changes not saved';
     return (
-      <span className={`${isSaved || isSaving ? 'grey-text' : 'red-text'} text-darken-3`}>{isSaving ? 'Saving...' : savedText}</span>
+      <span className={`${isSaved || isSaving
+        ? 'grey-text' : 'red-text'} text-darken-3`}
+      >
+        {isSaving ? 'Saving...' : savedText}
+      </span>
     );
   };
 
   renderPublishButton = () => (
-    <button className="btn btn-flat white pink-text dropdown-trigger" data-target="publish-article" type="button">Publish</button>
+    <button
+      className="btn btn-flat white pink-text dropdown-trigger"
+      data-target="publish-article"
+      type="button"
+    >
+Publish
+    </button>
   );
 
   error404 = () => (
@@ -49,36 +57,25 @@ class CreateUpdate extends Component {
   };
 
   render() {
-    const {
-      article, match: { path }, isPageLoading, errorFetching,
-    } = this.props;
-    const update = path === ROUTES.articles.update;
-    const user = getCurrentUser();
-    if (!user || (errorFetching || (update && article.author.username !== user.username))) {
-      return this.error404();
-    }
+    const { isPageLoading } = this.props;
     return (
-      this.readArticle() || (
-        <div>
-          <NavBar
-            isPageLoading={isPageLoading}
-            left={this.renderSaving()}
-            right={this.renderPublishButton()}
+      <div>
+        <NavBar
+          isPageLoading={isPageLoading}
+          left={this.renderSaving()}
+          right={this.renderPublishButton()}
+        />
+        <div style={{ marginTop: '50px' }} className="container">
+          <ArticleEditor
+            {...this.props}
           />
-          <div style={{ marginTop: '50px' }} className="container">
-            <ArticleEditor
-              {...this.props}
-              update={update}
-            />
-          </div>
         </div>
-      )
+      </div>
     );
   }
 }
 
-
-CreateUpdate.propTypes = {
+export const ArticlePropTypes = {
   history: PropTypes.shape({}).isRequired, // Add the actual shape --> key:value
   match: PropTypes.shape({}).isRequired,
   isSaving: PropTypes.bool.isRequired,
@@ -88,11 +85,15 @@ CreateUpdate.propTypes = {
   article: PropTypes.shape().isRequired,
 };
 
-const mapStateToProps = ({ article, pageProgress }) => ({ ...article, ...pageProgress });
+Create.propTypes = ArticlePropTypes;
+
+const mapStateToProps = ({ article, pageProgress }) => (
+  { ...article, ...pageProgress, isFetching: false }
+);
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   getArticle: getArticleAction,
   saveArticle: saveArticleAction,
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateUpdate);
+export default connect(mapStateToProps, mapDispatchToProps)(Create);

@@ -53,6 +53,7 @@ export const getArticleAction = slug => (dispatch) => {
 const dispatchPublishing = (article, dispatch) => {
   if (article.published) {
     dispatch(publishingArticle());
+    dispatch(pageLoadingAction());
   } else {
     dispatch(savingArticle());
   }
@@ -65,10 +66,12 @@ export const saveArticleAction = (article, successCallback = null) => (dispatch)
 
   return axios.then((data) => {
     dispatch(articleSaveSuccess(data.data.data.article));
-    if (article.published) {
-      successCallback();
+    dispatch(pageLoadedAction());
+    if (article.published && successCallback) {
+      successCallback(data.data.data.article);
     }
   }).catch((errors) => {
-    dispatch(articleSaveFailure(errors));
+    dispatch(pageLoadedAction());
+    dispatch(articleSaveFailure(errors.response));
   });
 };

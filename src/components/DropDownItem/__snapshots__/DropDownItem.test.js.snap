@@ -4,7 +4,9 @@ exports[`<DropDown> component render should render a <DropDownItem> component wi
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DropDownItem
+    classNames=""
     link={null}
+    onClick={null}
     subList={null}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -23,6 +25,8 @@ ShallowWrapper {
       "children": <a
         href={null}
       />,
+      "className": "dropdown-item ",
+      "onClick": null,
     },
     "ref": null,
     "rendered": Object {
@@ -48,6 +52,8 @@ ShallowWrapper {
         "children": <a
           href={null}
         />,
+        "className": "dropdown-item ",
+        "onClick": null,
       },
       "ref": null,
       "rendered": Object {

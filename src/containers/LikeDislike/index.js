@@ -63,7 +63,7 @@ LikeDislike.propTypes = {
     count: PropTypes.number,
     me: PropTypes.bool,
   }).isRequired,
-  // isFetching: PropTypes.bool.isRequired,
+  // isFetching: ArticlePropTypes.bool.isRequired,
   slug: PropTypes.string.isRequired,
   like: PropTypes.func.isRequired,
   dislike: PropTypes.func.isRequired,
