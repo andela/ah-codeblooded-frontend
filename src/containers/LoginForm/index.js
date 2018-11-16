@@ -86,7 +86,7 @@ export class LoginForm extends Component {
               </div>
               <div className="row">
                 <div className="col s6">
-                  <a href={ROUTES}>Forgot password?</a>
+                  <a href={ROUTES.forgotPassword}>Forgot password?</a>
                 </div>
                 <div className="col s6 right-align">
                   <a href={ROUTES.auth.register} className="right-align">Sign Up</a>
