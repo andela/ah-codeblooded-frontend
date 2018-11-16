@@ -15,6 +15,7 @@ class DropDown extends React.Component {
     });
 
     if (closeTrigger) {
+      /* istanbul ignore next */
       document.querySelectorAll(closeTrigger).forEach((item) => {
         item.addEventListener('click', () => {
           this.instance.close();

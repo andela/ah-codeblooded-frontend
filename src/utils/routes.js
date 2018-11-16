@@ -5,7 +5,8 @@ const ROUTES = {
     register: '/register',
   },
   articles: {
-    createOrRead: '/articles/:slug',
+    read: '/article/:authorName/:slug',
+    create: '/articles/:slug',
     createNew: '/articles/new',
     update: '/articles/edit/:slug',
   },

@@ -3,7 +3,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockAdapter from 'axios-mock-adapter';
 import api from './api';
-import editorState from '../pages/Articles/CreateUpdate/state/editorState';
+import editorState from '../pages/Articles/Create/state/editorState';
 import { initialState } from '../pages/Articles/state/reducer';
 
 const middlewares = [thunk];

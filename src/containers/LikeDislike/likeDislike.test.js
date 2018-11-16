@@ -77,7 +77,6 @@ describe('like/dislike container', () => {
     expect(button.length).toBe(1);
   });
 
-
   it('calls the handleDisLike function', () => {
     const button = wrapper.find('button').at(1).simulate('click');
     expect(button.length).toBe(1);

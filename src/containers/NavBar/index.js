@@ -12,21 +12,36 @@ import MenuItem from './MenuItem';
 import Menu from './Menu';
 
 class NavBar extends React.Component {
+  state ={
+    hiddenLoader: false,
+  };
+
   getProfileDropDown = () => (
     <DropDown
       id="profile-dropdown"
       list={(
         <>
+          <DropDownItem link={ROUTES.articles.createNew}>
+            New Article
+          </DropDownItem>
+          <DropDownItem link={ROUTES.profiles.view} classNames="divided top">
+            My Profile
+          </DropDownItem>
           <DropDownItem link={ROUTES.me.articles}>
-          My Articles
+            My Articles
           </DropDownItem>
-          <DropDownItem link={ROUTES.profiles.view}>
-          Profiles
+          <DropDownItem onClick={this.logout}>
+            Logout
           </DropDownItem>
-        </>
+          </>
       )}
     />
   );
+
+  logout = () => {
+    localStorage.removeItem("user");
+    window.location.reload();
+  };
 
   getAuthenticatedMenu = user => (
     <>
@@ -55,16 +70,33 @@ class NavBar extends React.Component {
     </Menu>
   );
 
+
+  showProgress= (pageLoading) => {
+    const { hiddenLoader } = this.state;
+    const loader = (
+      <PreLoader
+        determinate
+        progress={pageLoading ? 70 : 100}
+        horizontal
+        classNames={hiddenLoader && 'hidden'}
+      />
+    );
+    if (!pageLoading) {
+      setTimeout(() => {
+        this.setState({ hiddenLoader: true });
+      }, 1000);
+    }
+    return loader;
+  };
+
   render() {
-    const user = getCurrentUser();
+    const { user: propsUser } = this.props;
+    const user = getCurrentUser() || propsUser;
     const { isPageLoading, left, right } = this.props;
+
     return (
       <>
-        {isPageLoading
-          ? (
-            <PreLoader horizontal />
-          ) : null
-        }
+        { this.showProgress(isPageLoading) }
         <nav className="white black-text">
           <div className="container">
             <div className="nav-wrapper">
@@ -98,6 +130,7 @@ NavBar.propTypes = {
   isPageLoading: PropTypes.bool,
   left: PropTypes.shape(),
   right: PropTypes.shape(),
+  user: PropTypes.shape({}).isRequired,
 };
 
 

@@ -8,6 +8,9 @@ import {
 } from './actions';
 import { article, articleCRUD } from '../../../utils/testHelpers';
 import api, { getURL } from '../../../utils/api';
+import {
+  ARTICLE_FETCH, ARTICLE_PUBLISH, ARTICLE_SAVE,
+} from './types';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -37,7 +40,23 @@ describe('Article actions', () => {
     axiosMock.onPost(getURL('articles/'))
       .reply(201, { data: { ...article, slug: null } });
     return store.dispatch(saveArticleAction(article)).then(() => {
-      expect(store.getActions()).toMatchSnapshot();
+      expect(store.getActions()).toContainEqual({ type: ARTICLE_SAVE });
+    });
+  });
+
+  it('publishes an article', () => {
+    axiosMock.onPut(getURL(`articles/${article.slug}`))
+      .reply(200, { data: { ...article, published: true } });
+    return store.dispatch(saveArticleAction({ ...article, published: true })).then(() => {
+      expect(store.getActions()).toContainEqual({ type: ARTICLE_PUBLISH });
+    });
+  });
+
+  it('fails to get an article', () => {
+    axiosMock.onGet(getURL(`articles/${article.slug}`))
+      .reply(400, { data: article });
+    return store.dispatch(getArticleAction(article.slug)).then(() => {
+      expect(store.getActions()).toContainEqual({ type: ARTICLE_FETCH });
     });
   });
 

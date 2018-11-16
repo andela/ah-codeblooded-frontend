@@ -1,9 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+@import '../../assets/css/index';
 
 .progress {
   margin: 0 !important;
+  padding: 0;
   height: 2px !important;
+
+  .determinate {
+    transition: width 1s;
+  }
+
+  .hidden {
+    display: none;
+  }
 }
+
 
 .logo {
   font-family: 'Great Vibes', cursive;

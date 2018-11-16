@@ -22,7 +22,6 @@ class LoginPage extends Component {
           <div className="row">
             <div className="col s12 m6 offset-m3">
               <ConnectedSocialLogin {...this.props} />
-              {' '}
             </div>
           </div>
         </div>

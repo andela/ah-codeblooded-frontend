@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   BrowserRouter as Router,
   Redirect,
@@ -12,10 +12,11 @@ import { getCurrentUser } from '../utils/auth';
 import ConnectedForgotPasswordPage from '../pages/ForgotPasswordPage';
 import ConnectedResetPasswordPage from '../pages/ResetPasswordPage';
 import HomePage from '../pages/HomePage';
-import ProfilePage from '../pages/ProfilesPage';
-import CreateUpdate from '../pages/Articles/CreateUpdate';
+import Create from '../pages/Articles/Create';
+import Update from '../pages/Articles/Update';
 import Read from '../pages/Articles/Read';
 import MyArticles from '../components/MyArticles';
+import ProfilePage from '../pages/ProfilesPage';
 import Activate from '../containers/ActivateAccount';
 
 export class AuthenticatedRoute extends Component {
@@ -78,21 +79,25 @@ export default () => (
       />
       <AuthenticatedRoute
         exact
-        path={ROUTES.articles.createOrRead}
-        component={CreateUpdate}
+        path={ROUTES.articles.create}
+        component={Create}
       />
       <Route
         exact
-        path={ROUTES.articles.createOrRead}
+        path={ROUTES.articles.read}
         component={Read}
       />
       <AuthenticatedRoute
         exact
         path={ROUTES.articles.update}
-        component={CreateUpdate}
+        component={Update}
         updateArticle
       />
-      <Route exact path={ROUTES.activate} component={Activate} />
+      <Route
+        exact
+        path={ROUTES.activate}
+        component={Activate}
+      />
       <AuthenticatedRoute
         exact
         path={ROUTES.me.articles}

@@ -3,7 +3,6 @@ import Dante from 'Dante2';
 import { ImageBlockConfig } from 'Dante2/package/es/components/blocks/image';
 import './ArticleEditor.scss';
 import { VideoBlockConfig } from 'Dante2/package/es/components/blocks/video';
-import { CodeBlockConfig } from 'Dante2/package/es/components/blocks/code';
 import { EmbedBlockConfig } from 'Dante2/package/es/components/blocks/embed';
 import { PlaceholderBlockConfig } from 'Dante2/package/es/components/blocks/placeholder';
 import PropTypes from 'prop-types';
@@ -43,8 +42,8 @@ class ArticleEditor extends Component {
       if (!article.image && this.getImages().length > 0) {
         this.setState({ article: Object.assign(article, { image: this.getImages()[0] }) });
       }
-      saveArticle({ ...article, published: true }, () => {
-        history.push(`/articles/${article.slug}`);
+      saveArticle({ ...article, published: true }, (newArticle) => {
+        history.push(`/article/@${newArticle.author.username}/${newArticle.slug}`);
       });
     }
   };
@@ -218,7 +217,6 @@ class ArticleEditor extends Component {
                 },
               }),
               VideoBlockConfig(),
-              CodeBlockConfig(),
               EmbedBlockConfig(),
               PlaceholderBlockConfig(),
             ]}
