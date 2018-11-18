@@ -33,6 +33,7 @@
     "react-router-redux": "^4.0.8",
     "react-scripts": "2.0.5",
     "react-social-login": "^3.4.2",
+    "react-star-rating-component": "^1.4.1",
     "react-test-renderer": "^16.6.1",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.5",

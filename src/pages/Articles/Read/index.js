@@ -14,57 +14,83 @@ import LikeDislike from '../../../containers/LikeDislike';
 import ArticleViewLoader from '../../../components/ArticleViewLoader';
 import { ErrorPage } from '../../ErrorPage';
 
+import Rating from '../../../containers/Rating/index';
 
 class Read extends Component {
   componentWillMount = () => {
-    const { match: { params: { slug } }, getArticle } = this.props;
+    const {
+      match: {
+        params: { slug },
+      },
+      getArticle,
+    } = this.props;
     if (slug !== 'new') {
       getArticle(slug);
     }
   };
 
   renderEditButton = () => {
-    const { article: { slug }, article: { author } } = this.props;
+    const {
+      article: { slug },
+      article: { author },
+    } = this.props;
     const user = getCurrentUser();
-    return (
-      user && (author.username === user.username) ? (
-        <div className="fixed-action-btn">
-          <a
-            className="btn-floating btn-large"
-            href={`/articles/edit/${slug}`}
-          >
-            <i className="large material-icons">mode_edit</i>
-          </a>
-        </div>
-      ) : null
-    );
+    return user && author.username === user.username ? (
+      <div className="fixed-action-btn">
+        <a className="btn-floating btn-large" href={`/articles/edit/${slug}`}>
+          <i className="large material-icons">mode_edit</i>
+        </a>
+      </div>
+    ) : null;
   };
 
   renderTags = tags => (
     <div className="row tags">
       <div className="col">
-        {
-          tags.map(tag => (
-            <div className="tag">{tag}</div>
-          ))
-        }
+        {tags.map(tag => (
+          <div className="tag">{tag}</div>
+        ))}
       </div>
     </div>
   );
 
-  renderArticle = (isFetched, article) => (
-    isFetched ? (
-      <ArticleViewLoader />
-    ) : (
+  renderArticle = (isFetched, article) => (isFetched ? (
+    <ArticleViewLoader />
+  ) : (
       <>
         <ArticleEditor {...this.props} readOnly />
         {this.renderTags(article.tags)}
         <LikeDislike slug={article.slug} />
       </>
-    )
+  ));
+
+  totalRating = total => (
+    <div className="reviews-stats col s12">
+      <span className="reviewers-small" />
+      <span className="reviews-num">
+        {total}
+        24
+      </span>
+      total
+    </div>
   );
 
-  checkErrors= () => {
+  barWidth = (ratings, totalUsers) => `${(ratings / totalUsers) * 20}%`;
+
+  barGraph = (star, pos, ratings, totalUsers) => (
+    <div className="rating-histogram col s12">
+      <div className={`rating-bar-container ${pos}`}>
+        <span className="bar-label">
+          <span className="star-tiny" />
+          {star}
+        </span>
+        <span className="bar" style={{ width: this.barWidth(ratings, totalUsers) }} />
+        <span className="bar-number">{ratings}</span>
+      </div>
+    </div>
+  );
+
+  checkErrors = () => {
     const { errors } = this.props;
     if (errors) {
       if (errors.status === 404) {
@@ -82,33 +108,76 @@ class Read extends Component {
   render() {
     const { article, isFetching } = this.props;
 
-    return this.checkErrors() || (
-      <div>
-        <NavBar />
-        <div style={{ marginTop: '50px' }} className="container">
-          {
-            isFetching
-              ? (
-                <div className="container">
-                  <ArticleViewLoader />
-                </div>
-              ) : (
-                <>
-                  <ArticleProfileView article={article} user={getCurrentUser()} />
-                  <Divider />
-                  <div className="row">
-                    <div className="col s12 m8 offset-m2">
-                      <ArticleEditor {...this.props} readOnly />
-                      {this.renderTags(article.tags)}
-                      <LikeDislike slug={article.slug} />
-                    </div>
+    return (
+      this.checkErrors() || (
+        <div>
+          <NavBar />
+          <div style={{ marginTop: '50px' }} className="container">
+            {isFetching ? (
+              <div className="container">
+                <ArticleViewLoader />
+              </div>
+            ) : (
+              <>
+                <ArticleProfileView article={article} user={getCurrentUser()} />
+                <div className="row">
+                  <div className="reviews-stats col s1">
+                    <div className="score">{article.avg_rating.avg_rating.toFixed(1)}</div>
+                    <span className="reviewers-small" />
+                    <span className="reviews-num grey-text meta">
+                      {article.avg_rating.total_user}
+                      {' '}
+total
+                    </span>
                   </div>
-                  {this.renderEditButton()}
-            </>
-              )
-          }
+                  <div className="col s11 bar-graph">
+                    {this.barGraph(
+                      5,
+                      'five',
+                      article.avg_rating.each_rating['5'],
+                      article.avg_rating.total_user,
+                    )}
+                    {this.barGraph(
+                      4,
+                      'four',
+                      article.avg_rating.each_rating['4'],
+                      article.avg_rating.total_user,
+                    )}
+                    {this.barGraph(
+                      3,
+                      'three',
+                      article.avg_rating.each_rating['3'],
+                      article.avg_rating.total_user,
+                    )}
+                    {this.barGraph(
+                      2,
+                      'two',
+                      article.avg_rating.each_rating['2'],
+                      article.avg_rating.total_user,
+                    )}
+                    {this.barGraph(
+                      1,
+                      'one',
+                      article.avg_rating.each_rating['1'],
+                      article.avg_rating.total_user,
+                    )}
+                  </div>
+                </div>
+                <Divider />
+                <div className="row">
+                  <div className="col s12 m8 offset-m2">
+                    <ArticleEditor {...this.props} readOnly />
+                    {this.renderTags(article.tags)}
+                    <LikeDislike slug={article.slug} />
+                    <Rating />
+                  </div>
+                </div>
+                {this.renderEditButton()}
+              </>
+            )}
+          </div>
         </div>
-      </div>
+      )
     );
   }
 }
@@ -125,8 +194,14 @@ Read.propTypes = {
 
 const mapStateToProps = ({ article, pageProgress }) => ({ ...article, ...pageProgress });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  getArticle: getArticleAction,
-}, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    getArticle: getArticleAction,
+  },
+  dispatch,
+);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Read);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Read);
