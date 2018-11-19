@@ -18,6 +18,7 @@ import Read from '../pages/Articles/Read';
 import MyArticles from '../components/MyArticles';
 import ProfilePage from '../pages/ProfilesPage';
 import Activate from '../containers/ActivateAccount';
+import SettingsPage from '../pages/Settings';
 
 export class AuthenticatedRoute extends Component {
   constructor(props) {
@@ -110,6 +111,11 @@ export default () => (
       />
       <AuthenticatedRoute exact path={ROUTES.auth.login} component={AuthPage} />
       <AuthenticatedRoute exact path={ROUTES.auth.register} component={AuthPage} />
+      <Route
+        exact
+        path={ROUTES.settings}
+        component={SettingsPage}
+      />
     </Switch>
   </Router>
 );

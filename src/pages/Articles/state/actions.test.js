@@ -45,7 +45,7 @@ describe('Article actions', () => {
   });
 
   it('publishes an article', () => {
-    axiosMock.onPut(getURL(`articles/${article.slug}`))
+    axiosMock.onPut(getURL(`articles/${article.slug}/`))
       .reply(200, { data: { ...article, published: true } });
     return store.dispatch(saveArticleAction({ ...article, published: true })).then(() => {
       expect(store.getActions()).toContainEqual({ type: ARTICLE_PUBLISH });
@@ -53,7 +53,7 @@ describe('Article actions', () => {
   });
 
   it('fails to get an article', () => {
-    axiosMock.onGet(getURL(`articles/${article.slug}`))
+    axiosMock.onGet(getURL(`articles/${article.slug}/`))
       .reply(400, { data: article });
     return store.dispatch(getArticleAction(article.slug)).then(() => {
       expect(store.getActions()).toContainEqual({ type: ARTICLE_FETCH });

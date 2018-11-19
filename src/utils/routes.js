@@ -20,6 +20,7 @@ const ROUTES = {
     view: '/profiles/view/:username',
     update: '/profiles/edit/:username',
   },
+  settings: '/settings',
 };
 
 export default ROUTES;
