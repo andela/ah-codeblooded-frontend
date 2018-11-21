@@ -10,14 +10,11 @@
     "jsx-a11y/label-has-associated-control": 0,
     "jsx-a11y/no-noninteractive-element-interactions": 0,
     "click-events-have-key-events": 0,
-    "import/first": [
-      "error",
-      "DISABLE-absolute-first"
-    ],
+    "import/first": ["error", "DISABLE-absolute-first"],
     "react/destructuring-assignment": 0,
     "react/sort-comp": 0,
-    "react/jsx-no-literals": [0,{"noStrings": true}],
-    "quotes": [0, "single",{ "avoidEscape": true}],
+    "react/jsx-no-literals": [0, { "noStrings": true }],
+    "quotes": [0, "single", { "avoidEscape": true }],
     "jsx-a11y/anchor-is-valid": 0,
     "function-paren-newline": ["error", "consistent"],
     "no-param-reassign": 0,
@@ -26,20 +23,13 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "esversion": 6,
-    "jsx-a11y/label-has-for": 0,
-    "jsx-a11y/label-has-associated-control": 0
+    "jsx-a11y/label-has-for": 0
   },
-  "plugins": [
-    "react",
-    "import"
-  ],
+  "plugins": ["react", "import"],
   "parser": "babel-eslint",
   "extends": "airbnb",
   "parserOptions": {

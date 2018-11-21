@@ -14,7 +14,8 @@ import LikeDislike from '../../../containers/LikeDislike';
 import ArticleViewLoader from '../../../components/ArticleViewLoader';
 import { ErrorPage } from '../../ErrorPage';
 
-import Rating from '../../../containers/Rating/index';
+import ConnectedRating from '../../../containers/Rating/index';
+import ConnectedRatingStats from '../../../containers/RatingStats/index';
 
 class Read extends Component {
   componentWillMount = () => {
@@ -64,32 +65,6 @@ class Read extends Component {
       </>
   ));
 
-  totalRating = total => (
-    <div className="reviews-stats col s12">
-      <span className="reviewers-small" />
-      <span className="reviews-num">
-        {total}
-        24
-      </span>
-      total
-    </div>
-  );
-
-  barWidth = (ratings, totalUsers) => `${(ratings / totalUsers) * 20}%`;
-
-  barGraph = (star, pos, ratings, totalUsers) => (
-    <div className="rating-histogram col s12">
-      <div className={`rating-bar-container ${pos}`}>
-        <span className="bar-label">
-          <span className="star-tiny" />
-          {star}
-        </span>
-        <span className="bar" style={{ width: this.barWidth(ratings, totalUsers) }} />
-        <span className="bar-number">{ratings}</span>
-      </div>
-    </div>
-  );
-
   checkErrors = () => {
     const { errors } = this.props;
     if (errors) {
@@ -121,55 +96,21 @@ class Read extends Component {
               <>
                 <ArticleProfileView article={article} user={getCurrentUser()} />
                 <div className="row">
-                  <div className="reviews-stats col s1">
-                    <div className="score">{article.avg_rating.avg_rating.toFixed(1)}</div>
-                    <span className="reviewers-small" />
-                    <span className="reviews-num grey-text meta">
-                      {article.avg_rating.total_user}
-                      {' '}
-total
-                    </span>
-                  </div>
-                  <div className="col s11 bar-graph">
-                    {this.barGraph(
-                      5,
-                      'five',
-                      article.avg_rating.each_rating['5'],
-                      article.avg_rating.total_user,
-                    )}
-                    {this.barGraph(
-                      4,
-                      'four',
-                      article.avg_rating.each_rating['4'],
-                      article.avg_rating.total_user,
-                    )}
-                    {this.barGraph(
-                      3,
-                      'three',
-                      article.avg_rating.each_rating['3'],
-                      article.avg_rating.total_user,
-                    )}
-                    {this.barGraph(
-                      2,
-                      'two',
-                      article.avg_rating.each_rating['2'],
-                      article.avg_rating.total_user,
-                    )}
-                    {this.barGraph(
-                      1,
-                      'one',
-                      article.avg_rating.each_rating['1'],
-                      article.avg_rating.total_user,
-                    )}
-                  </div>
+                  <ConnectedRatingStats slug={article.slug} />
                 </div>
                 <Divider />
                 <div className="row">
                   <div className="col s12 m8 offset-m2">
                     <ArticleEditor {...this.props} readOnly />
                     {this.renderTags(article.tags)}
-                    <LikeDislike slug={article.slug} />
-                    <Rating />
+                    <div className="row col s12">
+                      <div className="col s3">
+                        <LikeDislike slug={article.slug} />
+                      </div>
+                      <div className="col s9">
+                        <ConnectedRating slug={article.slug} />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 {this.renderEditButton()}

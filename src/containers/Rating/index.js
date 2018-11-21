@@ -6,39 +6,33 @@ import PropTypes from 'prop-types';
 import { rateArticle, currentRate } from './state/action';
 import './rating.scss';
 
-class Rating extends Component {
+export class Rating extends Component {
   componentDidMount = () => {
-    this.props.currentRate();
+    const { slug } = this.props;
+    this.props.currentRate(slug);
   };
-
-  rate = this.props;
 
   onStarClick = (nextValue) => {
-    this.props.rateArticle(nextValue);
-    this.setState({ rate: nextValue });
+    const { slug } = this.props;
+    this.props.rateArticle(nextValue, slug);
   };
 
-  toaster = () => {
-    Materialize.toast({ html: this.rate.state });
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.rate.state === 'You cannot rate your own article.') {
+      Materialize.toast({ html: nextProps.rate.state });
+    }
   };
 
   render() {
     const { rate } = this.props;
-    const toaster = () => {
-      Materialize.toast({ html: rate.state });
-    };
-
     return (
-      <div className="col row l4 s12 valign-wrapper star" style={{ color: 'yellow' }}>
-        {rate.state === 'You cannot rate your own article.' ? toaster() : ''}
-        <StarRatingComponent
-          name="rateArticle"
-          starCount={5}
-          value={rate.state}
-          className="col row 8 s12 valign-wrapper"
-          onStarClick={this.onStarClick}
-        />
-      </div>
+      <StarRatingComponent
+        name="rateArticle"
+        starCount={5}
+        value={rate.state}
+        className="col row 8 s12 valign-wrapper star"
+        onStarClick={this.onStarClick}
+      />
     );
   }
 }
@@ -50,8 +44,12 @@ const mapStateToProps = ({ rate }) => ({
 Rating.propTypes = {
   rateArticle: PropTypes.func.isRequired,
   currentRate: PropTypes.func.isRequired,
-  rate: PropTypes.shape().isRequired,
+  rate: PropTypes.shape({
+    state: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  }).isRequired,
+  slug: PropTypes.string.isRequired,
 };
+
 export default connect(
   mapStateToProps,
   { rateArticle, currentRate },

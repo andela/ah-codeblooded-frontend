@@ -24,3 +24,9 @@ linters:
   LeadingZero:
     enabled: true
     style: exclude_zero # or 'include_zero'
+  PropertyCount:
+    enabled: true
+    include_nested: false
+    max_properties: 20
+
+  severity: warning

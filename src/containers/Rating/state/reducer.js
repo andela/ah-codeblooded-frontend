@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
     case UPDATE_RATE:
       return { ...state, success: true, state: action.payload.data.rating };
     case RATE_ERROR:
-      return { ...state, failure: true, state: action.payload };
+      return { ...state, failure: true, state: action.payload.message };
     default:
       return state;
   }
