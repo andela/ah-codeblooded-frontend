@@ -25,9 +25,9 @@ export const dislikeCommentError = payload => ({
   payload,
 });
 
-export const CommentStatSuccess = payload => ({
+export const CommentStatSuccess = (payload, id) => ({
   type: FETCH_COMMENT_SUCCESS,
-  payload,
+  payload: { payload, id },
 });
 
 export const CommentStatError = payload => ({

@@ -74,12 +74,13 @@ describe('reducer', () => {
 
   it('should handle FETCH_COMMENT_SUCCESS)', () => {
     action.type = FETCH_COMMENT_SUCCESS;
-    action.payload = reactions;
-    action.payload = expect(reducer(state, action)).toEqual({
+    action.payload = { id: 1, payload: reactions };
+    action.payload = expect(reducer({ error: "" }, action)).toEqual({
       error: "",
       reactions: {
-        dislikes: { count: 10, me: false },
-        likes: { count: 8, me: true },
+        1: {
+          ...reactions.reactions,
+        },
       },
     });
   });

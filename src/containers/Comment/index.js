@@ -11,6 +11,7 @@ import { getCurrentUser } from '../../utils/auth';
 import { deleteCommentAction } from '../CommentThread/state/actions';
 import PreLoader from '../../components/PreLoader';
 import ConnectedCommentEditor from '../CommentEditor';
+import ConnectedLikeDislikeComments from '../LikeDislikeComment';
 
 export class Comment extends Component {
   state = {
@@ -128,25 +129,29 @@ export class Comment extends Component {
             dangerouslySetInnerHTML={{ __html: this.generateBody(comment.body) }}
           />
         </div>
-        <div>
+        <div className="row valign-wrapper">
           {
             user && (
-              <span
-                className="reply valign-wrapper"
-                onClick={() => {
-                  if (comment.parent) {
-                    this.props.toggleComment(comment.author.username);
-                  } else {
-                    this.toggleComment(comment.author.username);
-                  }
-                }}
-              >
-                <i className="material-icons">reply</i>
-                {'  '}
-                Reply
-              </span>
+              <div className="col">
+                <span
+                  className="reply valign-wrapper"
+                  onClick={() => {
+                    if (comment.parent) {
+                      this.props.toggleComment(comment.author.username);
+                    } else {
+                      this.toggleComment(comment.author.username);
+                    }
+                  }}
+                >
+                  <i className="material-icons">reply</i>
+                  Reply
+                </span>
+              </div>
             )
           }
+          <div className="col like valign-wrapper">
+            <ConnectedLikeDislikeComments id={comment.id} {...this.props} />
+          </div>
         </div>
       </div>
     </div>

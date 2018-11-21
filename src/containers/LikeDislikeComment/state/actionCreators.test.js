@@ -34,10 +34,14 @@ describe('action creators', () => {
 
   it('should return an object with type and payload', () => {
     expect(CommentStatSuccess(payload)).toEqual({
+
       payload: {
-        likes: {
-          count: 0,
-          me: false,
+        id: undefined,
+        payload: {
+          likes: {
+            count: 0,
+            me: false,
+          },
         },
       },
       type: "FETCH_COMMENT_SUCCESS",

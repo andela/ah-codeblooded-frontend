@@ -31,3 +31,29 @@ export const reactions = {
     },
   },
 };
+export const slug = 'this-is-an-articles-title-plg70mtk521b';
+export const id = 1;
+export const data = {
+  data: {
+    reactions: {
+      likes: {
+        count: 6,
+        me: true,
+      },
+      dislikes: {
+        count: 3,
+        me: false,
+      },
+    },
+  },
+};
+
+export const commentData = {
+  data: {
+    comment: {
+      comment: {
+        ...reactions.reactions,
+      },
+    },
+  },
+};
