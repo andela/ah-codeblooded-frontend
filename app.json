@@ -1,7 +1,11 @@
 {
   "name": "ah-codeblooded-frontend",
   "scripts": {},
-  "env": {},
+  "env": {
+    "REACT_APP_API_URL": {
+      "required": true
+    }
+  },
   "formation": {
     "web": {
       "quantity": 1
