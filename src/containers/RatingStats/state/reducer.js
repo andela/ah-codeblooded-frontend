@@ -18,30 +18,30 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_RATINGS_SUCCESS: {
-      const {
-        rating: { each_rating: eachRating },
-      } = initialState;
-      const {
-        payload: {
-          data: { each_rating: newEachRating },
-        },
-      } = action;
-      return {
-        ...state,
-        isFetching: false,
-        rating: {
-          ...action.payload.data,
-          each_rating: { ...eachRating, ...newEachRating },
-        },
-      };
-    }
-    case FETCH_RATINGS: {
-      return { ...state, isFetching: true };
-    }
-    case FETCH_RATINGS_FAILURE:
-      return { ...state, isFetching: false, errors: action.payload };
-    default:
-      return state;
+  case FETCH_RATINGS_SUCCESS: {
+    const {
+      rating: { each_rating: eachRating },
+    } = initialState;
+    const {
+      payload: {
+        data: { each_rating: newEachRating },
+      },
+    } = action;
+    return {
+      ...state,
+      isFetching: false,
+      rating: {
+        ...action.payload.data,
+        each_rating: { ...eachRating, ...newEachRating },
+      },
+    };
+  }
+  case FETCH_RATINGS: {
+    return { ...state, isFetching: true };
+  }
+  case FETCH_RATINGS_FAILURE:
+    return { ...state, isFetching: false, errors: action.payload };
+  default:
+    return state;
   }
 };

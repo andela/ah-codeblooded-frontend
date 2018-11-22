@@ -94,7 +94,11 @@ ShallowWrapper {
                     className="col"
                   >
                     <h6>
-                      gitaumoses4
+                      <a
+                        href="/profiles/view/gitaumoses4/"
+                      >
+                        gitaumoses4
+                      </a>
                     </h6>
                     <span
                       className="grey-text meta"
@@ -187,7 +191,11 @@ ShallowWrapper {
                       className="col"
                     >
                       <h6>
-                        gitaumoses4
+                        <a
+                          href="/profiles/view/gitaumoses4/"
+                        >
+                          gitaumoses4
+                        </a>
                       </h6>
                       <span
                         className="grey-text meta"
@@ -277,7 +285,11 @@ ShallowWrapper {
                       className="col"
                     >
                       <h6>
-                        gitaumoses4
+                        <a
+                          href="/profiles/view/gitaumoses4/"
+                        >
+                          gitaumoses4
+                        </a>
                       </h6>
                       <span
                         className="grey-text meta"
@@ -353,7 +365,11 @@ ShallowWrapper {
                         className="col"
                       >
                         <h6>
-                          gitaumoses4
+                          <a
+                            href="/profiles/view/gitaumoses4/"
+                          >
+                            gitaumoses4
+                          </a>
                         </h6>
                         <span
                           className="grey-text meta"
@@ -481,7 +497,11 @@ ShallowWrapper {
                           className="col"
                         >
                           <h6>
-                            gitaumoses4
+                            <a
+                              href="/profiles/view/gitaumoses4/"
+                            >
+                              gitaumoses4
+                            </a>
                           </h6>
                           <span
                             className="grey-text meta"
@@ -551,7 +571,11 @@ ShallowWrapper {
                           className="col"
                         >
                           <h6>
-                            gitaumoses4
+                            <a
+                              href="/profiles/view/gitaumoses4/"
+                            >
+                              gitaumoses4
+                            </a>
                           </h6>
                           <span
                             className="grey-text meta"
@@ -588,7 +612,11 @@ ShallowWrapper {
                             className="col"
                           >
                             <h6>
-                              gitaumoses4
+                              <a
+                                href="/profiles/view/gitaumoses4/"
+                              >
+                                gitaumoses4
+                              </a>
                             </h6>
                             <span
                               className="grey-text meta"
@@ -624,7 +652,11 @@ ShallowWrapper {
                           "props": Object {
                             "children": Array [
                               <h6>
-                                gitaumoses4
+                                <a
+                                  href="/profiles/view/gitaumoses4/"
+                                >
+                                  gitaumoses4
+                                </a>
                               </h6>,
                               <span
                                 className="grey-text meta"
@@ -656,10 +688,25 @@ ShallowWrapper {
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
-                                "children": "gitaumoses4",
+                                "children": <a
+                                  href="/profiles/view/gitaumoses4/"
+                                >
+                                  gitaumoses4
+                                </a>,
                               },
                               "ref": null,
-                              "rendered": "gitaumoses4",
+                              "rendered": Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "children": "gitaumoses4",
+                                  "href": "/profiles/view/gitaumoses4/",
+                                },
+                                "ref": null,
+                                "rendered": "gitaumoses4",
+                                "type": "a",
+                              },
                               "type": "h6",
                             },
                             Object {
@@ -818,7 +865,11 @@ ShallowWrapper {
                       className="col"
                     >
                       <h6>
-                        gitaumoses4
+                        <a
+                          href="/profiles/view/gitaumoses4/"
+                        >
+                          gitaumoses4
+                        </a>
                       </h6>
                       <span
                         className="grey-text meta"
@@ -911,7 +962,11 @@ ShallowWrapper {
                         className="col"
                       >
                         <h6>
-                          gitaumoses4
+                          <a
+                            href="/profiles/view/gitaumoses4/"
+                          >
+                            gitaumoses4
+                          </a>
                         </h6>
                         <span
                           className="grey-text meta"
@@ -1001,7 +1056,11 @@ ShallowWrapper {
                         className="col"
                       >
                         <h6>
-                          gitaumoses4
+                          <a
+                            href="/profiles/view/gitaumoses4/"
+                          >
+                            gitaumoses4
+                          </a>
                         </h6>
                         <span
                           className="grey-text meta"
@@ -1077,7 +1136,11 @@ ShallowWrapper {
                           className="col"
                         >
                           <h6>
-                            gitaumoses4
+                            <a
+                              href="/profiles/view/gitaumoses4/"
+                            >
+                              gitaumoses4
+                            </a>
                           </h6>
                           <span
                             className="grey-text meta"
@@ -1205,7 +1268,11 @@ ShallowWrapper {
                             className="col"
                           >
                             <h6>
-                              gitaumoses4
+                              <a
+                                href="/profiles/view/gitaumoses4/"
+                              >
+                                gitaumoses4
+                              </a>
                             </h6>
                             <span
                               className="grey-text meta"
@@ -1275,7 +1342,11 @@ ShallowWrapper {
                             className="col"
                           >
                             <h6>
-                              gitaumoses4
+                              <a
+                                href="/profiles/view/gitaumoses4/"
+                              >
+                                gitaumoses4
+                              </a>
                             </h6>
                             <span
                               className="grey-text meta"
@@ -1312,7 +1383,11 @@ ShallowWrapper {
                               className="col"
                             >
                               <h6>
-                                gitaumoses4
+                                <a
+                                  href="/profiles/view/gitaumoses4/"
+                                >
+                                  gitaumoses4
+                                </a>
                               </h6>
                               <span
                                 className="grey-text meta"
@@ -1348,7 +1423,11 @@ ShallowWrapper {
                             "props": Object {
                               "children": Array [
                                 <h6>
-                                  gitaumoses4
+                                  <a
+                                    href="/profiles/view/gitaumoses4/"
+                                  >
+                                    gitaumoses4
+                                  </a>
                                 </h6>,
                                 <span
                                   className="grey-text meta"
@@ -1380,10 +1459,25 @@ ShallowWrapper {
                                 "key": undefined,
                                 "nodeType": "host",
                                 "props": Object {
-                                  "children": "gitaumoses4",
+                                  "children": <a
+                                    href="/profiles/view/gitaumoses4/"
+                                  >
+                                    gitaumoses4
+                                  </a>,
                                 },
                                 "ref": null,
-                                "rendered": "gitaumoses4",
+                                "rendered": Object {
+                                  "instance": null,
+                                  "key": undefined,
+                                  "nodeType": "host",
+                                  "props": Object {
+                                    "children": "gitaumoses4",
+                                    "href": "/profiles/view/gitaumoses4/",
+                                  },
+                                  "ref": null,
+                                  "rendered": "gitaumoses4",
+                                  "type": "a",
+                                },
                                 "type": "h6",
                               },
                               Object {

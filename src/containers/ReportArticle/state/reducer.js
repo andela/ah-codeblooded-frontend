@@ -15,39 +15,39 @@ const initialState = {
 const articleReporting = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case FETCH_REPORT_TYPES:
-      return { ...state, isReporting: true };
+  case FETCH_REPORT_TYPES:
+    return { ...state, isReporting: true };
 
-    case FETCH_REPORT_TYPES_SUCCESS:
-      return {
-        ...state,
-        reportTypes: payload,
-      };
+  case FETCH_REPORT_TYPES_SUCCESS:
+    return {
+      ...state,
+      reportTypes: payload,
+    };
 
-    case FETCH_REPORT_TYPES_FAILURE:
-      return {
-        ...state,
-        errors: payload,
-        isReporting: false,
-      };
+  case FETCH_REPORT_TYPES_FAILURE:
+    return {
+      ...state,
+      errors: payload,
+      isReporting: false,
+    };
 
-    case REPORTING_SUCCESS:
-      return {
-        ...state,
-        message: payload,
-        isReporting: false,
-        success: true,
-      };
-    case REPORTING_FAILURE:
-      return {
-        ...state,
-        errors: payload,
-        isReporting: false,
-        hasErrors: true,
-      };
+  case REPORTING_SUCCESS:
+    return {
+      ...state,
+      message: payload,
+      isReporting: false,
+      success: true,
+    };
+  case REPORTING_FAILURE:
+    return {
+      ...state,
+      errors: payload,
+      isReporting: false,
+      hasErrors: true,
+    };
 
-    default:
-      return state;
+  default:
+    return state;
   }
 };
 

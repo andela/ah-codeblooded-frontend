@@ -78,16 +78,16 @@ export class ReportArticle extends Component {
           >
             Report
           </button>
-          )}
+        )}
       >
         <form action="">
           <div className="input-field">
             <select id="report-selection" name="type" value={this.state.type} onChange={this.onChange}>
               <option disabled selected>Select Violation Type</option>
               {
-                  Object.keys(reports.reportTypes).map(key => (
-                    <option value={key}>{reports.reportTypes[key]}</option>
-                  ))
+                Object.keys(reports.reportTypes).map(key => (
+                  <option value={key}>{reports.reportTypes[key]}</option>
+                ))
               }
             </select>
           </div>
