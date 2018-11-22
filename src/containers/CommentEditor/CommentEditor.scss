@@ -1,0 +1,43 @@
+@import '../../assets/css/index';
+
+
+.comment-input {
+  .wrapper {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    &.inactive {
+      pointer-events: none;
+    }
+  }
+
+  .progress {
+    height: 1px !important;
+  }
+
+  .card {
+    z-index: 1001;
+  }
+
+  .card-content {
+    padding: .8em !important;
+
+    .row {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .username {
+    color: $primary-color;
+  }
+
+  .profile {
+    width: 60px !important;
+    height: 60px !important;
+  };
+}
+

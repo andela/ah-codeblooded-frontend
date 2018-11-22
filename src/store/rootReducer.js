@@ -10,6 +10,8 @@ import forgotPassword from '../containers/ForgotPasswordForm/state/reducer';
 import resetPassword from '../containers/ResetPasswordForm/state/reducer';
 import likeDislike from '../containers/LikeDislike/state/reducer';
 import userProfiles from '../containers/profiles/state/reducers';
+import commenting from '../containers/CommentEditor/state/reducer';
+import comments from '../containers/CommentThread/state/reducer';
 import subscribe from '../containers/Subscribe/state/reducer';
 import rate from '../containers/Rating/state/reducer';
 import ratingStats from '../containers/RatingStats/state/reducer';
@@ -29,6 +31,8 @@ const rootReducer = combineReducers({
   subscribe,
   rate,
   ratingStats,
+  commenting,
+  comments,
 });
 
 export default rootReducer;

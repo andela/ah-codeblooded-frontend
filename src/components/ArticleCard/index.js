@@ -97,6 +97,7 @@ class ArticleCard extends React.Component {
     if (article.published) {
       return `/article/@${article.author.username}/${article.slug}`;
     } if (!article.published && user && article.author.username === user.username) {
+      /* istanbul ignore next */
       return `/articles/edit/${article.slug}`;
     }
     return '#';
