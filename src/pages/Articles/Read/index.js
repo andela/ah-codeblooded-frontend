@@ -14,57 +14,58 @@ import LikeDislike from '../../../containers/LikeDislike';
 import ArticleViewLoader from '../../../components/ArticleViewLoader';
 import { ErrorPage } from '../../ErrorPage';
 
+import ConnectedRating from '../../../containers/Rating/index';
+import ConnectedRatingStats from '../../../containers/RatingStats/index';
 
 class Read extends Component {
   componentWillMount = () => {
-    const { match: { params: { slug } }, getArticle } = this.props;
+    const {
+      match: {
+        params: { slug },
+      },
+      getArticle,
+    } = this.props;
     if (slug !== 'new') {
       getArticle(slug);
     }
   };
 
   renderEditButton = () => {
-    const { article: { slug }, article: { author } } = this.props;
+    const {
+      article: { slug },
+      article: { author },
+    } = this.props;
     const user = getCurrentUser();
-    return (
-      user && (author.username === user.username) ? (
-        <div className="fixed-action-btn">
-          <a
-            className="btn-floating btn-large"
-            href={`/articles/edit/${slug}`}
-          >
-            <i className="large material-icons">mode_edit</i>
-          </a>
-        </div>
-      ) : null
-    );
+    return user && author.username === user.username ? (
+      <div className="fixed-action-btn">
+        <a className="btn-floating btn-large" href={`/articles/edit/${slug}`}>
+          <i className="large material-icons">mode_edit</i>
+        </a>
+      </div>
+    ) : null;
   };
 
   renderTags = tags => (
     <div className="row tags">
       <div className="col">
-        {
-          tags.map(tag => (
-            <div className="tag">{tag}</div>
-          ))
-        }
+        {tags.map(tag => (
+          <div className="tag">{tag}</div>
+        ))}
       </div>
     </div>
   );
 
-  renderArticle = (isFetched, article) => (
-    isFetched ? (
-      <ArticleViewLoader />
-    ) : (
+  renderArticle = (isFetched, article) => (isFetched ? (
+    <ArticleViewLoader />
+  ) : (
       <>
         <ArticleEditor {...this.props} readOnly />
         {this.renderTags(article.tags)}
         <LikeDislike slug={article.slug} />
       </>
-    )
-  );
+  ));
 
-  checkErrors= () => {
+  checkErrors = () => {
     const { errors } = this.props;
     if (errors) {
       if (errors.status === 404) {
@@ -82,33 +83,42 @@ class Read extends Component {
   render() {
     const { article, isFetching } = this.props;
 
-    return this.checkErrors() || (
-      <div>
-        <NavBar />
-        <div style={{ marginTop: '50px' }} className="container">
-          {
-            isFetching
-              ? (
-                <div className="container">
-                  <ArticleViewLoader />
+    return (
+      this.checkErrors() || (
+        <div>
+          <NavBar />
+          <div style={{ marginTop: '50px' }} className="container">
+            {isFetching ? (
+              <div className="container">
+                <ArticleViewLoader />
+              </div>
+            ) : (
+              <>
+                <ArticleProfileView article={article} user={getCurrentUser()} />
+                <div className="row">
+                  <ConnectedRatingStats slug={article.slug} />
                 </div>
-              ) : (
-                <>
-                  <ArticleProfileView article={article} user={getCurrentUser()} />
-                  <Divider />
-                  <div className="row">
-                    <div className="col s12 m8 offset-m2">
-                      <ArticleEditor {...this.props} readOnly />
-                      {this.renderTags(article.tags)}
-                      <LikeDislike slug={article.slug} />
+                <Divider />
+                <div className="row">
+                  <div className="col s12 m8 offset-m2">
+                    <ArticleEditor {...this.props} readOnly />
+                    {this.renderTags(article.tags)}
+                    <div className="row col s12">
+                      <div className="col s3">
+                        <LikeDislike slug={article.slug} />
+                      </div>
+                      <div className="col s9">
+                        <ConnectedRating slug={article.slug} />
+                      </div>
                     </div>
                   </div>
-                  {this.renderEditButton()}
-            </>
-              )
-          }
+                </div>
+                {this.renderEditButton()}
+              </>
+            )}
+          </div>
         </div>
-      </div>
+      )
     );
   }
 }
@@ -125,8 +135,14 @@ Read.propTypes = {
 
 const mapStateToProps = ({ article, pageProgress }) => ({ ...article, ...pageProgress });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  getArticle: getArticleAction,
-}, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    getArticle: getArticleAction,
+  },
+  dispatch,
+);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Read);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Read);

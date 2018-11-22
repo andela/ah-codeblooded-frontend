@@ -6,53 +6,50 @@ import './LikeDislike.scss';
 import { likeArticle, dislikeArticle, fetchReactions } from './state/Actions';
 
 class LikeDislike extends Component {
-    componentWillMount = () => {
-      const { slug, fetch } = this.props;
+  componentWillMount = () => {
+    const { slug, fetch } = this.props;
+    fetch(slug);
+
+    this.interval = setInterval(() => {
       fetch(slug);
+    }, 30000);
+  };
 
-      this.interval = setInterval(() => {
-        fetch(slug);
-      }, 30000);
-    }
+  handleLike = () => {
+    const { slug, likes, like } = this.props;
+    like(slug, likes.me);
+  };
 
-    handleLike = () => {
-      const { slug, likes, like } = this.props;
-      like(slug, likes.me);
-    }
+  handleDislike = () => {
+    const { slug, dislikes, dislike } = this.props;
+    dislike(slug, dislikes.me);
+  };
 
-    handleDislike = () => {
-      const { slug, dislikes, dislike } = this.props;
-      dislike(slug, dislikes.me);
-    }
-
-    render() {
-      const {
-        likes, dislikes,
-      } = this.props;
-      return (
-        <div className="col l8 s12 row valign-wrapper">
-          <span>{ likes.count }</span>
-          <button
-            type="button"
-            active
-            onClick={this.handleLike}
-            className="valign-wrapper waves-effect waves-light btn btn-flat white"
-          >
-            <i className={`material-icons reaction ${likes.me ? 'active' : ''}`}>thumb_up</i>
-          </button>
-          <span>{ dislikes.count }</span>
-          <button
-            type="button"
-            onClick={this.handleDislike}
-            className="valign-wrapper waves-effect btn btn-flat white"
-          >
-            <i className={`material-icons reaction ${dislikes.me ? 'active' : ''}`}>thumb_down</i>
-          </button>
-        </div>
-      );
-    }
+  render() {
+    const { likes, dislikes } = this.props;
+    return (
+      <div className="valign-wrapper">
+        <span>{likes.count}</span>
+        <button
+          type="button"
+          active
+          onClick={this.handleLike}
+          className="valign-wrapper waves-effect waves-light btn btn-flat white"
+        >
+          <i className={`material-icons reaction ${likes.me ? 'active' : ''}`}>thumb_up</i>
+        </button>
+        <span>{dislikes.count}</span>
+        <button
+          type="button"
+          onClick={this.handleDislike}
+          className="valign-wrapper waves-effect btn btn-flat white"
+        >
+          <i className={`material-icons reaction ${dislikes.me ? 'active' : ''}`}>thumb_down</i>
+        </button>
+      </div>
+    );
+  }
 }
-
 
 LikeDislike.propTypes = {
   likes: PropTypes.shape({
@@ -73,5 +70,6 @@ LikeDislike.propTypes = {
 const mapStateToProps = ({ likeDislike }) => likeDislike;
 
 export default connect(
-  mapStateToProps, { like: likeArticle, dislike: dislikeArticle, fetch: fetchReactions },
+  mapStateToProps,
+  { like: likeArticle, dislike: dislikeArticle, fetch: fetchReactions },
 )(LikeDislike);
