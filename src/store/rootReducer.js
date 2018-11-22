@@ -10,6 +10,7 @@ import forgotPassword from '../containers/ForgotPasswordForm/state/reducer';
 import resetPassword from '../containers/ResetPasswordForm/state/reducer';
 import likeDislike from '../containers/LikeDislike/state/reducer';
 import userProfiles from '../containers/profiles/state/reducers';
+import subscribe from '../containers/Subscribe/state/reducer';
 
 const rootReducer = combineReducers({
   article,
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   likeDislike,
   userProfiles,
   activateAccount,
+  subscribe,
 });
 
 export default rootReducer;
