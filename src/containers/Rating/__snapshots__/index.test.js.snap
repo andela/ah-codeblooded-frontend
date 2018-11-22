@@ -50,7 +50,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "className": "col row 8 s12 valign-wrapper star",
+      "className": "star",
       "editing": true,
       "emptyStarColor": "#333",
       "name": "rateArticle",
@@ -69,7 +69,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "className": "col row 8 s12 valign-wrapper star",
+        "className": "star",
         "editing": true,
         "emptyStarColor": "#333",
         "name": "rateArticle",

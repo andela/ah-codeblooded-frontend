@@ -26,27 +26,29 @@ class LikeDislike extends Component {
   };
 
   render() {
-    const { likes, dislikes } = this.props;
+    const {
+      likes, dislikes,
+    } = this.props;
     return (
-      <div className="valign-wrapper">
-        <span>{likes.count}</span>
-        <button
-          type="button"
-          active
-          onClick={this.handleLike}
-          className="valign-wrapper waves-effect waves-light btn btn-flat white"
-        >
-          <i className={`material-icons reaction ${likes.me ? 'active' : ''}`}>thumb_up</i>
-        </button>
-        <span>{dislikes.count}</span>
-        <button
-          type="button"
-          onClick={this.handleDislike}
-          className="valign-wrapper waves-effect btn btn-flat white"
-        >
-          <i className={`material-icons reaction ${dislikes.me ? 'active' : ''}`}>thumb_down</i>
-        </button>
-      </div>
+        <>
+          <span>{ likes.count }</span>
+          <button
+            type="button"
+            active
+            onClick={this.handleLike}
+            className="valign-wrapper waves-effect btn btn-flat white"
+          >
+            <i className={`material-icons reaction ${likes.me ? 'active' : ''}`}>thumb_up</i>
+          </button>
+          <span>{ dislikes.count }</span>
+          <button
+            type="button"
+            onClick={this.handleDislike}
+            className="valign-wrapper waves-effect btn btn-flat white"
+          >
+            <i className={`material-icons reaction ${dislikes.me ? 'active' : ''}`}>thumb_down</i>
+          </button>
+        </>
     );
   }
 }

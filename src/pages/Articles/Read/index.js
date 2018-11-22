@@ -16,6 +16,8 @@ import { ErrorPage } from '../../ErrorPage';
 import ConnectedCommentEditor from '../../../containers/CommentEditor';
 import ConnectedCommentThread from '../../../containers/CommentThread';
 
+import ArticleShare from "../../../components/ArticleShare";
+import { getLocation } from "../../../utils/helpers";
 import ConnectedRating from '../../../containers/Rating/index';
 import ConnectedRatingStats from '../../../containers/RatingStats/index';
 
@@ -57,17 +59,7 @@ class Read extends Component {
     </div>
   );
 
-  renderArticle = (isFetched, article) => (isFetched ? (
-    <ArticleViewLoader />
-  ) : (
-      <>
-        <ArticleEditor {...this.props} readOnly />
-        {this.renderTags(article.tags)}
-        <LikeDislike slug={article.slug} />
-      </>
-  ));
-
-  checkErrors = () => {
+  checkErrors= () => {
     const { errors } = this.props;
     if (errors) {
       if (errors.status === 404) {
@@ -106,14 +98,11 @@ class Read extends Component {
                   <div className="col s12 m8 offset-m2">
                     <ArticleEditor {...this.props} readOnly />
                     {this.renderTags(article.tags)}
-                    <div className="row col s12">
-                      <div className="col s3">
-                        <LikeDislike slug={article.slug} />
-                      </div>
-                      <div className="col s9">
-                        <ConnectedRating slug={article.slug} />
-                      </div>
-                    </div>
+                    <span className=" col l8 s12 row valign-wrapper">
+                      <LikeDislike slug={article.slug} />
+                      <ArticleShare article={{ ...article, url: getLocation() }} />
+                      <ConnectedRating slug={article.slug} />
+                    </span>
                   </div>
                 </div>
                 <Divider />
