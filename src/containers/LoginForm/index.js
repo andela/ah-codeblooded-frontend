@@ -26,15 +26,10 @@ export class LoginForm extends Component {
     const { history } = this.props;
     const data = { ...this.state };
     this.props.loginAction({ user: data }, () => {
+      /* istanbul ignore next */
       history.push("/");
     });
   };
-
-  loginProgress = () => (
-    <div className="progress">
-      <div className="indeterminate" />
-    </div>
-  );
 
   render() {
     const { email, password } = this.state;
@@ -64,7 +59,13 @@ export class LoginForm extends Component {
             <div className="card-title">
               <h5>Login</h5>
             </div>
-            <div>{isLogingIn ? this.loginProgress() : null}</div>
+            {isLogingIn
+              && (
+              <div className="progress">
+                <div className="indeterminate" />
+              </div>
+              )
+              }
             {errors.length > 0 ? (
               <div className="red-text">
                 <p>Username and password do not match. Please try again</p>

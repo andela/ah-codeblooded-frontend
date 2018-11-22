@@ -1,0 +1,67 @@
+@import '../../assets/css/index';
+
+.comment {
+  margin: .1em;
+  width: 100% !important;
+  display: block;
+  padding: .3em;
+  color: color('shades' , 'black') !important;
+
+  .comment-content {
+    padding: .3em;
+  }
+
+  .meta {
+    color: color('grey', 'darken-2') !important;
+  }
+
+  .body {
+    font-size: .9em;
+  }
+
+  .author {
+    margin: 1em 0;
+    font-size: .8em;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    .profile {
+      width: 3em !important;
+      height: 3em !important;
+    }
+
+    .info {
+      margin-left: .5em;
+    }
+
+    .username {
+      font-weight: bold;
+    }
+  }
+}
+
+.reply {
+  cursor: pointer;
+  margin-top: 1em;
+  color: darken($secondary-color, 30%) !important;
+}
+
+.comment-mention {
+  cursor: pointer;
+  display: inline;
+  font-size: 1em;
+  color: $secondary-color !important;
+}
+
+.context-menu {
+  i {
+    color: color('grey', 'base') !important;
+  }
+
+  .btn {
+    font-size: .8em;
+  }
+
+  font-size: .8em;
+};

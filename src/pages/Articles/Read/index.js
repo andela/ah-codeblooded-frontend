@@ -13,6 +13,8 @@ import { getCurrentUser } from '../../../utils/auth';
 import LikeDislike from '../../../containers/LikeDislike';
 import ArticleViewLoader from '../../../components/ArticleViewLoader';
 import { ErrorPage } from '../../ErrorPage';
+import ConnectedCommentEditor from '../../../containers/CommentEditor';
+import ConnectedCommentThread from '../../../containers/CommentThread';
 
 import ConnectedRating from '../../../containers/Rating/index';
 import ConnectedRatingStats from '../../../containers/RatingStats/index';
@@ -82,6 +84,7 @@ class Read extends Component {
 
   render() {
     const { article, isFetching } = this.props;
+    const user = getCurrentUser();
 
     return (
       this.checkErrors() || (
@@ -111,6 +114,18 @@ class Read extends Component {
                         <ConnectedRating slug={article.slug} />
                       </div>
                     </div>
+                  </div>
+                </div>
+                <Divider />
+                <div className="row">
+                  <div className="col s10 offset-s1">
+                    {
+                      user
+                      && <ConnectedCommentEditor slug={article.slug} />
+                    }
+                  </div>
+                  <div className="col s8 offset-s2">
+                    <ConnectedCommentThread slug={article.slug} />
                   </div>
                 </div>
                 {this.renderEditButton()}

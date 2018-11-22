@@ -14,7 +14,7 @@ linters:
     min_properties: 2
     separate_groups: false
   SelectorFormat:
-    enabled: true
+    enabled: false
     convention: hyphenated_lowercase # or 'strict_BEM', or 'hyphenated_BEM', or 'snake_case', or 'camel_case', or a regex pattern
   TrailingWhitespace:
     enabled: false
@@ -29,4 +29,3 @@ linters:
     include_nested: false
     max_properties: 20
 
-  severity: warning
