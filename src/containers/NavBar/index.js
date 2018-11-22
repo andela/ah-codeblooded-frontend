@@ -51,7 +51,7 @@ class NavBar extends React.Component {
 
   getAuthenticatedMenu = user => (
     <>
-      <MenuItem link="" icon="search" />
+      <MenuItem link={ROUTES.search} icon="search" />
       <MenuItem link="" icon="notifications" />
       <MenuItem
         iconImage={user.image || profile}

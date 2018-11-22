@@ -21,6 +21,12 @@ export class ArticleListing extends React.Component {
     page: 1,
   };
 
+  constructor(props) {
+    super(props);
+
+    this.load = this.load.bind(this);
+  }
+
   componentDidMount = () => {
     const {
       url, fetchArticles, params, listName,
