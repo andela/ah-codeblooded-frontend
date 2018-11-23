@@ -1,10 +1,12 @@
 import React from 'react';
 import Materialize from 'materialize-css';
+import PropTypes from 'prop-types';
 import NavBar from '../../containers/NavBar';
 import ConnectedArticleListing from '../../containers/ArticleListing';
 import layouts from '../ArticleCard/layouts';
 import './MyArticles.scss';
 import ROUTES from '../../utils/routes';
+import { getCurrentUser } from '../../utils/auth';
 
 class MyArticles extends React.Component {
   state={
@@ -19,9 +21,13 @@ class MyArticles extends React.Component {
   layoutHandler = () => layouts.MINIMAL_LAYOUT;
 
   filter = (articles, published) => {
-    const result = articles.filter(article => article.published === published);
+    const { user } = this.props;
+    const mine = articles.filter(
+      article => article.author.username === user.username,
+    );
+    const result = mine.filter(article => article.published === published);
     if (published) {
-      this.setState({ published: result.length, drafts: articles.length - result.length });
+      this.setState({ published: result.length, drafts: mine.length - result.length });
     }
     return result;
   };
@@ -88,4 +94,11 @@ class MyArticles extends React.Component {
   }
 }
 
+MyArticles.defaultProps = {
+  user: getCurrentUser(),
+};
+
+MyArticles.propTypes = {
+  user: PropTypes.shape({}),
+};
 export default MyArticles;

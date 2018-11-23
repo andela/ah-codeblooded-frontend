@@ -1,13 +1,13 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import { article, mockStore } from '../../utils/testHelpers';
+import { article, mockStore, user } from '../../utils/testHelpers';
 import MyArticles from './index';
 import layouts from '../ArticleCard/layouts';
 
 const store = mockStore({});
 
 describe('<MyArticles> component page', () => {
-  const wrapper = shallow(<MyArticles store={store} />);
+  const wrapper = shallow(<MyArticles store={store} user={user} />);
   const instance = wrapper.instance();
   it('should have two tabs for drafts and published articles', () => {
     expect(wrapper.find('.tab').length).toEqual(2);

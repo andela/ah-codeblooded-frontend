@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroller';
+import Slider from 'react-animated-slider';
 import { articlesFetchAction } from './state/actions';
 import layouts from '../../components/ArticleCard/layouts';
 import ArticleCard from '../../components/ArticleCard';
@@ -11,6 +12,9 @@ import ArticleCardLoader from '../../components/ArticleCardLoader';
 import PreLoader from '../../components/PreLoader';
 import { articleListingState } from './state/reducer';
 import Empty from '../../components/Empty';
+import placeholder from '../../assets/images/placeholder.jpg';
+import './ArticleListing.scss';
+import 'react-animated-slider/build/horizontal.css';
 
 export class ArticleListing extends React.Component {
   state ={
@@ -23,7 +27,7 @@ export class ArticleListing extends React.Component {
   };
 
   componentWillReceiveProps = (nextProps) => {
-    this.setState({ page: nextProps.params.page || 0 });
+    this.setState({ page: nextProps.params.page || nextProps.pageStart });
   };
 
   renderArticle = (index, article) => {
@@ -83,24 +87,29 @@ export class ArticleListing extends React.Component {
   }
 
   renderFeaturedArticles = articles => (
-    <div className="card featured">
-      <div className="card-content">
-        <div className="row">
-          <div className="col m4 s12">
-            {this.renderArticle(0, articles[0])}
+    <div className="featured">
+      <Slider className="slider-wrapper" autoplay={5000}>
+        {articles.map(article => (
+          <div
+            key={article && article.slug}
+            className="slider-content"
+            style={{ background: `url('${(article && article.image) || placeholder}') no-repeat center center` }}
+          >
+            <div className="inner">
+              <h1>{article && article.title}</h1>
+              <p>{article && article.description}</p>
+              <a className="btn" href={article && `/article/@${article.author.username}/${article.slug}`}>Read More</a>
+            </div>
+            <section>
+              <img src={article && article.author.image} alt={article && article.author.username} />
+              <span>
+Posted by
+                <strong>{article && article.author.username}</strong>
+              </span>
+            </section>
           </div>
-          <div className="col m5 s12">
-            {
-              articles.map((article, index) => (
-                (index > 0 && index <= 3) ? this.renderArticle(index, article) : null
-              ))
-            }
-          </div>
-          <div className="col m3 s12">
-            {this.renderArticle(0, articles[4])}
-          </div>
-        </div>
-      </div>
+        ))}
+      </Slider>
     </div>
   );
 
