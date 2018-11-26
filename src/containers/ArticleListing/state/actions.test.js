@@ -8,13 +8,14 @@ const store = mockStore({});
 describe('Article Listing actions', () => {
   afterEach(() => {
     axiosMock.reset();
+    store.clearActions();
   });
 
   it('should dispatch a ARTICLE_FETCHING action', () => {
     axiosMock.onGet(getURL('articles/')).reply(
       200, { data: { article: [article] } },
     );
-    return store.dispatch(articlesFetchAction({}, 'articles')).then(() => {
+    return store.dispatch(articlesFetchAction('articles/', {}, 'articles')).then(() => {
       expect(store.getActions()).toContainEqual(
         { type: FETCH_ARTICLES_SUCCESS, payload: { listName: 'articles', data: [article] } },
       );
