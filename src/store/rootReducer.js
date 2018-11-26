@@ -15,6 +15,7 @@ import comments from '../containers/CommentThread/state/reducer';
 import subscribe from '../containers/Subscribe/state/reducer';
 import rate from '../containers/Rating/state/reducer';
 import ratingStats from '../containers/RatingStats/state/reducer';
+import favorite from "../containers/ArticleFavoriting/state/reducers";
 
 const rootReducer = combineReducers({
   article,
@@ -33,6 +34,7 @@ const rootReducer = combineReducers({
   ratingStats,
   commenting,
   comments,
+  favorite,
 });
 
 export default rootReducer;

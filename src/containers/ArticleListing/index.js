@@ -22,8 +22,10 @@ export class ArticleListing extends React.Component {
   };
 
   componentDidMount = () => {
-    const { fetchArticles, params, listName } = this.props;
-    fetchArticles(params, listName);
+    const {
+      url, fetchArticles, params, listName,
+    } = this.props;
+    fetchArticles(url, params, listName);
   };
 
   componentWillReceiveProps = (nextProps) => {
@@ -78,8 +80,10 @@ export class ArticleListing extends React.Component {
   loadMore(page, totalPages) {
     this.setState({ page });
     if (page <= totalPages) {
-      const { fetchArticles, params, listName } = this.props;
-      fetchArticles({
+      const {
+        fetchArticles, params, listName, url,
+      } = this.props;
+      fetchArticles(url, {
         ...params,
         page,
       }, listName, true);
@@ -147,6 +151,7 @@ ArticleListing.defaultProps = {
   pageStart: 1,
   filterResults: articles => articles.filter(article => article.published),
   emptyMessage: "No articles",
+  url: 'articles/',
 };
 
 ArticleListing.propTypes = {
@@ -161,6 +166,7 @@ ArticleListing.propTypes = {
   listName: PropTypes.string,
   filterResults: PropTypes.func,
   emptyMessage: PropTypes.string,
+  url: PropTypes.string,
 };
 
 const mapStateToProps = ({ articles }) => articles;
