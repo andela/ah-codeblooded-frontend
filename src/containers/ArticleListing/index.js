@@ -34,6 +34,13 @@ export class ArticleListing extends React.Component {
     fetchArticles(url, params, listName);
   };
 
+  load() {
+    const {
+      fetchArticles, url, params, listName,
+    } = this.props;
+    fetchArticles(url, params, listName);
+  }
+
   componentWillReceiveProps = (nextProps) => {
     this.setState({ page: nextProps.params.page || nextProps.pageStart });
   };
@@ -87,7 +94,7 @@ export class ArticleListing extends React.Component {
     this.setState({ page });
     if (page <= totalPages) {
       const {
-        fetchArticles, params, listName, url,
+        fetchArticles, url, params, listName,
       } = this.props;
       fetchArticles(url, {
         ...params,

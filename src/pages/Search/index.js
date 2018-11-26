@@ -18,7 +18,7 @@ class Search extends Component {
     onSearch = (e) => {
       const { fetchArticles } = this.props;
       this.setState({ [e.target.name]: e.target.value });
-      fetchArticles({ ...this.state }, "search");
+      fetchArticles("articles/search_filter", { ...this.state }, "search");
     }
 
     render() {
@@ -26,13 +26,23 @@ class Search extends Component {
         <div>
           <NavBar />
           <div className="container">
-            <input name="search" onChange={this.onSearch} value={this.state.search} />
+            <div className="nav-wrapper">
+              <form>
+                <div className="input-field">
+                  <input type="search" name="search" required placeholder="Search here" onChange={this.onSearch} value={this.state.search} />
+                  <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div className="container">
             <div className="row">
               <ConnectedArticleListing
                 ref={(list) => { this.list = list; }}
                 initialList={5}
+                emptyMessage="We did not find any results"
                 listName="search"
-                params={{ search: this.state.search }}
+                url="articles/search_filter"
               />
             </div>
           </div>
