@@ -11,6 +11,7 @@ import ArticleProfileView from '../../../components/ArticleProfileView';
 import './Read.scss';
 import { getCurrentUser } from '../../../utils/auth';
 import LikeDislike from '../../../containers/LikeDislike';
+import ArticleFavoriting from '../../../containers/ArticleFavoriting';
 import ArticleViewLoader from '../../../components/ArticleViewLoader';
 import { ErrorPage } from '../../ErrorPage';
 import ConnectedCommentEditor from '../../../containers/CommentEditor';
@@ -100,6 +101,11 @@ class Read extends Component {
                     {this.renderTags(article.tags)}
                     <span className=" col l8 s12 row valign-wrapper">
                       <LikeDislike slug={article.slug} />
+                      <ArticleFavoriting
+                        slug={article.slug}
+                        favorite={article.favourited}
+                        article={article}
+                      />
                       <ArticleShare article={{ ...article, url: getLocation() }} />
                       <ConnectedRating slug={article.slug} />
                     </span>

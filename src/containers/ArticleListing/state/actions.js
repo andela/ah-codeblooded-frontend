@@ -21,9 +21,9 @@ export const articlesFetchingFailed = (errors, listName) => (
   { type: FETCH_ARTICLES_FAILURE, payload: { errors, listName } }
 );
 
-export const articlesFetchAction = (params, listName, fetchMore = false) => (dispatch) => {
+export const articlesFetchAction = (url, params, listName, fetchMore = false) => (dispatch) => {
   dispatch(fetchingArticles(listName));
-  return api.get('articles/', { params })
+  return api.get(url, { params })
     .then((response) => {
       dispatch(articlesFetchingSuccessful(response.data.data.article, listName, fetchMore));
     }).catch((response) => {
