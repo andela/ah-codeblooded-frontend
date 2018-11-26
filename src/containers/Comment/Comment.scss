@@ -47,6 +47,12 @@
   color: darken($secondary-color, 30%) !important;
 }
 
+.like {
+  cursor: pointer;
+  margin-top: 1em;
+  color: darken($secondary-color, 30%) !important;
+}
+
 .comment-mention {
   cursor: pointer;
   display: inline;
