@@ -12,9 +12,22 @@ ShallowWrapper {
           "password": "Password1!",
           "username": "gitaumoses4",
         },
+        "avg_rating": Object {
+          "avg_rating": 0,
+        },
         "body": "{\\"blocks\\":[{\\"key\\":\\"8v5h3\\",\\"text\\":\\"\\",\\"type\\":\\"header-one\\",\\"depth\\":0,\\"inlineStyleRanges\\":[],\\"entityRanges\\":[],\\"data\\":{}}],\\"entityMap\\":{}}",
         "description": "The Dungeon Dragon Story",
         "published": false,
+        "reactions": Object {
+          "dislikes": Object {
+            "count": 0,
+            "me": false,
+          },
+          "likes": Object {
+            "count": 0,
+            "me": false,
+          },
+        },
         "slug": "the-dungeon-dragon-12jhgf323",
         "tags": Array [
           "dragons",

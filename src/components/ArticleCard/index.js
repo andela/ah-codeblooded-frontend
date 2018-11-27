@@ -7,6 +7,7 @@ import layouts from './layouts';
 import './ArticleCard.scss';
 import readTime from '../../utils/readTime';
 import { getCurrentUser } from '../../utils/auth';
+import { VerticalDivider } from '../Divider';
 
 
 class ArticleCard extends React.Component {
@@ -26,6 +27,7 @@ class ArticleCard extends React.Component {
       <div className="col info-segment">
         {this.authorInfo()}
         {this.articleInfo()}
+        { this.articleRating() }
       </div>
     </div>
   );
@@ -51,6 +53,7 @@ class ArticleCard extends React.Component {
       <div className="info-segment">
         {this.authorInfo()}
         {this.articleInfo()}
+        {this.articleRating()}
       </div>
     </div>
   );
@@ -71,6 +74,37 @@ class ArticleCard extends React.Component {
         <div className="article-title">{article.title}</div>
         <div className="read-time meta">{readTime(article.read_time)}</div>
         <div className="description">{truncate(article.description, 150, {})}</div>
+      </div>
+    );
+  };
+
+  articleRating = () => {
+    const { article } = this.props;
+    const { likes, dislikes } = article.reactions;
+    return (
+      <div className="article-rating meta valign-wrapper">
+        {
+          article.avg_rating.avg_rating > 0 && (
+            <React.Fragment>
+              <span>
+                <i className="material-icons active">star</i>
+                {` ${article.avg_rating.avg_rating}`}
+              </span>
+              <VerticalDivider />
+            </React.Fragment>
+          )
+        }
+        <span className="valign-wrapper">
+          <i className={`material-icons ${likes.me && 'active'}`}>thumb_up</i>
+          &nbsp;
+          {likes.count}
+        </span>
+        <VerticalDivider />
+        <span className="valign-wrapper">
+          <i className={`material-icons ${dislikes.me && 'active'}`}>thumb_down</i>
+          &nbsp;
+          {dislikes.count}
+        </span>
       </div>
     );
   };

@@ -66,7 +66,8 @@ describe('Edit Profile container', () => {
 
   it('should ensure users can update bio and image', () => {
     wrapper.find('textarea').simulate('change');
-    expect(wrapper.find('textarea').text()).toEqual('');
+    wrapper.setProps({ profile: user });
+    expect(wrapper.find('textarea').text()).toEqual('This is some bio');
 
     const readAsText = jest.fn();
     const addEventListener = jest.fn((_, evtHandler) => { evtHandler(); });

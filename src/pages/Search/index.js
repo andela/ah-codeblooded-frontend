@@ -9,13 +9,13 @@ import ConnectedArticleListing from '../../containers/ArticleListing';
 export class Search extends Component {
     state ={
       search: '',
-    }
+    };
 
     onSearch = (e) => {
       const { fetchArticles } = this.props;
       this.setState({ [e.target.name]: e.target.value });
       fetchArticles("articles/search_filter", { ...this.state }, "search");
-    }
+    };
 
     render() {
       return (
