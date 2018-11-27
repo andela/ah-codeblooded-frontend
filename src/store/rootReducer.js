@@ -21,6 +21,8 @@ import favorite from "../containers/ArticleFavoriting/state/reducers";
 import stats from "../containers/Stats/state/reducer";
 import follow from "../containers/FollowUnfollow/state/reducer";
 import usersListing from "../containers/UsersListing/state/reducer";
+import stats from '../containers/Stats/state/reducer';
+import network from '../containers/NetworkPopup/state/reducer';
 
 const rootReducer = combineReducers({
   article,
@@ -45,6 +47,7 @@ const rootReducer = combineReducers({
   stats,
   follow,
   usersListing,
+  network,
 });
 
 export default rootReducer;

@@ -9,3 +9,5 @@ export const getQueryParam = (param) => {
 
 
 export const getLocation = () => window.location.toString();
+
+export const reloadLocation = () => window.location.reload();

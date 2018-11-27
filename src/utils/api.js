@@ -1,6 +1,8 @@
 import axios from 'axios';
 import config from './config';
 import { getToken } from './auth';
+import store from '../store';
+import { NETWORK_ERROR_DETECTED, NO_NETWORK_ERROR } from "../containers/NetworkPopup/state/types";
 
 const token = getToken();
 
@@ -12,11 +14,26 @@ const api = axios.create({
   baseURL: uri,
 });
 
-api.interceptors.request.use((c) => {
-  if (token) {
-    c.headers.authorization = `Token ${token}`;
-  }
-  return c;
-});
+api.interceptors.request.use(
+  (cfg) => {
+    if (token) {
+      cfg.headers.authorization = `Token ${token}`;
+    }
+    return cfg;
+  },
+);
+
+api.interceptors.response.use(
+  (response) => {
+    store.dispatch({ type: NO_NETWORK_ERROR });
+    return response;
+  },
+  (error) => {
+    if (!error.response) {
+      store.dispatch({ type: NETWORK_ERROR_DETECTED });
+    }
+    return Promise.reject(error);
+  },
+);
 
 export default api;
