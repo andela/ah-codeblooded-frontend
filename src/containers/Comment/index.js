@@ -168,10 +168,10 @@ export class Comment extends Component {
 
 
   generateBody = (body) => {
-    const regExp = /@\[([A-Za-z0-9]+)]/;
+    const regExp = /@\[(.*)]/;
     const username = body.match(regExp);
 
-    const fullMarkup = /@\[([A-Za-z0-9]+)]\(([A-Za-z0-9]+)\)/;
+    const fullMarkup = /@\[(.*)]\((.*)\)/;
     return username ? body.replace(fullMarkup,
       `<a href=${`/profiles/view/${username[1]}`}  
         class="comment-mention">${username[1]} </a>`) : body;

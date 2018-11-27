@@ -19,132 +19,153 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <rect
-          height="180"
-          rx="5"
-          ry="5"
-          width="496"
-          x="2"
-          y="2"
-        />,
-        <rect
-          height="33.35"
+          height="120"
           rx="0"
           ry="0"
-          width="285.36"
-          x="8.03"
-          y="209.61"
+          width="190"
+          x="196.03"
+          y="33.61"
         />,
         <rect
-          height="0"
+          height="11"
           rx="0"
           ry="0"
-          width="0"
-          x="198.03"
+          width="163"
+          x="7.03"
+          y="36.61"
+        />,
+        <rect
+          height="11"
+          rx="0"
+          ry="0"
+          width="160"
+          x="9.03"
+          y="54.61"
+        />,
+        <rect
+          height="6"
+          rx="0"
+          ry="0"
+          width="72"
+          x="9.03"
+          y="76.61"
+        />,
+        <circle
+          cx="22.82"
+          cy="110.4"
+          r="13.79"
+        />,
+        <rect
+          height="4"
+          rx="0"
+          ry="0"
+          width="31"
+          x="43.03"
+          y="100.61"
+        />,
+        <rect
+          height="4"
+          rx="0"
+          ry="0"
+          width="21"
+          x="44.03"
+          y="107.61"
+        />,
+        <rect
+          height="19.46"
+          rx="0"
+          ry="0"
+          width="20.85"
+          x="15.03"
+          y="137.61"
+        />,
+        <rect
+          height="17"
+          rx="0"
+          ry="0"
+          width="63"
+          x="46.03"
+          y="139.61"
+        />,
+        <rect
+          height="8"
+          rx="0"
+          ry="0"
+          width="357"
+          x="26.03"
           y="194.61"
         />,
         <rect
-          height="3"
+          height="7"
           rx="0"
           ry="0"
-          width="482"
-          x="7.03"
-          y="259.61"
+          width="356"
+          x="26.03"
+          y="212.61"
         />,
         <rect
-          height="0"
+          height="8"
           rx="0"
           ry="0"
-          width="0"
-          x="176.03"
-          y="208.61"
+          width="356"
+          x="27.03"
+          y="231.61"
         />,
         <rect
-          height="10"
+          height="109"
           rx="0"
           ry="0"
-          width="0"
-          x="179.03"
-          y="209.61"
+          width="356"
+          x="26.03"
+          y="257.61"
         />,
         <rect
-          height="3"
+          height="4"
           rx="0"
           ry="0"
-          width="482"
-          x="5.03"
-          y="279.61"
+          width="348"
+          x="28.03"
+          y="379.61"
         />,
         <rect
-          height="3"
+          height="7"
           rx="0"
           ry="0"
-          width="482"
-          x="6.03"
-          y="299.61"
+          width="351"
+          x="27.03"
+          y="395.61"
         />,
         <rect
-          height="3"
+          height="6"
           rx="0"
           ry="0"
-          width="482"
-          x="8.03"
-          y="318.61"
+          width="349"
+          x="28.03"
+          y="415.61"
         />,
         <rect
-          height="3"
+          height="6"
           rx="0"
           ry="0"
-          width="482"
-          x="9.03"
-          y="338.61"
+          width="348"
+          x="27.03"
+          y="435.61"
         />,
         <rect
-          height="3"
+          height="6"
           rx="0"
           ry="0"
-          width="482"
-          x="6.03"
-          y="399.61"
+          width="349"
+          x="27.03"
+          y="455.61"
         />,
         <rect
-          height="3"
+          height="6"
           rx="0"
           ry="0"
-          width="482"
-          x="8.03"
-          y="419.61"
-        />,
-        <rect
-          height="3"
-          rx="0"
-          ry="0"
-          width="482"
-          x="8.03"
-          y="438.61"
-        />,
-        <rect
-          height="3"
-          rx="0"
-          ry="0"
-          width="482"
-          x="9.03"
-          y="458.61"
-        />,
-        <rect
-          height="3"
-          rx="0"
-          ry="0"
-          width="289.2"
-          x="8.03"
-          y="359.61"
-        />,
-        <rect
-          height="3"
-          rx="0"
-          ry="0"
-          width="289.2"
-          x="9.03"
-          y="479.61"
+          width="347"
+          x="27.03"
+          y="476.61"
         />,
       ],
       "height": 500,
@@ -152,7 +173,7 @@ ShallowWrapper {
       "rtl": true,
       "secondaryColor": "#ecebeb",
       "speed": 3,
-      "width": 500,
+      "width": 400,
     },
     "ref": null,
     "rendered": Array [
@@ -161,12 +182,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "height": "180",
-          "rx": "5",
-          "ry": "5",
-          "width": "496",
-          "x": "2",
-          "y": "2",
+          "height": "120",
+          "rx": "0",
+          "ry": "0",
+          "width": "190",
+          "x": "196.03",
+          "y": "33.61",
         },
         "ref": null,
         "rendered": null,
@@ -177,12 +198,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "height": "33.35",
+          "height": "11",
           "rx": "0",
           "ry": "0",
-          "width": "285.36",
-          "x": "8.03",
-          "y": "209.61",
+          "width": "163",
+          "x": "7.03",
+          "y": "36.61",
         },
         "ref": null,
         "rendered": null,
@@ -193,11 +214,120 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "height": "0",
+          "height": "11",
           "rx": "0",
           "ry": "0",
-          "width": "0",
-          "x": "198.03",
+          "width": "160",
+          "x": "9.03",
+          "y": "54.61",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "rect",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "height": "6",
+          "rx": "0",
+          "ry": "0",
+          "width": "72",
+          "x": "9.03",
+          "y": "76.61",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "rect",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "cx": "22.82",
+          "cy": "110.4",
+          "r": "13.79",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "circle",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "height": "4",
+          "rx": "0",
+          "ry": "0",
+          "width": "31",
+          "x": "43.03",
+          "y": "100.61",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "rect",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "height": "4",
+          "rx": "0",
+          "ry": "0",
+          "width": "21",
+          "x": "44.03",
+          "y": "107.61",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "rect",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "height": "19.46",
+          "rx": "0",
+          "ry": "0",
+          "width": "20.85",
+          "x": "15.03",
+          "y": "137.61",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "rect",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "height": "17",
+          "rx": "0",
+          "ry": "0",
+          "width": "63",
+          "x": "46.03",
+          "y": "139.61",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "rect",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "height": "8",
+          "rx": "0",
+          "ry": "0",
+          "width": "357",
+          "x": "26.03",
           "y": "194.61",
         },
         "ref": null,
@@ -209,12 +339,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "height": "3",
+          "height": "7",
           "rx": "0",
           "ry": "0",
-          "width": "482",
-          "x": "7.03",
-          "y": "259.61",
+          "width": "356",
+          "x": "26.03",
+          "y": "212.61",
         },
         "ref": null,
         "rendered": null,
@@ -225,12 +355,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "height": "0",
+          "height": "8",
           "rx": "0",
           "ry": "0",
-          "width": "0",
-          "x": "176.03",
-          "y": "208.61",
+          "width": "356",
+          "x": "27.03",
+          "y": "231.61",
         },
         "ref": null,
         "rendered": null,
@@ -241,12 +371,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "height": "10",
+          "height": "109",
           "rx": "0",
           "ry": "0",
-          "width": "0",
-          "x": "179.03",
-          "y": "209.61",
+          "width": "356",
+          "x": "26.03",
+          "y": "257.61",
         },
         "ref": null,
         "rendered": null,
@@ -257,12 +387,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "height": "3",
+          "height": "4",
           "rx": "0",
           "ry": "0",
-          "width": "482",
-          "x": "5.03",
-          "y": "279.61",
+          "width": "348",
+          "x": "28.03",
+          "y": "379.61",
         },
         "ref": null,
         "rendered": null,
@@ -273,12 +403,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "height": "3",
+          "height": "7",
           "rx": "0",
           "ry": "0",
-          "width": "482",
-          "x": "6.03",
-          "y": "299.61",
+          "width": "351",
+          "x": "27.03",
+          "y": "395.61",
         },
         "ref": null,
         "rendered": null,
@@ -289,12 +419,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "height": "3",
+          "height": "6",
           "rx": "0",
           "ry": "0",
-          "width": "482",
-          "x": "8.03",
-          "y": "318.61",
+          "width": "349",
+          "x": "28.03",
+          "y": "415.61",
         },
         "ref": null,
         "rendered": null,
@@ -305,12 +435,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "height": "3",
+          "height": "6",
           "rx": "0",
           "ry": "0",
-          "width": "482",
-          "x": "9.03",
-          "y": "338.61",
+          "width": "348",
+          "x": "27.03",
+          "y": "435.61",
         },
         "ref": null,
         "rendered": null,
@@ -321,12 +451,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "height": "3",
+          "height": "6",
           "rx": "0",
           "ry": "0",
-          "width": "482",
-          "x": "6.03",
-          "y": "399.61",
+          "width": "349",
+          "x": "27.03",
+          "y": "455.61",
         },
         "ref": null,
         "rendered": null,
@@ -337,76 +467,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "height": "3",
+          "height": "6",
           "rx": "0",
           "ry": "0",
-          "width": "482",
-          "x": "8.03",
-          "y": "419.61",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "rect",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "height": "3",
-          "rx": "0",
-          "ry": "0",
-          "width": "482",
-          "x": "8.03",
-          "y": "438.61",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "rect",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "height": "3",
-          "rx": "0",
-          "ry": "0",
-          "width": "482",
-          "x": "9.03",
-          "y": "458.61",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "rect",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "height": "3",
-          "rx": "0",
-          "ry": "0",
-          "width": "289.2",
-          "x": "8.03",
-          "y": "359.61",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "rect",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "height": "3",
-          "rx": "0",
-          "ry": "0",
-          "width": "289.2",
-          "x": "9.03",
-          "y": "479.61",
+          "width": "347",
+          "x": "27.03",
+          "y": "476.61",
         },
         "ref": null,
         "rendered": null,
@@ -423,132 +489,153 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <rect
-            height="180"
-            rx="5"
-            ry="5"
-            width="496"
-            x="2"
-            y="2"
-          />,
-          <rect
-            height="33.35"
+            height="120"
             rx="0"
             ry="0"
-            width="285.36"
-            x="8.03"
-            y="209.61"
+            width="190"
+            x="196.03"
+            y="33.61"
           />,
           <rect
-            height="0"
+            height="11"
             rx="0"
             ry="0"
-            width="0"
-            x="198.03"
+            width="163"
+            x="7.03"
+            y="36.61"
+          />,
+          <rect
+            height="11"
+            rx="0"
+            ry="0"
+            width="160"
+            x="9.03"
+            y="54.61"
+          />,
+          <rect
+            height="6"
+            rx="0"
+            ry="0"
+            width="72"
+            x="9.03"
+            y="76.61"
+          />,
+          <circle
+            cx="22.82"
+            cy="110.4"
+            r="13.79"
+          />,
+          <rect
+            height="4"
+            rx="0"
+            ry="0"
+            width="31"
+            x="43.03"
+            y="100.61"
+          />,
+          <rect
+            height="4"
+            rx="0"
+            ry="0"
+            width="21"
+            x="44.03"
+            y="107.61"
+          />,
+          <rect
+            height="19.46"
+            rx="0"
+            ry="0"
+            width="20.85"
+            x="15.03"
+            y="137.61"
+          />,
+          <rect
+            height="17"
+            rx="0"
+            ry="0"
+            width="63"
+            x="46.03"
+            y="139.61"
+          />,
+          <rect
+            height="8"
+            rx="0"
+            ry="0"
+            width="357"
+            x="26.03"
             y="194.61"
           />,
           <rect
-            height="3"
+            height="7"
             rx="0"
             ry="0"
-            width="482"
-            x="7.03"
-            y="259.61"
+            width="356"
+            x="26.03"
+            y="212.61"
           />,
           <rect
-            height="0"
+            height="8"
             rx="0"
             ry="0"
-            width="0"
-            x="176.03"
-            y="208.61"
+            width="356"
+            x="27.03"
+            y="231.61"
           />,
           <rect
-            height="10"
+            height="109"
             rx="0"
             ry="0"
-            width="0"
-            x="179.03"
-            y="209.61"
+            width="356"
+            x="26.03"
+            y="257.61"
           />,
           <rect
-            height="3"
+            height="4"
             rx="0"
             ry="0"
-            width="482"
-            x="5.03"
-            y="279.61"
+            width="348"
+            x="28.03"
+            y="379.61"
           />,
           <rect
-            height="3"
+            height="7"
             rx="0"
             ry="0"
-            width="482"
-            x="6.03"
-            y="299.61"
+            width="351"
+            x="27.03"
+            y="395.61"
           />,
           <rect
-            height="3"
+            height="6"
             rx="0"
             ry="0"
-            width="482"
-            x="8.03"
-            y="318.61"
+            width="349"
+            x="28.03"
+            y="415.61"
           />,
           <rect
-            height="3"
+            height="6"
             rx="0"
             ry="0"
-            width="482"
-            x="9.03"
-            y="338.61"
+            width="348"
+            x="27.03"
+            y="435.61"
           />,
           <rect
-            height="3"
+            height="6"
             rx="0"
             ry="0"
-            width="482"
-            x="6.03"
-            y="399.61"
+            width="349"
+            x="27.03"
+            y="455.61"
           />,
           <rect
-            height="3"
+            height="6"
             rx="0"
             ry="0"
-            width="482"
-            x="8.03"
-            y="419.61"
-          />,
-          <rect
-            height="3"
-            rx="0"
-            ry="0"
-            width="482"
-            x="8.03"
-            y="438.61"
-          />,
-          <rect
-            height="3"
-            rx="0"
-            ry="0"
-            width="482"
-            x="9.03"
-            y="458.61"
-          />,
-          <rect
-            height="3"
-            rx="0"
-            ry="0"
-            width="289.2"
-            x="8.03"
-            y="359.61"
-          />,
-          <rect
-            height="3"
-            rx="0"
-            ry="0"
-            width="289.2"
-            x="9.03"
-            y="479.61"
+            width="347"
+            x="27.03"
+            y="476.61"
           />,
         ],
         "height": 500,
@@ -556,7 +643,7 @@ ShallowWrapper {
         "rtl": true,
         "secondaryColor": "#ecebeb",
         "speed": 3,
-        "width": 500,
+        "width": 400,
       },
       "ref": null,
       "rendered": Array [
@@ -565,12 +652,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "height": "180",
-            "rx": "5",
-            "ry": "5",
-            "width": "496",
-            "x": "2",
-            "y": "2",
+            "height": "120",
+            "rx": "0",
+            "ry": "0",
+            "width": "190",
+            "x": "196.03",
+            "y": "33.61",
           },
           "ref": null,
           "rendered": null,
@@ -581,12 +668,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "height": "33.35",
+            "height": "11",
             "rx": "0",
             "ry": "0",
-            "width": "285.36",
-            "x": "8.03",
-            "y": "209.61",
+            "width": "163",
+            "x": "7.03",
+            "y": "36.61",
           },
           "ref": null,
           "rendered": null,
@@ -597,11 +684,120 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "height": "0",
+            "height": "11",
             "rx": "0",
             "ry": "0",
-            "width": "0",
-            "x": "198.03",
+            "width": "160",
+            "x": "9.03",
+            "y": "54.61",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "rect",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "height": "6",
+            "rx": "0",
+            "ry": "0",
+            "width": "72",
+            "x": "9.03",
+            "y": "76.61",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "rect",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "cx": "22.82",
+            "cy": "110.4",
+            "r": "13.79",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "circle",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "height": "4",
+            "rx": "0",
+            "ry": "0",
+            "width": "31",
+            "x": "43.03",
+            "y": "100.61",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "rect",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "height": "4",
+            "rx": "0",
+            "ry": "0",
+            "width": "21",
+            "x": "44.03",
+            "y": "107.61",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "rect",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "height": "19.46",
+            "rx": "0",
+            "ry": "0",
+            "width": "20.85",
+            "x": "15.03",
+            "y": "137.61",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "rect",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "height": "17",
+            "rx": "0",
+            "ry": "0",
+            "width": "63",
+            "x": "46.03",
+            "y": "139.61",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "rect",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "height": "8",
+            "rx": "0",
+            "ry": "0",
+            "width": "357",
+            "x": "26.03",
             "y": "194.61",
           },
           "ref": null,
@@ -613,12 +809,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "height": "3",
+            "height": "7",
             "rx": "0",
             "ry": "0",
-            "width": "482",
-            "x": "7.03",
-            "y": "259.61",
+            "width": "356",
+            "x": "26.03",
+            "y": "212.61",
           },
           "ref": null,
           "rendered": null,
@@ -629,12 +825,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "height": "0",
+            "height": "8",
             "rx": "0",
             "ry": "0",
-            "width": "0",
-            "x": "176.03",
-            "y": "208.61",
+            "width": "356",
+            "x": "27.03",
+            "y": "231.61",
           },
           "ref": null,
           "rendered": null,
@@ -645,12 +841,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "height": "10",
+            "height": "109",
             "rx": "0",
             "ry": "0",
-            "width": "0",
-            "x": "179.03",
-            "y": "209.61",
+            "width": "356",
+            "x": "26.03",
+            "y": "257.61",
           },
           "ref": null,
           "rendered": null,
@@ -661,12 +857,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "height": "3",
+            "height": "4",
             "rx": "0",
             "ry": "0",
-            "width": "482",
-            "x": "5.03",
-            "y": "279.61",
+            "width": "348",
+            "x": "28.03",
+            "y": "379.61",
           },
           "ref": null,
           "rendered": null,
@@ -677,12 +873,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "height": "3",
+            "height": "7",
             "rx": "0",
             "ry": "0",
-            "width": "482",
-            "x": "6.03",
-            "y": "299.61",
+            "width": "351",
+            "x": "27.03",
+            "y": "395.61",
           },
           "ref": null,
           "rendered": null,
@@ -693,12 +889,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "height": "3",
+            "height": "6",
             "rx": "0",
             "ry": "0",
-            "width": "482",
-            "x": "8.03",
-            "y": "318.61",
+            "width": "349",
+            "x": "28.03",
+            "y": "415.61",
           },
           "ref": null,
           "rendered": null,
@@ -709,12 +905,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "height": "3",
+            "height": "6",
             "rx": "0",
             "ry": "0",
-            "width": "482",
-            "x": "9.03",
-            "y": "338.61",
+            "width": "348",
+            "x": "27.03",
+            "y": "435.61",
           },
           "ref": null,
           "rendered": null,
@@ -725,12 +921,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "height": "3",
+            "height": "6",
             "rx": "0",
             "ry": "0",
-            "width": "482",
-            "x": "6.03",
-            "y": "399.61",
+            "width": "349",
+            "x": "27.03",
+            "y": "455.61",
           },
           "ref": null,
           "rendered": null,
@@ -741,76 +937,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "height": "3",
+            "height": "6",
             "rx": "0",
             "ry": "0",
-            "width": "482",
-            "x": "8.03",
-            "y": "419.61",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "rect",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "height": "3",
-            "rx": "0",
-            "ry": "0",
-            "width": "482",
-            "x": "8.03",
-            "y": "438.61",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "rect",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "height": "3",
-            "rx": "0",
-            "ry": "0",
-            "width": "482",
-            "x": "9.03",
-            "y": "458.61",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "rect",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "height": "3",
-            "rx": "0",
-            "ry": "0",
-            "width": "289.2",
-            "x": "8.03",
-            "y": "359.61",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "rect",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "height": "3",
-            "rx": "0",
-            "ry": "0",
-            "width": "289.2",
-            "x": "9.03",
-            "y": "479.61",
+            "width": "347",
+            "x": "27.03",
+            "y": "476.61",
           },
           "ref": null,
           "rendered": null,

@@ -23,13 +23,9 @@ class HomePage extends Component {
     ) : null
   );
 
-  feedLayout = index => (
-    index % 2 === 0
-      ? layouts.HORIZONTAL_LAYOUT
-      : layouts.HORIZONTAL_REVERSE_LAYOUT
-  );
+  feedLayout = () => (layouts.HORIZONTAL_LAYOUT);
 
-  trendingLayout = () => (layouts.MINIMAL_LAYOUT);
+  trendingLayout = () => (layouts.MINIMAL_AUTHOR_LAYOUT);
 
   featuredLayout = index => (index === 0 ? layouts.VERTICAL_LAYOUT : layouts.MINIMAL_AUTHOR_LAYOUT);
 
@@ -39,20 +35,16 @@ class HomePage extends Component {
         <NavBar />
         {this.renderCreateButton()}
 
+        <ConnectedArticleListing
+          initialList={3}
+          featured
+          listName="featuredArticles"
+          {...this.props}
+          layoutProvider={this.featuredLayout}
+        />
         <div className="row">
-          <div className="col s12 m10 offset-m1">
-            <ConnectedArticleListing
-              initialList={3}
-              featured
-              listName="featuredArticles"
-              {...this.props}
-              layoutProvider={this.featuredLayout}
-            />
-          </div>
-        </div>
-        <div className="row container">
-          <div className="row col s12">
-            <div className="col m8">
+          <div className="row col s12 m12 l10 offset-l1">
+            <div className="col m12 l8">
               <ConnectedArticleListing
                 initialList={5}
                 infiniteScroll
@@ -62,14 +54,14 @@ class HomePage extends Component {
                 layoutProvider={this.feedLayout}
               />
             </div>
-            <div className="col m4">
+            <div className="col l4 m12">
               <h5>{'Popular on Author\'s Haven'}</h5>
               <Divider />
               <ConnectedArticleListing
                 initialList={4}
                 divided
                 {...this.props}
-                params={{ page_size: 4 }}
+                params={{ page_size: 7, page: 2 }}
                 listName="popularArticles"
                 layoutProvider={this.trendingLayout}
               />
