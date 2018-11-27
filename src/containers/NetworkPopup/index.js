@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Materialize from "materialize-css";
 import PropTypes from "prop-types";
 import { reloadLocation } from "../../utils/helpers";
-import './NetworPopup.scss';
+import './NetworkPopup.scss';
 
 
 const MODAL_ID = "network_error_modal";
@@ -16,16 +16,17 @@ export class NetWorkPopup extends Component {
   getModal = () => document.querySelector(`#${MODAL_ID}`);
 
   componentDidMount() {
-    Materialize.Modal.init(this.getModal(), { dismissible: false });
+    const instance = Materialize.Modal.init(this.getModal(), { dismissible: false });
+    this.setState({ instance });
   }
 
   componentDidUpdate() {
     const { networkError } = this.props;
-    const modal = this.getModal();
+    const { instance } = this.state;
     if (networkError) {
-      Materialize.Modal.getInstance(modal).open();
+      instance.open();
     } else {
-      Materialize.Modal.getInstance(modal).close();
+      instance.close();
     }
   }
 
