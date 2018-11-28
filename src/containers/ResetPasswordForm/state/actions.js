@@ -34,7 +34,7 @@ export const resetPasswordAction = (email, password, confirmPassword, token) => 
       });
     }).catch((err) => {
       const payload = {
-        errors: err.response ? err.response.data.errors : { error: 'Something went wrong. Try again.' },
+        errors: err.response ? err.response.data.errors : {},
       };
       dispatch({
         type: PASSWORD_RESET_FAIL,

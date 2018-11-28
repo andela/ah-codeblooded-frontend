@@ -81,7 +81,7 @@ export const commentAction = (
       dispatch(commentingSuccess(response.data.data.comment));
       successCallback();
       dispatch(fetchCommentsAction(slug, commentId));
-    }).catch((response) => {
-      dispatch(commentingFailed(response.response));
+    }).catch((error) => {
+      dispatch(commentingFailed(error.response));
     });
 };

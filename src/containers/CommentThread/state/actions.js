@@ -43,8 +43,8 @@ export const fetchCommentsAction = (slug, parentId = null, page = 1) => (dispatc
   return api.get(`articles/${slug}/comments${parentId ? `/${parentId}` : ''}`, { params: { page } })
     .then((response) => {
       dispatch(fetchingCommentsSuccess(response.data.data.comment, parentId, page));
-    }).catch((response) => {
-      dispatch(fetchingCommentsFailed(response.response, parentId, page));
+    }).catch((error) => {
+      dispatch(fetchingCommentsFailed(error.response, parentId, page));
     });
 };
 

@@ -26,7 +26,7 @@ const loginAction = (data, successCallback) => (dispatch) => {
       dispatch(loginSuccess(res.data.user));
     })
     .catch((err) => {
-      dispatch(loginFailure(err.response.data.errors.error));
+      dispatch(loginFailure(err.response ? err.response.data.errors.error : []));
     });
 };
 

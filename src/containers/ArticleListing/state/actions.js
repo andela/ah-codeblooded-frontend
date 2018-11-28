@@ -26,7 +26,7 @@ export const articlesFetchAction = (url, params, listName, fetchMore = false) =>
   return api.get(url, { params })
     .then((response) => {
       dispatch(articlesFetchingSuccessful(response.data.data.article, listName, fetchMore));
-    }).catch((response) => {
-      dispatch(articlesFetchingFailed(response.response, listName));
+    }).catch((error) => {
+      dispatch(articlesFetchingFailed(error.response, listName));
     });
 };

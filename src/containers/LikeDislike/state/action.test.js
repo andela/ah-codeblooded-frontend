@@ -8,7 +8,7 @@ import {
 
 import {
   fetchReactions, likeArticle, dislikeArticle,
-} from './Actions';
+} from './actions';
 
 
 describe('the like and dislike actions', () => {

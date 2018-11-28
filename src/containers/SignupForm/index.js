@@ -26,7 +26,7 @@ export class SignForm extends React.Component {
   componentWillReceiveProps = (nextProps) => {
     const { errors } = nextProps;
     this.setState({ errors });
-  }
+  };
 
   componentDidUpdate = (prevProps) => {
     const { success } = this.props;
@@ -43,7 +43,6 @@ export class SignForm extends React.Component {
   onChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
-
 
   validate = () => {
     const {
