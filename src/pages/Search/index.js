@@ -6,13 +6,9 @@ import NavBar from '../../containers/NavBar';
 import { articlesFetchAction } from '../../containers/ArticleListing/state/actions';
 import ConnectedArticleListing from '../../containers/ArticleListing';
 
-class Search extends Component {
+export class Search extends Component {
     state ={
       search: '',
-    }
-
-    componentWillMount() {
-
     }
 
     onSearch = (e) => {

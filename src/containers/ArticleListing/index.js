@@ -21,25 +21,12 @@ export class ArticleListing extends React.Component {
     page: 1,
   };
 
-  constructor(props) {
-    super(props);
-
-    this.load = this.load.bind(this);
-  }
-
   componentDidMount = () => {
     const {
       url, fetchArticles, params, listName,
     } = this.props;
     fetchArticles(url, params, listName);
   };
-
-  load() {
-    const {
-      fetchArticles, url, params, listName,
-    } = this.props;
-    fetchArticles(url, params, listName);
-  }
 
   componentWillReceiveProps = (nextProps) => {
     this.setState({ page: nextProps.params.page || nextProps.pageStart });
