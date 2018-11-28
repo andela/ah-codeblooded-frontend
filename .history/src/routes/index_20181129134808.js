@@ -119,6 +119,7 @@ export default () => (
         path={ROUTES.settings}
         component={SettingsPage}
       />
+<<<<<<< HEAD
       <AuthenticatedRoute
         exact
         path={ROUTES.me.stats}
@@ -129,7 +130,9 @@ export default () => (
         path={ROUTES.search}
         component={Search}
       />
+=======
       <Route path="*" component={PageNotFound} />
+>>>>>>> chore(render 404 page): render 404 page when user goes to unknown path
     </Switch>
   </Router>
 );
