@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import ROUTES from '../../utils/routes';
 import Input from '../../components/TextInput/index';
 import register from './state/actions';
+import PreLoader from '../../components/PreLoader';
 
 export class SignForm extends React.Component {
   state = {
@@ -14,9 +15,8 @@ export class SignForm extends React.Component {
     password: '',
     email: '',
     confirmPassword: '',
-    errors: {
-
-    },
+    errors: {},
+    messageShown: false,
   };
 
   componentDidMount() {
@@ -26,6 +26,18 @@ export class SignForm extends React.Component {
   componentWillReceiveProps = (nextProps) => {
     const { errors } = nextProps;
     this.setState({ errors });
+  }
+
+  componentDidUpdate = (prevProps) => {
+    const { success } = this.props;
+    if (!prevProps.success && success) {
+      setTimeout(this.clearState, 1000);
+      setTimeout(() => this.setState({ messageShown: true }), 0);
+    }
+
+    if (prevProps.success && success) {
+      setTimeout(() => this.setState({ messageShown: false }), 4000);
+    }
   }
 
   onChange = (event) => {
@@ -59,12 +71,6 @@ export class SignForm extends React.Component {
     }
   };
 
-  showProgress = () => (
-    <div className="progress">
-      <div className="indeterminate" />
-    </div>
-  );
-
  registrationSuccessful = () => (
    <div className="green-text center-align">
      <p>Registration successful!</p>
@@ -72,12 +78,22 @@ export class SignForm extends React.Component {
    </div>
  );
 
+ clearState = () => {
+   this.setState({
+     username: '',
+     password: '',
+     confirmPassword: '',
+     email: '',
+     errors: {},
+   });
+ };
+
 
  render() {
    const {
-     username, password, email, confirmPassword, errors,
+     username, password, email, confirmPassword, errors, messageShown,
    } = this.state;
-   const { isRegistering, success } = this.props;
+   const { isRegistering } = this.props;
    const inputs = [
      {
        label: 'Username',
@@ -116,10 +132,10 @@ export class SignForm extends React.Component {
 
    return (
      <div className="card white darken-1 login-form" id="myDiv">
-       { isRegistering && this.showProgress() }
        <div className="card-content black-text">
-         { success && this.registrationSuccessful() }
+         { messageShown && this.registrationSuccessful()}
          <span className="card-title center-align">Registration</span>
+         { isRegistering && <PreLoader horizontal /> }
          <form onSubmit={this.handleSubmit}>
            { inputs.map(input => (
              <Input {...input} />
