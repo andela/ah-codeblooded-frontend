@@ -17,6 +17,7 @@ import Update from '../pages/Articles/Update';
 import Read from '../pages/Articles/Read';
 import MyArticles from '../components/MyArticles';
 import ProfilePage from '../pages/ProfilesPage';
+import PageNotFound from '../pages/Error404Page';
 import Activate from '../containers/ActivateAccount';
 import SettingsPage from '../pages/Settings';
 import ConnectedStatsPage from "../pages/StatsPage";
@@ -128,6 +129,7 @@ export default () => (
         path={ROUTES.search}
         component={ConnectedSearch}
       />
+      <Route path="*" component={PageNotFound} />
     </Switch>
   </Router>
 );
