@@ -30,6 +30,9 @@ class NavBar extends React.Component {
           <DropDownItem link={ROUTES.me.articles}>
             My Articles
           </DropDownItem>
+          <DropDownItem link={ROUTES.me.stats}>
+            My Stats
+          </DropDownItem>
           <DropDownItem link={ROUTES.settings}>
             Settings
           </DropDownItem>

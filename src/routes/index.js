@@ -19,6 +19,7 @@ import MyArticles from '../components/MyArticles';
 import ProfilePage from '../pages/ProfilesPage';
 import Activate from '../containers/ActivateAccount';
 import SettingsPage from '../pages/Settings';
+import ConnectedStatsPage from "../pages/StatsPage";
 
 export class AuthenticatedRoute extends Component {
   constructor(props) {
@@ -115,6 +116,11 @@ export default () => (
         exact
         path={ROUTES.settings}
         component={SettingsPage}
+      />
+      <AuthenticatedRoute
+        exact
+        path={ROUTES.Stats}
+        component={ConnectedStatsPage}
       />
     </Switch>
   </Router>
