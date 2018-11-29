@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 
 import { NetWorkPopup } from "./index";
 
@@ -9,6 +9,10 @@ describe('The NetworkPopup container', () => {
   };
 
   it('should render without crashing', () => {
-    expect(() => shallow(<NetWorkPopup {...props} />));
+    expect(() => shallow(<NetWorkPopup {...props} />)).not.toThrow();
+  });
+
+  it('should mount on a full dom without crashing', () => {
+    expect(() => mount(<NetWorkPopup {...props} />)).not.toThrow();
   });
 });
