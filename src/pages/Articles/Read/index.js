@@ -12,6 +12,7 @@ import './Read.scss';
 import { getCurrentUser } from '../../../utils/auth';
 import LikeDislike from '../../../containers/LikeDislike';
 import ArticleFavoriting from '../../../containers/ArticleFavoriting';
+import { ReportArticle } from "../../../containers/ReportArticle";
 import ArticleViewLoader from '../../../components/ArticleViewLoader';
 import { ErrorPage } from '../../ErrorPage';
 import ConnectedCommentEditor from '../../../containers/CommentEditor';
@@ -21,6 +22,8 @@ import ArticleShare from "../../../components/ArticleShare";
 import { getLocation } from "../../../utils/helpers";
 import ConnectedRating from '../../../containers/Rating/index';
 import ConnectedRatingStats from '../../../containers/RatingStats/index';
+import { fetchViolationTypesAction, reportArticleAction } from '../../../containers/ReportArticle/state/actions';
+
 
 class Read extends Component {
   componentWillMount = () => {
@@ -33,6 +36,9 @@ class Read extends Component {
     if (slug !== 'new') {
       getArticle(slug);
     }
+
+    const { fetchViolationTypes } = this.props;
+    fetchViolationTypes();
   };
 
   renderEditButton = () => {
@@ -60,6 +66,35 @@ class Read extends Component {
     </div>
   );
 
+  renderArticleMenu = () => {
+    const { article } = this.props;
+    const user = getCurrentUser();
+    return (
+      user && !(article.author.username === user.username)
+       && (
+         <div className="row">
+           <div className="col s1 offset-s11">
+             <a className="dropdown-trigger" data-target="report-article-dropdown">
+               <i className="material-icons right">more_vert</i>
+             </a>
+           </div>
+         </div>
+       )
+    );
+  };
+
+  renderArticle = (isFetched, article) => (
+    isFetched ? (
+      <ArticleViewLoader />
+    ) : (
+      <React.Fragment>
+        <ArticleEditor {...this.props} readOnly />
+        {this.renderTags(article.tags)}
+        <LikeDislike slug={article.slug} />
+      </React.Fragment>
+    )
+  );
+
   checkErrors= () => {
     const { errors } = this.props;
     if (errors) {
@@ -76,7 +111,7 @@ class Read extends Component {
   };
 
   render() {
-    const { article, isFetching } = this.props;
+    const { article, isFetching, articleReporting } = this.props;
     const user = getCurrentUser();
 
     return (
@@ -91,6 +126,9 @@ class Read extends Component {
             ) : (
               <>
                 <ArticleProfileView article={article} user={getCurrentUser()} />
+                {this.renderArticleMenu()}
+                <ReportArticle {...this.props} reports={articleReporting} />
+
                 <div className="row">
                   <ConnectedRatingStats slug={article.slug} />
                 </div>
@@ -109,6 +147,7 @@ class Read extends Component {
                       <ArticleShare article={{ ...article, url: getLocation() }} />
                       <ConnectedRating slug={article.slug} />
                     </span>
+
                   </div>
                 </div>
                 <Divider />
@@ -124,6 +163,7 @@ class Read extends Component {
                   </div>
                 </div>
                 {this.renderEditButton()}
+
               </>
             )}
           </div>
@@ -143,11 +183,15 @@ Read.propTypes = {
   errors: PropTypes.shape().isRequired,
 };
 
-const mapStateToProps = ({ article, pageProgress }) => ({ ...article, ...pageProgress });
+const mapStateToProps = (
+  { article, pageProgress, articleReporting },
+) => ({ ...article, ...pageProgress, articleReporting });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
     getArticle: getArticleAction,
+    reportArticle: reportArticleAction,
+    fetchViolationTypes: fetchViolationTypesAction,
   },
   dispatch,
 );

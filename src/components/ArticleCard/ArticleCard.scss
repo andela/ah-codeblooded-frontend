@@ -75,6 +75,15 @@
 
     .info-segment {
       padding: .5em;
+      position: relative;
+    }
+
+    &:not(.minimal) {
+
+      .article-rating {
+        position: absolute;
+        bottom: .5em;
+      }
     }
 
     .image-segment {
@@ -93,5 +102,24 @@
     &.reverse .info-segment {
       flex: 1;
     }
+  }
+
+  .article-rating {
+    font-size: .9em;
+
+    * {
+      font-size: .9em;
+    }
+
+    i {
+
+      &.active {
+        color: $secondary-color;
+      }
+    }
+  }
+
+  .article-tags {
+    margin-top: .5em;
   }
 }

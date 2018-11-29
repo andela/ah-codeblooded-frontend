@@ -21,7 +21,7 @@ import PageNotFound from '../pages/Error404Page';
 import Activate from '../containers/ActivateAccount';
 import SettingsPage from '../pages/Settings';
 import ConnectedStatsPage from "../pages/StatsPage";
-import Search from '../pages/Search';
+import ConnectedSearch from '../pages/Search';
 
 export class AuthenticatedRoute extends Component {
   constructor(props) {
@@ -127,7 +127,7 @@ export default () => (
       <Route
         exact
         path={ROUTES.search}
-        component={Search}
+        component={ConnectedSearch}
       />
       <Route path="*" component={PageNotFound} />
     </Switch>

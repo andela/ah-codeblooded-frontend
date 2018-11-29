@@ -23,38 +23,38 @@ const initialState = {
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case LIKE_COMMENT: {
-      return {
-        ...state,
-      };
-    }
-    case LIKE_COMMENT_ERROR: {
-      return { ...state, error: action.payload };
-    }
-    case DISLIKE_COMMENT: {
-      return {
-        ...state,
-      };
-    }
-    case DISLIKE_COMMENT_ERROR: {
-      return {
-        ...state, error: action.payload,
-      };
-    }
-    case FETCH_COMMENT_SUCCESS: {
-      const { payload, id } = action.payload;
-      const { reactions } = state;
-      return {
-        ...state, reactions: { ...reactions, [id]: { ...payload.reactions } },
-      };
-    }
-    case FETCH_COMMENT_ERROR: {
-      return {
-        ...state, error: action.payload,
-      };
-    }
-    default:
-      return state;
+  case LIKE_COMMENT: {
+    return {
+      ...state,
+    };
+  }
+  case LIKE_COMMENT_ERROR: {
+    return { ...state, error: action.payload };
+  }
+  case DISLIKE_COMMENT: {
+    return {
+      ...state,
+    };
+  }
+  case DISLIKE_COMMENT_ERROR: {
+    return {
+      ...state, error: action.payload,
+    };
+  }
+  case FETCH_COMMENT_SUCCESS: {
+    const { payload, id } = action.payload;
+    const { reactions } = state;
+    return {
+      ...state, reactions: { ...reactions, [id]: { ...payload.reactions } },
+    };
+  }
+  case FETCH_COMMENT_ERROR: {
+    return {
+      ...state, error: action.payload,
+    };
+  }
+  default:
+    return state;
   }
 };
 
