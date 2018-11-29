@@ -18,7 +18,7 @@ export const fetchReactions = slug => (dispatch) => {
     }).catch((error) => {
       dispatch({
         type: LIKE_DISLIKE_ERROR,
-        payload: error,
+        payload: error.response ? error.response.data : null,
       });
     });
 };
@@ -33,7 +33,7 @@ export const likeArticle = (slug, liked) => (dispatch) => {
   }).catch((error) => {
     dispatch({
       type: LIKE_DISLIKE_ERROR,
-      payload: error.response.data,
+      payload: error.response ? error.response.data : null,
     });
   });
 };
@@ -49,7 +49,7 @@ export const dislikeArticle = (slug, disliked) => (dispatch) => {
   }).catch((error) => {
     dispatch({
       type: LIKE_DISLIKE_ERROR,
-      payload: error.response.data,
+      payload: error.response ? error.response.data : null,
     });
   });
 };

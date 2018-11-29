@@ -24,7 +24,7 @@ const registerUserAction = userData => (dispatch) => {
   return api.post('users/', userData).then((data) => {
     dispatch(registerUserSuccess(data.data.user));
   }).catch((error) => {
-    dispatch(registerUserFailure(error.response.data.errors));
+    dispatch(registerUserFailure(error.response ? error.response.data.errors : {}));
   });
 };
 

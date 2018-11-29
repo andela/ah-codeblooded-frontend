@@ -68,7 +68,7 @@ export class LoginForm extends Component {
             }
             {errors.length > 0 ? (
               <div className="red-text">
-                <p>Username and password do not match. Please try again</p>
+                <p>The credentials do not match. Please try again</p>
               </div>
             ) : null}
             <form onSubmit={this.handleSubmit}>

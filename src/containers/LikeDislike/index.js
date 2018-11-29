@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './LikeDislike.scss';
 
-import { likeArticle, dislikeArticle, fetchReactions } from './state/Actions';
+import { likeArticle, dislikeArticle, fetchReactions } from './state/actions';
 
 class LikeDislike extends Component {
   componentWillMount = () => {

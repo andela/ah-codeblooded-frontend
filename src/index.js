@@ -8,10 +8,14 @@ import * as serviceWorker from './serviceWorker';
 import store from './store';
 
 import './env';
+import ConnectedNetWorkError from "./containers/NetworkPopup";
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router />
+    <React.Fragment>
+      <ConnectedNetWorkError />
+      <Router />
+    </React.Fragment>
   </Provider>,
   document.getElementById('root'),
 );

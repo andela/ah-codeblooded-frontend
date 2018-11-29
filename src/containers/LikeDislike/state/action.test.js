@@ -1,15 +1,15 @@
 import MockAdapter from 'axios-mock-adapter';
 import mockStore from '../../../utils/redux_mock_store';
 import api, { getURL } from '../../../utils/api';
+import { fetchReactions, likeArticle, dislikeArticle } from './actions';
 import {
-  FETCH_REACTIONS_SUCCESS, LIKE_ARTICLE, DISLIKE_ARTICLE,
-  UNDISLIKE_ARTICLE, UNLIKE_ARTICLE, LIKE_DISLIKE_ERROR,
+  FETCH_REACTIONS_SUCCESS,
+  LIKE_ARTICLE,
+  DISLIKE_ARTICLE,
+  UNDISLIKE_ARTICLE,
+  UNLIKE_ARTICLE,
+  LIKE_DISLIKE_ERROR,
 } from './types';
-
-import {
-  fetchReactions, likeArticle, dislikeArticle,
-} from './Actions';
-
 
 describe('the like and dislike actions', () => {
   const mock = new MockAdapter(api);

@@ -17,7 +17,7 @@ export const forgotPasswordAction = email => (dispatch) => {
         payload: { message: res.data.message },
       });
     }).catch((err) => {
-      const message = err.response ? err.response.data.message : 'Something went wrong. Try again.';
+      const message = err.response ? err.response.data.message : null;
       dispatch({
         type: FORGOT_PASSWORD_FAIL,
         payload: { error: message },
