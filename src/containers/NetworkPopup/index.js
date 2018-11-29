@@ -15,13 +15,12 @@ export class NetWorkPopup extends Component {
   getModal = () => document.querySelector(`.${MODAL}`);
 
   componentDidMount() {
-    const instance = Materialize.Modal.init(this.getModal(), { dismissible: false });
-    this.setState({ instance });
+    Materialize.Modal.init(this.getModal(), { dismissible: false });
   }
 
   componentDidUpdate() {
     const { networkError } = this.props;
-    const { instance } = this.state;
+    const instance = Materialize.Modal.getInstance(this.getModal());
     if (networkError) {
       instance.open();
     } else {
