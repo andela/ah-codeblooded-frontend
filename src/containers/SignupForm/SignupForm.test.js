@@ -64,6 +64,7 @@ describe('The SignupForm', () => {
         username: 'chomba',
         password: 'ChoMb@3',
         confirmPassword: 'ChoMb@3',
+        messageShown: false,
       },
 
     });
