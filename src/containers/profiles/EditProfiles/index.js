@@ -38,6 +38,7 @@ class EditProfiles extends Component {
   };
 
   imageClicked = () => {
+    /* istanbul ignore next */
     document.getElementById('upload-image').click();
   };
 

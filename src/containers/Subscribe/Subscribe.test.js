@@ -53,6 +53,8 @@ describe('<Subscribe />) container', () => {
 
   it('calls handleSubscribe onChange', () => {
     wrapper.find('.switch label input').simulate('change');
+    wrapper.setProps({ sub: { ...props.sub, errors: "Network Error" } });
+    wrapper.setProps({ sub: { ...props.sub, errors: "Request failed with status code 403" } });
     expect(props.subscribe).toHaveBeenCalled();
   });
 });
