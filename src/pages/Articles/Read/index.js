@@ -72,13 +72,13 @@ class Read extends Component {
     return (
       user && !(article.author.username === user.username)
        && (
-       <div className="row">
-         <div className="col s1 offset-s11">
-           <a className="dropdown-trigger" data-target="report-article-dropdown">
-             <i className="material-icons right">more_vert</i>
-           </a>
+         <div className="row">
+           <div className="col s1 offset-s11">
+             <a className="dropdown-trigger" data-target="report-article-dropdown">
+               <i className="material-icons right">more_vert</i>
+             </a>
+           </div>
          </div>
-       </div>
        )
     );
   };

@@ -20,13 +20,13 @@ export class CommentThread extends React.Component {
   renderComments = (results, comments, slug, startCommenting) => (
     <div>
       {
-          results.map(comment => (
-            <ConnectedComment
-              comment={comment}
-              slug={slug}
-              toggleComment={startCommenting}
-            />
-          ))
+        results.map(comment => (
+          <ConnectedComment
+            comment={comment}
+            slug={slug}
+            toggleComment={startCommenting}
+          />
+        ))
       }
       <div>
         {

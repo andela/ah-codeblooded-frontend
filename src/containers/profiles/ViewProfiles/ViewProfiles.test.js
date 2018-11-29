@@ -1,9 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { createMemoryHistory } from 'history';
-import ViewProfile from './index';
+import { ViewProfiles } from './index';
 
 const user = {
   username: 'bevkololi',
@@ -22,15 +22,18 @@ const store = mockStore({
 });
 
 const props = {
-  user,
+  getCurrentUser: jest.fn(),
   getUserProfile: jest.fn(),
   editUserProfile: jest.fn(),
+  profile: {
+    image: 'foobar',
+  },
 
 };
 
 const history = createMemoryHistory(`profiles/view/${user.username}`);
+const wrapper = shallow(<ViewProfiles {...props} store={store} history={history} user={user} />);
 
-const wrapper = mount(<ViewProfile {...props} store={store} history={history} />);
 
 describe('View Profile container', () => {
   it('should render without crashing', () => {
