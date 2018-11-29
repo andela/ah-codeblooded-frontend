@@ -22,6 +22,7 @@ const ROUTES = {
     update: '/profiles/edit/:username',
   },
   settings: '/settings',
+  search: '/search',
 };
 
 export default ROUTES;

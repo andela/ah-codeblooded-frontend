@@ -20,6 +20,7 @@ import ProfilePage from '../pages/ProfilesPage';
 import Activate from '../containers/ActivateAccount';
 import SettingsPage from '../pages/Settings';
 import ConnectedStatsPage from "../pages/StatsPage";
+import Search from '../pages/Search';
 
 export class AuthenticatedRoute extends Component {
   constructor(props) {
@@ -119,8 +120,13 @@ export default () => (
       />
       <AuthenticatedRoute
         exact
-        path={ROUTES.Stats}
+        path={ROUTES.me.stats}
         component={ConnectedStatsPage}
+      />
+      <Route
+        exact
+        path={ROUTES.search}
+        component={Search}
       />
     </Switch>
   </Router>
