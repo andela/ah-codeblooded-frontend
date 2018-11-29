@@ -81,7 +81,7 @@ export class ArticleListing extends React.Component {
     this.setState({ page });
     if (page <= totalPages) {
       const {
-        fetchArticles, params, listName, url,
+        fetchArticles, url, params, listName,
       } = this.props;
       fetchArticles(url, {
         ...params,

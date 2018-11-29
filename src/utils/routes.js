@@ -13,6 +13,7 @@ const ROUTES = {
   activate: '/activate-account',
   me: {
     articles: '/me/articles',
+    stats: '/me/stats',
   },
   forgotPassword: '/forgot-password',
   resetPassword: '/reset-password',
@@ -21,6 +22,7 @@ const ROUTES = {
     update: '/profiles/edit/:username',
   },
   settings: '/settings',
+  search: '/search',
 };
 
 export default ROUTES;

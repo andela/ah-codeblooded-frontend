@@ -75,6 +75,7 @@ class MyArticles extends React.Component {
                 <ConnectedArticleListing
                   layoutProvider={this.layoutHandler}
                   emptyMessage="You do not have any drafts"
+                  listName="drafts"
                   filterResults={this.filterDrafts}
                 />
               </div>
@@ -82,6 +83,7 @@ class MyArticles extends React.Component {
                 <ConnectedArticleListing
                   layoutProvider={this.layoutHandler}
                   infiniteScroll
+                  listName="publicArticles"
                   filterResults={this.filterPublished}
                   divided
                 />

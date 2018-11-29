@@ -62,3 +62,7 @@ export const checkSnapshot = (component) => {
   const snap = shallow(component);
   expect(snap).toMatchSnapshot();
 };
+
+export const loginUser = (usr = user) => {
+  localStorage.setItem("user", JSON.stringify(usr));
+};

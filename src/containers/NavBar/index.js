@@ -30,6 +30,9 @@ class NavBar extends React.Component {
           <DropDownItem link={ROUTES.me.articles}>
             My Articles
           </DropDownItem>
+          <DropDownItem link={ROUTES.me.stats}>
+            My Stats
+          </DropDownItem>
           <DropDownItem link={ROUTES.settings}>
             Settings
           </DropDownItem>
@@ -48,7 +51,7 @@ class NavBar extends React.Component {
 
   getAuthenticatedMenu = user => (
     <>
-      <MenuItem link="" icon="search" />
+      <MenuItem link={ROUTES.search} icon="search" />
       <MenuItem link="" icon="notifications" />
       <MenuItem
         iconImage={user.image || profile}
