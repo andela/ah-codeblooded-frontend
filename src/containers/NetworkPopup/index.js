@@ -5,14 +5,17 @@ import PropTypes from "prop-types";
 import { reloadLocation } from "../../utils/helpers";
 import './NetworkPopup.scss';
 
-const MODAL = "network_error_modal";
-
 export class NetWorkPopup extends Component {
+  constructor(props) {
+    super(props);
+    this.ref = React.createRef();
+  }
+
   onClick = () => {
     reloadLocation();
   };
 
-  getModal = () => document.querySelector(`.${MODAL}`);
+  getModal = () => this.ref.current;
 
   componentDidMount() {
     Materialize.Modal.init(this.getModal(), { dismissible: false });
@@ -30,7 +33,7 @@ export class NetWorkPopup extends Component {
 
   render() {
     return (
-      <div className={`modal ${MODAL}`}>
+      <div className="modal network_error_modal" ref={this.ref}>
         <div className="modal-content">
           <div className="valign-wrapper">
               You are currently offline.&nbsp;&nbsp;
