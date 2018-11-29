@@ -19,9 +19,18 @@ class MenuItem extends React.Component {
   }
 
   render() {
-    const { children, link, dropDown } = this.props;
+    const {
+      children, link, dropDown, badge,
+    } = this.props;
     return (
       <li className="menu-item">
+        {
+          badge && (
+            <div className="m-badge row">
+              <span>{badge}</span>
+            </div>
+          )
+        }
         <a
           href={link}
           className={dropDown && 'dropdown-trigger'}
@@ -43,6 +52,7 @@ MenuItem.defaultProps = {
   link: '#',
   icon: '',
   children: null,
+  badge: "",
 };
 
 MenuItem.propTypes = {
@@ -51,6 +61,7 @@ MenuItem.propTypes = {
   icon: PropTypes.string,
   iconImage: PropTypes.string,
   children: childrenPropType,
+  badge: PropTypes.string,
 };
 
 export default MenuItem;

@@ -10,6 +10,7 @@ import DropDownItem from '../../components/DropDownItem';
 import { getCurrentUser } from '../../utils/auth';
 import MenuItem from './MenuItem';
 import Menu from './Menu';
+import Notifications from '../Notifications/index';
 
 class NavBar extends React.Component {
   state ={
@@ -49,7 +50,7 @@ class NavBar extends React.Component {
   getAuthenticatedMenu = user => (
     <>
       <MenuItem link="" icon="search" />
-      <MenuItem link="" icon="notifications" />
+      <Notifications {...this.props} />
       <MenuItem
         iconImage={user.image || profile}
         dropDown={this.getProfileDropDown()}

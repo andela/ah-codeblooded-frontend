@@ -21,9 +21,33 @@
 }
 
 nav {
-  .menu .menu-item .icon-image {
-    height: 2.5rem !important;
-    margin-top: .8rem;
-    width: 2.5rem;
+  .menu .menu-item {
+    position: relative;
+
+    .icon-image {
+      height: 2.5rem !important;
+      margin-top: .8rem;
+      width: 2.5rem;
+    }
+
+    .m-badge {
+      position: absolute;
+      background: $secondary-color;
+      box-shadow: $line-color 1px 1px 1px 1px;
+      width: 2em;
+      right: 0;
+      border-radius: 50%;
+      color: color('shades', 'white');
+      text-align: center;
+      height: 1.8em;
+
+      span {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-48%);
+      }
+    }
   }
 }
+

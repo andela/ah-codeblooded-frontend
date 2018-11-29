@@ -1,0 +1,18 @@
+@import '../../assets/css/index';
+
+.notification{
+  p{
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .description{
+    font-size: 0.8em;
+    display: block !important;
+  }
+  .meta{
+    font-size: 0.6em;
+    color: #666;
+    display: block !important;
+  }
+}
+
