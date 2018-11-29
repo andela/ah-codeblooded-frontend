@@ -14,7 +14,21 @@ $tag-hover-color: rgba(100, 100, 100, .2);
   }
 }
 
-
 .tags {
   margin-top: 3em;
+}
+
+#violation-types{
+  margin-bottom: 1em;
+}
+
+textarea {
+  height: 100% !important;
+  border: none !important;
+  outline: none !important;
+
+  &:focus {
+    border: none !important;
+    outline: none !important;
+  }
 }
