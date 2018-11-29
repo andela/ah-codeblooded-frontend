@@ -18,10 +18,10 @@ class EditProfiles extends Component {
 
   componentDidMount = () => {
     const { history, user } = this.props;
-    const modals = document.querySelector('.modal');
-    Materialize.Modal.init(modals, {});
+    const modal = document.querySelector('#edit-profile-modal');
+    Materialize.Modal.init(modal, {});
     history.push(`/profiles/edit/${user.username}`);
-  }
+  };
 
   onChange = (e) => {
     const { name } = e.target;
