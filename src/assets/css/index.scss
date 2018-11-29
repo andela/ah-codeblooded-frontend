@@ -45,6 +45,17 @@ code {
     monospace;
 }
 
+.card {
+
+  .card-image {
+
+    img {
+      border-top-left-radius: 1rem !important;
+      border-top-right-radius: 1rem !important;
+    }
+  }
+}
+
 .card,
 .modal {
   border-radius: 1rem;

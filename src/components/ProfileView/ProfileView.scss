@@ -1,0 +1,21 @@
+.profile-view {
+  padding: .5em;
+  min-width: 30px;
+
+  .card-title {
+    opacity: 1;
+  }
+
+  .card-content {
+    max-height: 100px;
+    min-height: 100px;
+  }
+
+  .followButton {
+    position: sticky;
+  }
+
+  .card-image {
+    min-height: 300px;
+  }
+}

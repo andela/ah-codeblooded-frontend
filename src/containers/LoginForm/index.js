@@ -61,11 +61,11 @@ export class LoginForm extends Component {
             </div>
             {isLogingIn
               && (
-              <div className="progress">
-                <div className="indeterminate" />
-              </div>
+                <div className="progress">
+                  <div className="indeterminate" />
+                </div>
               )
-              }
+            }
             {errors.length > 0 ? (
               <div className="red-text">
                 <p>Username and password do not match. Please try again</p>

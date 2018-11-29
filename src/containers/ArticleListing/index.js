@@ -71,8 +71,8 @@ export class ArticleListing extends React.Component {
             loader={<div className="center"><PreLoader /></div>}
           >
             {
-        articles.map((article, index) => this.renderArticle(index, article))
-      }
+              articles.map((article, index) => this.renderArticle(index, article))
+            }
           </InfiniteScroll>
         ));
   };
@@ -130,9 +130,9 @@ Posted by
     return (
       <div>
         {
-         isFetching && !infiniteScroll
-           ? (this.renderArticles(Array(initialList).fill()))
-           : this.renderArticles(filtered, totalPages)
+          isFetching && !infiniteScroll
+            ? (this.renderArticles(Array(initialList).fill()))
+            : this.renderArticles(filtered, totalPages)
         }
       </div>
     );

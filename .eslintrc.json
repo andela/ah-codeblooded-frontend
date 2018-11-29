@@ -6,6 +6,8 @@
     "node": true
   },
   "rules": {
+    "react/jsx-indent": ["error", 2],
+    "indent": ["error", 2],
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/no-autofocus": 0,
     "jsx-a11y/no-noninteractive-element-interactions": 0,

@@ -17,22 +17,22 @@ export const initialState = {
 
 const likeDislikeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LIKE_ARTICLE:
-      return { ...state, likes: action.payload.likes, dislikes: action.payload.dislikes };
-    case FETCH_REACTIONS_SUCCESS:
-      return { ...state, ...action.payload };
-    case FETCH_REACTIONS:
-      return { ...state, isFetching: true };
-    case DISLIKE_ARTICLE:
-      return { ...state, dislikes: action.payload.dislikes, likes: action.payload.likes };
-    case LIKE_DISLIKE_ERROR:
-      return { ...state, errors: action.payload };
-    case UNDISLIKE_ARTICLE:
-      return { ...state, dislikes: action.payload.dislikes, likes: action.payload.likes };
-    case UNLIKE_ARTICLE:
-      return { ...state, likes: action.payload.likes, dislikes: action.payload.dislikes };
-    default:
-      return state;
+  case LIKE_ARTICLE:
+    return { ...state, likes: action.payload.likes, dislikes: action.payload.dislikes };
+  case FETCH_REACTIONS_SUCCESS:
+    return { ...state, ...action.payload };
+  case FETCH_REACTIONS:
+    return { ...state, isFetching: true };
+  case DISLIKE_ARTICLE:
+    return { ...state, dislikes: action.payload.dislikes, likes: action.payload.likes };
+  case LIKE_DISLIKE_ERROR:
+    return { ...state, errors: action.payload };
+  case UNDISLIKE_ARTICLE:
+    return { ...state, dislikes: action.payload.dislikes, likes: action.payload.likes };
+  case UNLIKE_ARTICLE:
+    return { ...state, likes: action.payload.likes, dislikes: action.payload.dislikes };
+  default:
+    return state;
   }
 };
 

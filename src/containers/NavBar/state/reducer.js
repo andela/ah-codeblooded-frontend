@@ -6,17 +6,17 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case PAGE_LOADING:
-      return {
-        ...state,
-        isPageLoading: true,
-      };
-    case PAGE_LOADED:
-      return {
-        ...state,
-        isPageLoading: false,
-      };
-    default:
-      return state;
+  case PAGE_LOADING:
+    return {
+      ...state,
+      isPageLoading: true,
+    };
+  case PAGE_LOADED:
+    return {
+      ...state,
+      isPageLoading: false,
+    };
+  default:
+    return state;
   }
 };
