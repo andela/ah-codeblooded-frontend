@@ -12,27 +12,27 @@ const initialState = {
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case REGISTER_USER: {
-      return { ...state, isRegistering: true, errors: [] };
-    }
-    case REGISTER_SUCCESS: {
-      return {
-        ...state,
-        user: action.payload,
-        success: true,
-        isRegistering: false,
-      };
-    }
-    case REGISTER_ERROR: {
-      return {
-        ...state,
-        errors: action.payload,
-        isRegistering: false,
-      };
-    }
+  case REGISTER_USER: {
+    return { ...state, isRegistering: true, errors: [] };
+  }
+  case REGISTER_SUCCESS: {
+    return {
+      ...state,
+      user: action.payload,
+      success: true,
+      isRegistering: false,
+    };
+  }
+  case REGISTER_ERROR: {
+    return {
+      ...state,
+      errors: action.payload,
+      isRegistering: false,
+    };
+  }
 
-    default:
-      return state;
+  default:
+    return state;
   }
 };
 

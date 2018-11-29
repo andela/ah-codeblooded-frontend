@@ -30,6 +30,19 @@ export const article = {
   slug: 'the-dungeon-dragon-12jhgf323',
   tags: ['dragons', 'dungeon'],
   published: false,
+  avg_rating: {
+    avg_rating: 0,
+  },
+  reactions: {
+    likes: {
+      count: 0,
+      me: false,
+    },
+    dislikes: {
+      count: 0,
+      me: false,
+    },
+  },
   author: user,
 };
 

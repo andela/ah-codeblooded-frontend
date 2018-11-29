@@ -17,10 +17,11 @@ import Update from '../pages/Articles/Update';
 import Read from '../pages/Articles/Read';
 import MyArticles from '../components/MyArticles';
 import ProfilePage from '../pages/ProfilesPage';
+import PageNotFound from '../pages/Error404Page';
 import Activate from '../containers/ActivateAccount';
 import SettingsPage from '../pages/Settings';
 import ConnectedStatsPage from "../pages/StatsPage";
-import Search from '../pages/Search';
+import ConnectedSearch from '../pages/Search';
 
 export class AuthenticatedRoute extends Component {
   constructor(props) {
@@ -126,8 +127,9 @@ export default () => (
       <Route
         exact
         path={ROUTES.search}
-        component={Search}
+        component={ConnectedSearch}
       />
+      <Route path="*" component={PageNotFound} />
     </Switch>
   </Router>
 );

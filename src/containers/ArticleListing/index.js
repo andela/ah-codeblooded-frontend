@@ -15,6 +15,7 @@ import Empty from '../../components/Empty';
 import placeholder from '../../assets/images/placeholder.jpg';
 import './ArticleListing.scss';
 import 'react-animated-slider/build/horizontal.css';
+import profile from '../../assets/images/profile.jpg';
 
 export class ArticleListing extends React.Component {
   state ={
@@ -71,8 +72,8 @@ export class ArticleListing extends React.Component {
             loader={<div className="center"><PreLoader /></div>}
           >
             {
-        articles.map((article, index) => this.renderArticle(index, article))
-      }
+              articles.map((article, index) => this.renderArticle(index, article))
+            }
           </InfiniteScroll>
         ));
   };
@@ -97,17 +98,25 @@ export class ArticleListing extends React.Component {
           <div
             key={article && article.slug}
             className="slider-content"
-            style={{ background: `url('${(article && article.image) || placeholder}') no-repeat center center` }}
           >
+            <img src={(article && article.image) || placeholder} alt="" />
             <div className="inner">
               <h1>{article && article.title}</h1>
               <p>{article && article.description}</p>
-              <a className="btn" href={article && `/article/@${article.author.username}/${article.slug}`}>Read More</a>
+              <a
+                className="btn"
+                href={article && `/article/@${article.author.username}/${article.slug}`}
+              >
+              Read More
+              </a>
             </div>
             <section>
-              <img src={article && article.author.image} alt={article && article.author.username} />
+              <img
+                src={(article && article.author.image) || profile}
+                alt={article && article.author.username}
+              />
               <span>
-Posted by
+                Posted by
                 <strong>{article && article.author.username}</strong>
               </span>
             </section>
@@ -130,9 +139,9 @@ Posted by
     return (
       <div>
         {
-         isFetching && !infiniteScroll
-           ? (this.renderArticles(Array(initialList).fill()))
-           : this.renderArticles(filtered, totalPages)
+          isFetching && !infiniteScroll
+            ? (this.renderArticles(Array(initialList).fill()))
+            : this.renderArticles(filtered, totalPages)
         }
       </div>
     );

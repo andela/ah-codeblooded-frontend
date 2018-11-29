@@ -1,31 +1,41 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Materialize from 'materialize-css';
-import { bindActionCreators } from 'redux';
-import PropTypes from 'prop-types';
-import avatar2 from '../../../assets/images/avatar2.png';
-import { getUserProfileAction } from '../state/actions';
-import EditProfiles from '../EditProfiles';
-import ConnectedArticleListing from '../../ArticleListing';
-import layouts from '../../../components/ArticleCard/layouts';
-import './ViewProfiles.scss';
-import NavBar from '../../NavBar';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import Materialize from "materialize-css";
+import { bindActionCreators } from "redux";
+import PropTypes from "prop-types";
+import avatar2 from "../../../assets/images/avatar2.png";
+import { getUserProfileAction } from "../state/actions";
+import EditProfiles from "../EditProfiles";
+import ConnectedArticleListing from "../../ArticleListing";
+import layouts from "../../../components/ArticleCard/layouts";
+import "./ViewProfiles.scss";
+import NavBar from "../../NavBar";
+import UsersListing from "../../UsersListing";
+import { getCurrentUser } from "../../../utils/auth";
 
-class ViewProfiles extends Component {
+export class ViewProfiles extends Component {
   modal = React.createRef();
 
   componentDidMount = () => {
     const { history, user } = this.props;
-    const modals = document.querySelector('.modal');
+    const modals = document.querySelector(".modal");
     Materialize.Tabs.init(document.querySelector(".tabs"), {});
     Materialize.Modal.init(modals, {});
-    const { getUserProfile } = this.props;
-    getUserProfile(user.username);
-    history.push(`/profiles/view/${user.username}`);
+    const { getUserProfile, match = {} } = this.props;
+    const { params = {} } = match;
+    const { username } = params;
+    if (username === ':username') {
+      getUserProfile(user.username);
+      history.push(`/profile/view/${user.username}`);
+    }
+    getUserProfile(username);
+    history.push(`/profiles/view/${username}`);
   };
+
 
   render() {
     const { profile } = this.props;
+    const user = getCurrentUser();
     return (
       <>
         <div>
@@ -34,14 +44,31 @@ class ViewProfiles extends Component {
           <div className="container">
             <div className="card" styles="margin-top:40px">
               <div className="card-content">
-                <a className="small modal-trigger right" href="#edit-profile-modal"><i className="material-icons">create</i></a>
+                {user && (profile.username === user.username) ? (
+                  <a
+                    className="small modal-trigger right"
+                    href="#edit-profile-modal"
+                  >
+                    <i className="material-icons">create</i>
+                  </a>
+                ) : null}
                 <div className="row">
-                  <div className="col"><span className="flow-text"><img src={profile.image || avatar2} className="responsive-img circle profile" alt="profile" /></span></div>
+                  <div className="col">
+                    <span className="flow-text">
+                      <img
+                        src={profile.image || avatar2}
+                        className="responsive-img circle profile"
+                        alt="profile"
+                      />
+                    </span>
+                  </div>
                   <div className="col s8">
                     <span className="flow-text">
-                      <h5 styles="font-weight: bolder">{profile && profile.username}</h5>
+                      <h5 styles="font-weight: bolder">
+                        {profile && profile.username}
+                      </h5>
                     </span>
-                    <p>{ profile && profile.bio }</p>
+                    <p>{profile && profile.bio}</p>
                   </div>
                 </div>
               </div>
@@ -58,14 +85,12 @@ class ViewProfiles extends Component {
                   </a>
                 </li>
                 <li className="tab col s3">
-                  <a href="#followers">
+                  <a href="#followers" className="active">
                     Followers
                   </a>
                 </li>
                 <li className="tab col s3">
-                  <a href="#following">
-                    Following
-                  </a>
+                  <a href="#following">Following</a>
                 </li>
               </ul>
             </div>
@@ -78,11 +103,16 @@ class ViewProfiles extends Component {
                 listName="favourites"
               />
             </div>
-            <div id="followers" />
-            <div id="following" />
+            <div id="favourites" />
+            <div id="followers" className="col s12">
+              <UsersListing listName="followers" />
+            </div>
+            <div id="following" className="col s12">
+              <UsersListing listName="following" />
+            </div>
           </div>
         </div>
-        </>
+      </>
     );
   }
 }
@@ -104,4 +134,7 @@ ViewProfiles.propTypes = {
   getUserProfile: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewProfiles);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ViewProfiles);

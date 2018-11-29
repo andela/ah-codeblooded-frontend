@@ -134,11 +134,11 @@ export class CommentEditor extends React.Component {
               {
                 cancelListener
                 && (
-                <div className="col right">
-                  <button className="btn btn-flat white close" type="button" onClick={cancelListener}>
-                    <i className="material-icons grey-text">close</i>
-                  </button>
-                </div>
+                  <div className="col right">
+                    <button className="btn btn-flat white close" type="button" onClick={cancelListener}>
+                      <i className="material-icons grey-text">close</i>
+                    </button>
+                  </div>
                 )
               }
               { isCommenting && <PreLoader horizontal /> }

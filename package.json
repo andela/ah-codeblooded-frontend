@@ -91,6 +91,8 @@
       "!src/components/ArticleEditor/index.js",
       "!src/pages/Articles/Create/index.js",
       "!src/pages/Articles/Read/index.js",
+      "!src/containers/UsersListing/index.js",
+      "!src/containers/profiles/ViewProfiles/index.js",
       "!src/pages/Articles/Update/index.js",
       "!src/containers/SignupForm/index.js",
       "!src/env.js",

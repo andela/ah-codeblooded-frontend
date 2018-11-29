@@ -24,30 +24,30 @@ export const initialState = {
 
 const threadReducer = (state = initialState, type, data) => {
   switch (type) {
-    case FETCHING_COMMENTS:
-      return { ...state, isFetching: true };
-    case FETCHING_COMMENTS_SUCCESS:
-      return { ...state, ...data, isFetching: false };
-    case FETCHING_MORE_COMMENTS:
-      return { ...state, isFetchingMore: true, isFetching: false };
-    case FETCHING_MORE_COMMENTS_SUCCESS: {
-      const current = state.results.map(a => ({ ...a }));
-      if (current) current.push(...data.results);
-      return {
-        ...state,
-        ...data,
-        results: current,
-        isFetchingMore: false,
-        isFetching: false,
-      };
-    }
-    case FETCHING_MORE_COMMENTS_FAILED: {
-      return { ...state, isFetchingMore: false, errors: data };
-    }
-    case FETCHING_COMMENTS_FAILED: {
-      return { ...state, isFetching: false, errors: data };
-    }
-    default: return state;
+  case FETCHING_COMMENTS:
+    return { ...state, isFetching: true };
+  case FETCHING_COMMENTS_SUCCESS:
+    return { ...state, ...data, isFetching: false };
+  case FETCHING_MORE_COMMENTS:
+    return { ...state, isFetchingMore: true, isFetching: false };
+  case FETCHING_MORE_COMMENTS_SUCCESS: {
+    const current = state.results.map(a => ({ ...a }));
+    if (current) current.push(...data.results);
+    return {
+      ...state,
+      ...data,
+      results: current,
+      isFetchingMore: false,
+      isFetching: false,
+    };
+  }
+  case FETCHING_MORE_COMMENTS_FAILED: {
+    return { ...state, isFetchingMore: false, errors: data };
+  }
+  case FETCHING_COMMENTS_FAILED: {
+    return { ...state, isFetching: false, errors: data };
+  }
+  default: return state;
   }
 };
 

@@ -10,10 +10,10 @@ class MenuItem extends React.Component {
     return (
       <i className="material-icons black-text">
         {
-            iconImage ? (
-              <img src={iconImage} alt="" className="icon-image circle" />
-            ) : icon
-          }
+          iconImage ? (
+            <img src={iconImage} alt="" className="icon-image circle" />
+          ) : icon
+        }
       </i>
     );
   }

@@ -29,7 +29,7 @@ export class Subscribe extends React.Component {
       } else if (errors === 'Request failed with status code 403') {
         Materialize.toast({ html: 'Please login again' });
       }
-    }
+    };
 
     handleSubscribe = () => {
       const { subscribe } = this.props;

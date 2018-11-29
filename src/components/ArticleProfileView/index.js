@@ -1,11 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Moment from 'react-moment';
-import readTime from '../../utils/readTime';
-import profile from '../../assets/images/profile.jpg';
-import './ArticleProfileView.scss';
-import placeholder from '../../assets/images/placeholder.jpg';
-import { getCurrentUser } from '../../utils/auth';
+import React from "react";
+import PropTypes from "prop-types";
+import Moment from "react-moment";
+import readTime from "../../utils/readTime";
+import profile from "../../assets/images/profile.jpg";
+import "./ArticleProfileView.scss";
+import placeholder from "../../assets/images/placeholder.jpg";
+import { getCurrentUser } from "../../utils/auth";
+import ConnnectedFollowUnfollowButton from "../../containers/FollowButton";
 
 class ArticleProfileView extends React.Component {
   renderHeader = article => (
@@ -13,9 +14,7 @@ class ArticleProfileView extends React.Component {
       <h2>{article.title}</h2>
       <br />
       <h5 className="grey-text">{readTime(article.read_time)}</h5>
-      <h6 className="grey-text">
-        {article.description}
-      </h6>
+      <h6 className="grey-text">{article.description}</h6>
     </div>
   );
 
@@ -31,32 +30,24 @@ class ArticleProfileView extends React.Component {
       <div className="col">
         <div className="row">
           <div className="col">
-            <h6>
-              {article.author.username || (user && user.username)}
-            </h6>
+            <h6><a href={`/profiles/view/${article.author.username}/`}>{article.author.username || (user && user.username)}</a></h6>
             <span className="grey-text meta">
               <Moment fromNow interval={30000}>
                 {article.created_at}
               </Moment>
             </span>
           </div>
-          {
-            this.renderFollowButton(article, user)
-                }
+          {this.renderFollowButton(article, user)}
         </div>
       </div>
     </div>
   );
 
-  renderFollowButton = (article, user) => (
-    user && (article.author.username !== user.username) ? (
-      <div className="col">
-        <button className="btn small" type="button">
-          Follow
-        </button>
-      </div>
-    ) : null
-  );
+  renderFollowButton = (article, user) => (user && article.author.username !== user.username ? (
+    <div className="col">
+      <ConnnectedFollowUnfollowButton username={article.author.username} user={user} />
+    </div>
+  ) : null);
 
   render() {
     const { article } = this.props;
