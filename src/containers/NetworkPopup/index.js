@@ -21,6 +21,7 @@ export class NetWorkPopup extends Component {
     Materialize.Modal.init(this.getModal(), { dismissible: false });
   }
 
+  /* istanbul ignore next */
   componentDidUpdate() {
     const { networkError } = this.props;
     const instance = Materialize.Modal.getInstance(this.getModal());
