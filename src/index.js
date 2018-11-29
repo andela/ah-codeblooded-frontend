@@ -12,10 +12,10 @@ import ConnectedNetWorkError from "./containers/NetworkPopup";
 
 ReactDOM.render(
   <Provider store={store}>
-    <>
+    <React.Fragment>
       <ConnectedNetWorkError />
       <Router />
-    </>
+    </React.Fragment>
   </Provider>,
   document.getElementById('root'),
 );

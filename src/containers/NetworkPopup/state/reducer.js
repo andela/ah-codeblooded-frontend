@@ -6,17 +6,17 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case NETWORK_ERROR_DETECTED:
-      return {
-        ...state,
-        networkError: true,
-      };
-    case NO_NETWORK_ERROR:
-      return {
-        ...state,
-        networkError: false,
-      };
-    default:
-      return state;
+  case NETWORK_ERROR_DETECTED:
+    return {
+      ...state,
+      networkError: true,
+    };
+  case NO_NETWORK_ERROR:
+    return {
+      ...state,
+      networkError: false,
+    };
+  default:
+    return state;
   }
 };
