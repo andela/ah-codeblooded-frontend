@@ -19,4 +19,14 @@ api.interceptors.request.use((c) => {
   return c;
 });
 
+api.interceptors.response.use(
+  response => response,
+  (error) => {
+    if (error.response && error.response.status === 403) {
+      localStorage.setItem('user', null);
+      window.location.assign(`${window.location.protocol}//${window.location.host.toString()}/login`);
+    }
+    return Promise.reject(error);
+  },
+);
 export default api;
