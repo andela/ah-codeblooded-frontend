@@ -6,8 +6,8 @@ import './DropDown.scss';
 class DropDown extends React.Component {
   componentDidMount = () => {
     const dropdown = document.querySelectorAll('.dropdown-trigger');
-    const { options, closeTrigger } = this.props;
-    this.instance = Materialize.Dropdown.init(dropdown, {
+    const { options, closeTrigger, id } = this.props;
+    Materialize.Dropdown.init(dropdown, {
       alignment: 'center',
       constrainWidth: false,
       coverTrigger: false,
@@ -18,7 +18,8 @@ class DropDown extends React.Component {
       /* istanbul ignore next */
       document.querySelectorAll(closeTrigger).forEach((item) => {
         item.addEventListener('click', () => {
-          this.instance.close();
+          const instance = Materialize.Dropdown.getInstance(document.querySelector(`#${id}-trigger`));
+          instance.close();
         });
       });
     }
@@ -27,7 +28,7 @@ class DropDown extends React.Component {
   render = () => {
     const { id, list, children } = this.props;
     return (
-      <div id={id} className="dropdown-content drop-down">
+      <div id={id} className="dropdown-content drop-down" ref={(dropdown) => { this.dropdown = dropdown; }}>
         {list ? (
           <ul>
             {list}
