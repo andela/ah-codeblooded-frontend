@@ -6,6 +6,7 @@ import Modal from "../../components/Modal";
 import DropDown from "../../components/DropDown";
 import DropDownItem from "../../components/DropDownItem";
 import { REPORT_WITHOUT_DATA } from './state/types';
+import './ReportArticle.scss';
 
 
 export class ReportArticle extends Component {
@@ -15,11 +16,11 @@ export class ReportArticle extends Component {
   }
 
   componentDidMount = () => {
-    Materialize.Modal.init(document.querySelector('#report-modal'), {});
+    Materialize.Modal.init(document.querySelector('#report-modal'), { dismissible: false });
   };
 
   componentDidUpdate = () => {
-    Materialize.FormSelect.init(document.querySelectorAll('select'), {});
+    Materialize.FormSelect.init(document.querySelectorAll('#report-selection'), {});
   };
 
 
@@ -70,14 +71,22 @@ export class ReportArticle extends Component {
         title="Report this article"
         fixedFooter
         footer={(
-          <button
-            id="report-button"
-            className="right btn-bordered"
-            type="submit"
-            onClick={this.handleSubmit}
-          >
+          <div className="right">
+            <button
+              type="button"
+              className="btn-bordered cancel-report modal-close"
+            >
+              Cancel
+            </button>
+            <button
+              id="report-button"
+              className="btn-bordered submit-report modal-close"
+              type="submit"
+              onClick={this.handleSubmit}
+            >
             Report
-          </button>
+            </button>
+          </div>
         )}
       >
         <form action="">

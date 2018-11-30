@@ -60,7 +60,7 @@ describe('The ReportArticle container', () => {
   });
 
   it('should call reportArticle action after onClick event', () => {
-    wrapper.find('button').simulate('click', {
+    wrapper.find('.submit-report').simulate('click', {
       target: {},
     });
     expect(props.reportArticle).toHaveBeenCalledTimes(1);
