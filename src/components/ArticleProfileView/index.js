@@ -30,7 +30,7 @@ class ArticleProfileView extends React.Component {
       <div className="col">
         <div className="row">
           <div className="col">
-            <h6><a href={`/profiles/view/${article.author.username}`}>{article.author.username || (user && user.username)}</a></h6>
+            <h6><a href={`/profiles/view/${article.author.username}/`}>{article.author.username || (user && user.username)}</a></h6>
             <span className="grey-text meta">
               <Moment fromNow interval={30000}>
                 {article.created_at}

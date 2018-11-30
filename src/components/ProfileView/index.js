@@ -11,7 +11,7 @@ const ProfileView = ({ profile }) => (
         <div className="card">
           <div className="card-image">
             <img src={profile.image || profileImage} alt="" />
-            <span className="card-title"><a className="green-text" href={profile && `/profiles/view/${profile.username}`}>{ profile.username }</a></span>
+            <span className="card-title"><a className="green-text" href={profile && `/profiles/view/${profile.username}/`}>{ profile.username }</a></span>
           </div>
           <div className="card-content">
             <div className="followButton">

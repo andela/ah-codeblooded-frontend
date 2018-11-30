@@ -19,6 +19,7 @@ const ROUTES = {
   resetPassword: '/reset-password',
   profiles: {
     view: '/profiles/view/:username',
+    update: '/profiles/edit/:username',
   },
   settings: '/settings',
   search: '/search',
