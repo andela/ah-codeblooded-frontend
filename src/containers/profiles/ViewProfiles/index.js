@@ -14,22 +14,12 @@ import UsersListing from "../../UsersListing";
 import { getCurrentUser } from "../../../utils/auth";
 
 export class ViewProfiles extends Component {
-  modal = React.createRef();
-
   componentDidMount = () => {
-    const { history, user } = this.props;
-    const modals = document.querySelector(".modal");
     Materialize.Tabs.init(document.querySelector(".tabs"), {});
-    Materialize.Modal.init(modals, {});
     const { getUserProfile, match = {} } = this.props;
     const { params = {} } = match;
     const { username } = params;
-    if (username === ':username') {
-      getUserProfile(user.username);
-      history.push(`/profile/view/${user.username}`);
-    }
     getUserProfile(username);
-    history.push(`/profiles/view/${username}`);
   };
 
 
