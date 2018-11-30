@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ROUTES from '../../utils/routes';
 import './NavBar.scss';
-import profile from '../../assets/images/profile.jpg';
+import profile from '../../assets/images/avatar2.png';
 import DropDown from '../../components/DropDown';
 import PreLoader from '../../components/PreLoader';
 import DropDownItem from '../../components/DropDownItem';
@@ -16,37 +16,33 @@ class NavBar extends React.Component {
     hiddenLoader: false,
   };
 
-  getProfileDropDown = () => {
-    let { user } = this.props;
-    user = !user ? getCurrentUser() : user;
-    return (
-      <DropDown
-        id="profile-dropdown"
-        list={(
-          <>
-            <DropDownItem link={ROUTES.articles.createNew}>
-              New Article
-            </DropDownItem>
-            <DropDownItem link={`/profiles/view/${user.username}`} classNames="divided top">
-              My Profile
-            </DropDownItem>
-            <DropDownItem link={ROUTES.me.articles}>
-              My Articles
-            </DropDownItem>
-            <DropDownItem link={ROUTES.me.stats}>
-              My Stats
-            </DropDownItem>
-            <DropDownItem link={ROUTES.settings}>
-              Settings
-            </DropDownItem>
-            <DropDownItem onClick={this.logout}>
-              Logout
-            </DropDownItem>
-          </>
-        )}
-      />
-    );
-  };
+  getProfileDropDown = () => (
+    <DropDown
+      id="profile-dropdown"
+      list={(
+        <>
+          <DropDownItem link={ROUTES.articles.createNew}>
+            New Article
+          </DropDownItem>
+          <DropDownItem link={ROUTES.profiles.view} classNames="divided top">
+            My Profile
+          </DropDownItem>
+          <DropDownItem link={ROUTES.me.articles}>
+            My Articles
+          </DropDownItem>
+          <DropDownItem link={ROUTES.me.stats}>
+            My Stats
+          </DropDownItem>
+          <DropDownItem link={ROUTES.settings}>
+            Settings
+          </DropDownItem>
+          <DropDownItem onClick={this.logout}>
+            Logout
+          </DropDownItem>
+        </>
+      )}
+    />
+  );
 
   logout = () => {
     localStorage.removeItem("user");
