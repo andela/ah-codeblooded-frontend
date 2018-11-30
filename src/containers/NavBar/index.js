@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ROUTES from '../../utils/routes';
 import './NavBar.scss';
-import profile from '../../assets/images/profile.jpg';
+import profile from '../../assets/images/avatar2.png';
 import DropDown from '../../components/DropDown';
 import PreLoader from '../../components/PreLoader';
 import DropDownItem from '../../components/DropDownItem';
