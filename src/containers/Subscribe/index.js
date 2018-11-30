@@ -16,20 +16,15 @@ export class Subscribe extends React.Component {
     }
 
     componentWillReceiveProps = (nextProps) => {
-      const { subscriptionStatus, message, errors } = nextProps.sub;
-      const errorMessage = 'Something went wrong, Please try again';
+      const { subscriptionStatus, message } = nextProps.sub;
       this.setState({
         notificationStatus: subscriptionStatus,
       });
       if (message.length !== 0) {
+        Materialize.Toast.dismissAll();
         Materialize.toast({ html: message });
       }
-      if (errors === 'Network Error') {
-        Materialize.toast({ html: errorMessage });
-      } else if (errors === 'Request failed with status code 403') {
-        Materialize.toast({ html: 'Please login again' });
-      }
-    };
+    }
 
     handleSubscribe = () => {
       const { subscribe } = this.props;
@@ -90,7 +85,6 @@ Subscribe.propTypes = {
 const mapStateToProps = state => ({
   sub: state.subscribe,
 });
-
 
 export default connect(mapStateToProps,
   { subscribe: subscription, status: fetchStatus })(Subscribe);

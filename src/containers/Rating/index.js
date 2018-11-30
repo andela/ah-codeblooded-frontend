@@ -19,6 +19,7 @@ export class Rating extends Component {
 
   componentWillReceiveProps = (nextProps) => {
     if (nextProps.rate.state === 'You cannot rate your own article.') {
+      Materialize.Toast.dismissAll();
       Materialize.toast({ html: nextProps.rate.state });
     }
   };
