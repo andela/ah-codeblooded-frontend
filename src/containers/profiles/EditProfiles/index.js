@@ -69,7 +69,7 @@ class EditProfiles extends Component {
             </div>
             <div className="edit-profile">
               <form onSubmit={this.handleSubmit}>
-                <textarea name="bio" onChange={this.onChange} maxLength="200" placeholder="Bio" id="bio" cols="100" rows="80" value={this.state.bio} />
+                <textarea name="bio" onChange={this.onChange} maxLength="200" placeholder="Bio" id="bio" cols="100" rows="5" value={this.state.bio} />
                 <input name="images" onChange={this.onChange} type="file" id="upload-image" style={{ visibility: 'hidden' }} />
                 <div className="right">
                   <a href="#!" className="modal-close waves-effect white btn-flat">Cancel</a>
