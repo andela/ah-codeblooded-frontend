@@ -60,6 +60,13 @@ describe('user get profile actions', () => {
     });
   });
 
+  it('should get the profile of a user based on the username', () => {
+    axiosMock.onGet(getURL('profiles/beverly/')).reply(200, payload);
+    store.dispatch(actions.getUserProfileAction('beverly')).then(() => {
+      expect(store.getActions()).toContainEqual({ type: actions.USER_PROFILE_ERROR, payload });
+    });
+  });
+
   it('should edit the profile of a user based on the username', () => {
     axiosMock.onPut(getURL('profiles/beverly/')).reply(200, payload);
     store.dispatch(actions.editUserProfileAction('beverly')).then(() => {

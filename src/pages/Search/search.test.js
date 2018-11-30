@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { Provider } from 'react-redux';
-
 import { Search } from './index';
 import mockStore from '../../utils/redux_mock_store';
 
@@ -9,9 +8,14 @@ const store = mockStore();
 
 const props = {
   fetchArticles: jest.fn(),
+  onSearch: jest.fn(),
+  onFilterChanged: jest.fn(),
+  filtersChanged: jest.fn(),
 };
 
-describe('the search container', () => {
+jest.useFakeTimers();
+
+describe('The Search container', () => {
   const wrapper = mount(<Provider store={store}><Search {...props} /></Provider>);
 
   beforeEach(() => {
@@ -24,7 +28,8 @@ describe('the search container', () => {
   });
 
   it('receive props', () => {
-    expect(wrapper.props()).toBeTruthy();
+    wrapper.find(Search).setState({ tag: 'tag' });
+    expect(wrapper.find('.card').length).toEqual(1);
   });
 
   it('always renders a div', () => {
@@ -32,23 +37,30 @@ describe('the search container', () => {
     expect(divs).toBeDefined();
   });
 
-  it('renders a Navbar component', () => {
+  it('always renders a <ConnectedArticleListing/>', () => {
     const NavBar = wrapper.find('Navbar');
     expect(NavBar).toBeTruthy();
   });
 
-  it('renders a ConnectedArticleListing component', () => {
+  it('always renders a <ConnectedArticleListing/>', () => {
     const ArticleListing = wrapper.find('ArticleListing');
     expect(ArticleListing).toBeTruthy();
   });
 
-  it('renders a search icon', () => {
-    const icon = wrapper.find('i').text();
-    expect(icon).toBe('search');
+  it('calls onSearch method', () => {
+    wrapper.find('input').at(0).simulate('change', { target: { value: 'searchme' } });
+    expect(props.fetchArticles.mock.calls.length).toEqual(0);
+    jest.runAllTimers();
+    expect(setTimeout).toHaveBeenCalled();
   });
 
-  it('calls onSearch method', () => {
-    wrapper.find('input').simulate('change');
-    expect(props.fetchArticles).toHaveBeenCalled();
+  it('should filter articles when user stops typing', () => {
+    wrapper.find('button').at(1).simulate('click');
+    expect(props.filtersChanged.mock.calls.length).toEqual(0);
+  });
+
+  it('always renders a <FilterDropDown />', () => {
+    const FilterDropDown = wrapper.find('FilteDropDown');
+    expect(FilterDropDown).toBeTruthy();
   });
 });
