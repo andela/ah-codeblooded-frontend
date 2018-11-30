@@ -18,7 +18,7 @@ export class NetWorkPopup extends Component {
   getModal = () => this.ref.current;
 
   componentDidMount() {
-    Materialize.Modal.init(this.getModal(), { dismissible: false });
+    Materialize.Modal.init(this.getModal(), { dismissible: true });
   }
 
   componentDidUpdate() {
