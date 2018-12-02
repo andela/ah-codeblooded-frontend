@@ -46,7 +46,8 @@
     "redux-thunk": "^2.3.0",
     "sinon": "^7.1.1",
     "sweetalert": "^2.1.2",
-    "truncate": "^2.0.1"
+    "truncate": "^2.0.1",
+    "url-pattern": "^1.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
