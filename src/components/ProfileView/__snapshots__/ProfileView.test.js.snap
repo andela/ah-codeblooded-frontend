@@ -50,7 +50,7 @@ ShallowWrapper {
               >
                 <a
                   className="green-text"
-                  href="/profiles/view/undefined/"
+                  href="/profiles/view/undefined"
                 />
               </span>
             </div>
@@ -95,7 +95,7 @@ ShallowWrapper {
               >
                 <a
                   className="green-text"
-                  href="/profiles/view/undefined/"
+                  href="/profiles/view/undefined"
                 />
               </span>
             </div>
@@ -137,7 +137,7 @@ ShallowWrapper {
               >
                 <a
                   className="green-text"
-                  href="/profiles/view/undefined/"
+                  href="/profiles/view/undefined"
                 />
               </span>
             </div>
@@ -176,7 +176,7 @@ ShallowWrapper {
                 >
                   <a
                     className="green-text"
-                    href="/profiles/view/undefined/"
+                    href="/profiles/view/undefined"
                   />
                 </span>
               </div>,
@@ -213,7 +213,7 @@ ShallowWrapper {
                   >
                     <a
                       className="green-text"
-                      href="/profiles/view/undefined/"
+                      href="/profiles/view/undefined"
                     />
                   </span>,
                 ],
@@ -240,7 +240,7 @@ ShallowWrapper {
                   "props": Object {
                     "children": <a
                       className="green-text"
-                      href="/profiles/view/undefined/"
+                      href="/profiles/view/undefined"
                     />,
                     "className": "card-title",
                   },
@@ -252,7 +252,7 @@ ShallowWrapper {
                     "props": Object {
                       "children": undefined,
                       "className": "green-text",
-                      "href": "/profiles/view/undefined/",
+                      "href": "/profiles/view/undefined",
                     },
                     "ref": null,
                     "rendered": null,
@@ -365,7 +365,7 @@ ShallowWrapper {
                 >
                   <a
                     className="green-text"
-                    href="/profiles/view/undefined/"
+                    href="/profiles/view/undefined"
                   />
                 </span>
               </div>
@@ -410,7 +410,7 @@ ShallowWrapper {
                 >
                   <a
                     className="green-text"
-                    href="/profiles/view/undefined/"
+                    href="/profiles/view/undefined"
                   />
                 </span>
               </div>
@@ -452,7 +452,7 @@ ShallowWrapper {
                 >
                   <a
                     className="green-text"
-                    href="/profiles/view/undefined/"
+                    href="/profiles/view/undefined"
                   />
                 </span>
               </div>
@@ -491,7 +491,7 @@ ShallowWrapper {
                   >
                     <a
                       className="green-text"
-                      href="/profiles/view/undefined/"
+                      href="/profiles/view/undefined"
                     />
                   </span>
                 </div>,
@@ -528,7 +528,7 @@ ShallowWrapper {
                     >
                       <a
                         className="green-text"
-                        href="/profiles/view/undefined/"
+                        href="/profiles/view/undefined"
                       />
                     </span>,
                   ],
@@ -555,7 +555,7 @@ ShallowWrapper {
                     "props": Object {
                       "children": <a
                         className="green-text"
-                        href="/profiles/view/undefined/"
+                        href="/profiles/view/undefined"
                       />,
                       "className": "card-title",
                     },
@@ -567,7 +567,7 @@ ShallowWrapper {
                       "props": Object {
                         "children": undefined,
                         "className": "green-text",
-                        "href": "/profiles/view/undefined/",
+                        "href": "/profiles/view/undefined",
                       },
                       "ref": null,
                       "rendered": null,

@@ -17,10 +17,8 @@ class EditProfiles extends Component {
   };
 
   componentDidMount = () => {
-    const { history, user } = this.props;
     const modal = document.querySelector('#edit-profile-modal');
     Materialize.Modal.init(modal, {});
-    history.push(`/profiles/edit/${user.username}`);
   };
 
   onChange = (e) => {
@@ -98,7 +96,6 @@ export const mapStateToProps = state => ({
 EditProfiles.propTypes = {
   editUserProfile: PropTypes.func.isRequired,
   user: PropTypes.shape({}).isRequired,
-  history: PropTypes.shape().isRequired,
   profile: PropTypes.shape({
     image: PropTypes.shape([]).isRequired,
     bio: PropTypes.string.isRequired,
